@@ -7,6 +7,12 @@
       <title><![CDATA[My First Post]]></title>
       <url>http://yoursite.com/2016/05/16/My-First-Post/</url>
       <content type="html"><![CDATA[<h2 id="搭建我的博客"><a href="#搭建我的博客" class="headerlink" title="搭建我的博客"></a>搭建我的博客</h2><p>正式从jeklly转到hexo,很幸运找到这套主题,感谢主题的<a href="http://notes.iissnan.com/" target="_blank" rel="external">作者</a></p>
+<h2 id="目前设置"><a href="#目前设置" class="headerlink" title="目前设置"></a>目前设置</h2><ul>
+<li>标签</li>
+<li>多说评论</li>
+<li>头像</li>
+<li>搜索</li>
+</ul>
 ]]></content>
     </entry>
     
