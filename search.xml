@@ -4,6 +4,97 @@
   
     
     <entry>
+      <title><![CDATA[the first offer]]></title>
+      <url>http://yoursite.com/2016/05/16/the-first-offer/</url>
+      <content type="html"><![CDATA[<p>##正文</p>
+<p>拿到了人生中第一个offer,虽然很水,但是也不失为一种锻炼,Fighting!!</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[java basic knowledge]]></title>
+      <url>http://yoursite.com/2016/05/16/java-basic-knowledge/</url>
+      <content type="html"><![CDATA[<h2 id="一-Java的基本数据类型"><a href="#一-Java的基本数据类型" class="headerlink" title="一.Java的基本数据类型"></a>一.Java的基本数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">长度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">short</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">long</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">float</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">double</td>
+<td style="text-align:center">8</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">char</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二-Java的Object的基本方法"><a href="#二-Java的Object的基本方法" class="headerlink" title="二.Java的Object的基本方法"></a>二.Java的Object的基本方法</h2><ul>
+<li>clone()</li>
+<li>equals()</li>
+<li>finalize()</li>
+<li>getClass()</li>
+<li>hashCode()</li>
+<li>notify()</li>
+<li>notifyAll()</li>
+<li>toString()</li>
+<li>wait()</li>
+</ul>
+<h2 id="三-abstract类与接口的区别"><a href="#三-abstract类与接口的区别" class="headerlink" title="三.abstract类与接口的区别"></a>三.abstract类与接口的区别</h2><ol>
+<li><p>抽象类不能被实例化,只能作为其他类继承的基类;接口则定义实现了一种服务的一般规范,生命了必须的函数和变量,但不指定实现;</p>
+</li>
+<li><p>子类通过extends关键字来继承抽象类(且只能继承一个);子类通过extends关键字来继承抽象类(且只能继承一个);类通过implements关键字来实现接口(可以实现多个).</p>
+</li>
+<li><p>在抽象类中定义的所有方法都必须在子类中实现;当类实现了接口后，接口中的所有方法都必须实现。如果实现类没有实现接口中的所有方法，则必须声明为抽象类。</p>
+</li>
+<li><p>在抽象类中可以实现一些行为(实际上，抽象类可以完全实现、部分实现、根本不实现); 在接口中只能定义方法，不能实现方法。</p>
+</li>
+</ol>
+<h4 id="附-抽象类和接口的选择问题："><a href="#附-抽象类和接口的选择问题：" class="headerlink" title="附:抽象类和接口的选择问题："></a>附:抽象类和接口的选择问题：</h4><ol>
+<li>如果要创建一个模型，这个模型将由一些紧密相关的对象采用，就可以使用抽象类。如果要创建将由一些不相关对象采用的功能，就使用接口</li>
+<li>如果必须从多个来源继承行为，就使用接口.</li>
+<li>如果知道所有类都会共享一个公共的行为实现，就使用抽象类，并在其中实现该行为。在接口中无法实现行为。</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[My First Post]]></title>
       <url>http://yoursite.com/2016/05/16/My-First-Post/</url>
       <content type="html"><![CDATA[<h2 id="搭建我的博客"><a href="#搭建我的博客" class="headerlink" title="搭建我的博客"></a>搭建我的博客</h2><p>正式从jeklly转到hexo,很幸运找到这套主题,感谢主题的<a href="http://notes.iissnan.com/" target="_blank" rel="external">作者</a></p>
