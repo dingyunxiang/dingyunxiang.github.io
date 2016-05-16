@@ -4,15 +4,14 @@
   
     
     <entry>
-      <title><![CDATA[the first offer]]></title>
+      <title><![CDATA[The first offer]]></title>
       <url>http://yoursite.com/2016/05/16/the-first-offer/</url>
-      <content type="html"><![CDATA[<p>##正文</p>
-<p>拿到了人生中第一个offer,虽然很水,但是也不失为一种锻炼,Fighting!!</p>
+      <content type="html"><![CDATA[<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>拿到了人生中第一个offer,虽然很水,但是也不失为一种锻炼,Fighting!!</p>
 ]]></content>
     </entry>
     
     <entry>
-      <title><![CDATA[java basic knowledge]]></title>
+      <title><![CDATA[Java基础]]></title>
       <url>http://yoursite.com/2016/05/16/java-basic-knowledge/</url>
       <content type="html"><![CDATA[<h2 id="一-Java的基本数据类型"><a href="#一-Java的基本数据类型" class="headerlink" title="一.Java的基本数据类型"></a>一.Java的基本数据类型</h2><table>
 <thead>
@@ -103,6 +102,7 @@
 <li>多说评论</li>
 <li>头像</li>
 <li>搜索</li>
+<li>域名解析</li>
 </ul>
 ]]></content>
     </entry>
