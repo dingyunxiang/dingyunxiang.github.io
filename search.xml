@@ -4,6 +4,54 @@
   
     
     <entry>
+      <title><![CDATA[T181.Employee Earing More Than Their Managers]]></title>
+      <url>http://yoursite.com/2016/05/17/T181-Employee-Earing-More-Than-Their-Managers/</url>
+      <content type="html"><![CDATA[<h2 id="&#x9898;&#x76EE;&#x601D;&#x8DEF;"><a href="#&#x9898;&#x76EE;&#x601D;&#x8DEF;" class="headerlink" title="&#x9898;&#x76EE;&#x601D;&#x8DEF;:"></a>&#x9898;&#x76EE;&#x601D;&#x8DEF;:</h2><p>&#x627E;&#x51FA;&#x5DE5;&#x8D44;&#x6BD4;&#x4ED6;&#x8001;&#x677F;&#x9AD8;&#x7684;&#x5458;&#x5DE5;&#x7684;&#x59D3;&#x540D;</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Salary</th>
+<th>ManagerId</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Joe</td>
+<td>70000</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Henry</td>
+<td>80000</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sam</td>
+<td>60000</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Max</td>
+<td>90000</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x601D;&#x8DEF;"><a href="#&#x601D;&#x8DEF;" class="headerlink" title="&#x601D;&#x8DEF;"></a>&#x601D;&#x8DEF;</h2><ul>
+<li>&#x5C06;&#x4E24;&#x5F20;&#x8868;&#x8FDE;&#x63A5;&#x8D77;&#x6765;,&#x67E5;&#x627E;&#x5DE5;&#x8D44;&#x6BD4;&#x4ED6;&#x8001;&#x677F;&#x5927;&#x7684;&#x5373;&#x53EF;</li>
+</ul>
+<p>##&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> e.Name <span class="keyword">from</span> Employee e <span class="keyword">left</span> <span class="keyword">join</span> Employee em </span><br><span class="line"><span class="keyword">on</span> e.ManagerId = em.id </span><br><span class="line"><span class="keyword">where</span> e.Salary &gt; em.Salary</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[3.JVM加载对象的过程]]></title>
       <url>http://yoursite.com/2016/05/17/3-JVM%E5%8A%A0%E8%BD%BD%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h2 id="&#x7C7B;&#x4ECE;&#x52A0;&#x8F7D;&#x5230;&#x865A;&#x62DF;&#x673A;&#x5230;&#x5378;&#x8F7D;"><a href="#&#x7C7B;&#x4ECE;&#x52A0;&#x8F7D;&#x5230;&#x865A;&#x62DF;&#x673A;&#x5230;&#x5378;&#x8F7D;" class="headerlink" title="&#x7C7B;&#x4ECE;&#x52A0;&#x8F7D;&#x5230;&#x865A;&#x62DF;&#x673A;&#x5230;&#x5378;&#x8F7D;"></a>&#x7C7B;&#x4ECE;&#x52A0;&#x8F7D;&#x5230;&#x865A;&#x62DF;&#x673A;&#x5230;&#x5378;&#x8F7D;</h2><ul>
