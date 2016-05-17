@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title><![CDATA[T182.Duplicate Emails]]></title>
+      <url>http://yoursite.com/2016/05/17/T182-Duplicate-Emails/</url>
+      <content type="html"><![CDATA[<h2 id="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"><a href="#&#x9898;&#x76EE;&#x63CF;&#x8FF0;" class="headerlink" title="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"></a>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</h2><p>&#x67E5;&#x627E;Person&#x8868;&#x4E2D;&#x91CD;&#x590D;&#x7684;Email</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>a@b.com</td>
+</tr>
+<tr>
+<td>2</td>
+<td>c@d.com</td>
+</tr>
+<tr>
+<td>3</td>
+<td>a@b.com</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x601D;&#x8DEF;&#x5206;&#x6790;"><a href="#&#x601D;&#x8DEF;&#x5206;&#x6790;" class="headerlink" title="&#x601D;&#x8DEF;&#x5206;&#x6790;"></a>&#x601D;&#x8DEF;&#x5206;&#x6790;</h2><ul>
+<li>&#x5C06;&#x6574;&#x5F20;&#x8868;&#x6309;&#x7167;Email&#x5206;&#x7EC4;,&#x7EC4;&#x4E2D;&#x6570;&#x76EE;&#x5927;&#x4E8E;&#x4E00;&#x7684;&#x5373;&#x4E3A;&#x91CD;&#x590D;&#x503C;</li>
+</ul>
+<h2 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Email <span class="keyword">from</span> Person</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> Email</span><br><span class="line"><span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[T181.Employee Earing More Than Their Managers]]></title>
       <url>http://yoursite.com/2016/05/17/T181-Employee-Earing-More-Than-Their-Managers/</url>
       <content type="html"><![CDATA[<h2 id="&#x9898;&#x76EE;&#x601D;&#x8DEF;"><a href="#&#x9898;&#x76EE;&#x601D;&#x8DEF;" class="headerlink" title="&#x9898;&#x76EE;&#x601D;&#x8DEF;:"></a>&#x9898;&#x76EE;&#x601D;&#x8DEF;:</h2><p>&#x627E;&#x51FA;&#x5DE5;&#x8D44;&#x6BD4;&#x4ED6;&#x8001;&#x677F;&#x9AD8;&#x7684;&#x5458;&#x5DE5;&#x7684;&#x59D3;&#x540D;</p>
