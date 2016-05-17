@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,Spring," />
+  <meta name="keywords" content="SQL,Leetcode," />
 
 
 
@@ -84,19 +84,24 @@
 
 
 
-<meta name="description" content="&amp;#x83B7;&amp;#x53D6;Spring&amp;#x6E90;&amp;#x7801;&amp;#x5728;github&amp;#x4E0A;&amp;#x5173;&amp;#x6CE8;Spring&amp;#x56E2;&amp;#x961F;,&amp;#x83B7;&amp;#x53D6;&amp;#x6700;&amp;#x65B0;&amp;#x66F4;&amp;#x65B0;&amp;#x7684;&amp;#x6E90;&amp;#x7801;&amp;#x5305;,&amp;#x94FE;&amp;#x63A5;
-&amp;#x">
+<meta name="description" content="&amp;#x9898;&amp;#x76EE;&amp;#x63CF;&amp;#x8FF0;
+&amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790;&amp;#x5728;Cuestomers&amp;#x4E2D;&amp;#x627E;&amp;#x5230;Orders&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x7684;CustomersId
+&amp;#x4EE3;&amp;#x7801;&amp;#x5B9E;&amp;#x73B0;123select c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring 初探">
-<meta property="og:url" content="http://yoursite.com/2016/05/16/Spring-初探/index.html">
+<meta property="og:title" content="T183.Customers Who Never Order">
+<meta property="og:url" content="http://yoursite.com/2016/05/17/T183-Customers-Who-Never-Order/index.html">
 <meta property="og:site_name" content="Coding Life">
-<meta property="og:description" content="&amp;#x83B7;&amp;#x53D6;Spring&amp;#x6E90;&amp;#x7801;&amp;#x5728;github&amp;#x4E0A;&amp;#x5173;&amp;#x6CE8;Spring&amp;#x56E2;&amp;#x961F;,&amp;#x83B7;&amp;#x53D6;&amp;#x6700;&amp;#x65B0;&amp;#x66F4;&amp;#x65B0;&amp;#x7684;&amp;#x6E90;&amp;#x7801;&amp;#x5305;,&amp;#x94FE;&amp;#x63A5;
-&amp;#x">
-<meta property="og:updated_time" content="2016-05-17T11:12:23.000Z">
+<meta property="og:description" content="&amp;#x9898;&amp;#x76EE;&amp;#x63CF;&amp;#x8FF0;
+&amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790;&amp;#x5728;Cuestomers&amp;#x4E2D;&amp;#x627E;&amp;#x5230;Orders&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x7684;CustomersId
+&amp;#x4EE3;&amp;#x7801;&amp;#x5B9E;&amp;#x73B0;123select c">
+<meta property="og:image" content="http://yoursite.com/2016/05/17/T183-Customers-Who-Never-Order/question.png">
+<meta property="og:updated_time" content="2016-05-17T06:03:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring 初探">
-<meta name="twitter:description" content="&amp;#x83B7;&amp;#x53D6;Spring&amp;#x6E90;&amp;#x7801;&amp;#x5728;github&amp;#x4E0A;&amp;#x5173;&amp;#x6CE8;Spring&amp;#x56E2;&amp;#x961F;,&amp;#x83B7;&amp;#x53D6;&amp;#x6700;&amp;#x65B0;&amp;#x66F4;&amp;#x65B0;&amp;#x7684;&amp;#x6E90;&amp;#x7801;&amp;#x5305;,&amp;#x94FE;&amp;#x63A5;
-&amp;#x">
+<meta name="twitter:title" content="T183.Customers Who Never Order">
+<meta name="twitter:description" content="&amp;#x9898;&amp;#x76EE;&amp;#x63CF;&amp;#x8FF0;
+&amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790;&amp;#x5728;Cuestomers&amp;#x4E2D;&amp;#x627E;&amp;#x5230;Orders&amp;#x4E0D;&amp;#x5B58;&amp;#x5728;&amp;#x7684;CustomersId
+&amp;#x4EE3;&amp;#x7801;&amp;#x5B9E;&amp;#x73B0;123select c">
+<meta name="twitter:image" content="http://yoursite.com/2016/05/17/T183-Customers-Who-Never-Order/question.png">
 
 
 
@@ -114,7 +119,7 @@
   };
 </script>
 
-  <title> Spring 初探 | Coding Life </title>
+  <title> T183.Customers Who Never Order | Coding Life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +282,7 @@
             
             
               
-                Spring 初探
+                T183.Customers Who Never Order
               
             
           </h1>
@@ -289,8 +294,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-16T20:13:55+08:00" content="2016-05-16">
-              2016-05-16
+            <time itemprop="dateCreated" datetime="2016-05-17T13:52:17+08:00" content="2016-05-17">
+              2016-05-17
             </time>
           </span>
 
@@ -300,8 +305,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/16/Spring-初探/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/16/Spring-初探/" itemprop="commentsCount"></span>
+                <a href="/2016/05/17/T183-Customers-Who-Never-Order/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/T183-Customers-Who-Never-Order/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -324,8 +329,9 @@
       
 
       
-        <h2 id="&#x83B7;&#x53D6;Spring&#x6E90;&#x7801;"><a href="#&#x83B7;&#x53D6;Spring&#x6E90;&#x7801;" class="headerlink" title="&#x83B7;&#x53D6;Spring&#x6E90;&#x7801;"></a>&#x83B7;&#x53D6;Spring&#x6E90;&#x7801;</h2><p>&#x5728;github&#x4E0A;&#x5173;&#x6CE8;Spring&#x56E2;&#x961F;,&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x66F4;&#x65B0;&#x7684;&#x6E90;&#x7801;&#x5305;,<a href="https://github.com/spring-projects/spring-framework" target="_blank" rel="external">&#x94FE;&#x63A5;</a></p>
-<h2 id="&#x4F7F;&#x7528;IDE&#x6253;&#x5F00;"><a href="#&#x4F7F;&#x7528;IDE&#x6253;&#x5F00;" class="headerlink" title="&#x4F7F;&#x7528;IDE&#x6253;&#x5F00;"></a>&#x4F7F;&#x7528;IDE&#x6253;&#x5F00;</h2>
+        <h2 id="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"><a href="#&#x9898;&#x76EE;&#x63CF;&#x8FF0;" class="headerlink" title="&#x9898;&#x76EE;&#x63CF;&#x8FF0;"></a>&#x9898;&#x76EE;&#x63CF;&#x8FF0;</h2><p><img src="/2016/05/17/T183-Customers-Who-Never-Order/question.png" alt="PIC"></p>
+<h2 id="&#x601D;&#x8DEF;&#x5206;&#x6790;"><a href="#&#x601D;&#x8DEF;&#x5206;&#x6790;" class="headerlink" title="&#x601D;&#x8DEF;&#x5206;&#x6790;"></a>&#x601D;&#x8DEF;&#x5206;&#x6790;</h2><p>&#x5728;Cuestomers&#x4E2D;&#x627E;&#x5230;Orders&#x4E0D;&#x5B58;&#x5728;&#x7684;CustomersId</p>
+<h2 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.name <span class="keyword">as</span> Customers <span class="keyword">from</span> Customers  c <span class="keyword">left</span> <span class="keyword">join</span> Orders o  </span><br><span class="line"><span class="keyword">on</span>  c.Id = o.CustomerId</span><br><span class="line"><span class="keyword">where</span> o.CustomerId <span class="keyword">is</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -346,9 +352,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
+            <a href="/tags/SQL/" rel="tag">#SQL</a>
           
-            <a href="/tags/Spring/" rel="tag">#Spring</a>
+            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
           
         </div>
       
@@ -357,16 +363,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/16/the-first-offer/" rel="next" title="The first offer">
-                <i class="fa fa-chevron-left"></i> The first offer
+              <a href="/2016/05/17/数据库表连接的区别/" rel="next" title="数据库表连接的区别">
+                <i class="fa fa-chevron-left"></i> 数据库表连接的区别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/17/1-自动内存管理机制/" rel="prev" title="1.Java内存区域与内存溢出异常">
-                1.Java内存区域与内存溢出异常 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/17/T197-Rising-Temperature/" rel="prev" title="T197.Rising Temperature">
+                T197.Rising Temperature <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -382,10 +388,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/16/Spring-初探/"
-     data-title="Spring 初探"
+        <div class="ds-share flat" data-thread-key="2016/05/17/T183-Customers-Who-Never-Order/"
+     data-title="T183.Customers Who Never Order"
      data-content=""
-     data-url="http://yoursite.com/2016/05/16/Spring-初探/">
+     data-url="http://yoursite.com/2016/05/17/T183-Customers-Who-Never-Order/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -412,8 +418,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/16/Spring-初探/"
-           data-title="Spring 初探" data-url="http://yoursite.com/2016/05/16/Spring-初探/">
+      <div class="ds-thread" data-thread-key="2016/05/17/T183-Customers-Who-Never-Order/"
+           data-title="T183.Customers Who Never Order" data-url="http://yoursite.com/2016/05/17/T183-Customers-Who-Never-Order/">
       </div>
     
   </div>
@@ -497,7 +503,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取Spring源码"><span class="nav-number">1.</span> <span class="nav-text">获取Spring源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用IDE打开"><span class="nav-number">2.</span> <span class="nav-text">使用IDE打开</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
             
           </div>
         </section>
