@@ -4,6 +4,79 @@
   
     
     <entry>
+      <title><![CDATA[2.垃圾回收机制]]></title>
+      <url>http://yoursite.com/2016/05/17/2-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</url>
+      <content type="html"><![CDATA[<p>##&#x7BA1;&#x7406;&#x5BF9;&#x8C61;</p>
+<h4 id="&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;"><a href="#&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;"></a>&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;</h4><ul>
+<li>&#x7ED9;&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x6BCF;&#x5F53;&#x6709;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x5F15;&#x7528;&#x5B83;&#x65F6;&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x503C;&#x5C31;&#x52A0;1</li>
+</ul>
+<ul>
+<li>&#x5F53;&#x5F15;&#x7528;&#x5931;&#x6548;&#x65F6;&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x503C;&#x5C31;&#x51CF;1&#xFF0C;&#x4EFB;&#x4F55;&#x65F6;&#x523B;&#x8BA1;&#x6570;&#x5668;&#x4E3A;0&#x7684;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x5728;&#x88AB;&#x4F7F;&#x7528;&#x4E86;</li>
+</ul>
+<ul>
+<li>&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x65E9;&#x671F;&#x5F88;&#x591A;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x4E2D;&#x90FD;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x4E3B;&#x6D41;&#x7684;Java&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x7BA1;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x539F;&#x56E0;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x539F;&#x56E0;&#x662F;&#x5B83;&#x5F88;&#x96BE;&#x89E3;&#x51B3;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;</li>
+</ul>
+<h4 id="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"><a href="#&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;" class="headerlink" title="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"></a>&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;</h4><ul>
+<li>&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x79F0;&#x8C13;&#x201C;GC Roots&#x201D;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x8D77;&#x59CB;&#x70B9;</li>
+</ul>
+<ul>
+<li><p>&#x4ECE;&#x8FD9;&#x4E9B;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#x5411;&#x4E0B;&#x641C;&#x7D22;&#xFF0C;&#x641C;&#x7D22;&#x6240;&#x6709;&#x8D70;&#x8FC7;&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#x5F15;&#x7528;&#x94FE;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5230;GC Roots&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5F15;&#x7528;&#x94FE;&#x9879;&#x94FE;&#x65F6;&#xFF0C;&#x5219;&#x8BC1;&#x660E;&#x6B64;&#x5BF9;&#x8C61;&#x65F6;&#x4E0D;&#x53EF;&#x7528;&#x7684;!</p>
+</li>
+<li><p>&#x53EA;&#x8981;&#x4ECE;GC Roots&#x5F00;&#x59CB;&#x641C;&#x7D22;,&#x4E0D;&#x53EF;&#x8FBE;&#x7684;&#x5BF9;&#x8C61;&#x7686;&#x53EF;&#x56DE;&#x6536;</p>
+<p><img src="/2016/05/17/2-&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;/gc.jpg" alt="GC PIC"></p>
+<p>&#x200B;</p>
+</li>
+</ul>
+<p>&#x6CE8;&#x610F;&#xFF1A;Java&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x53EF;&#x4F5C;&#x4E3A;GC Roots&#x7684;&#x5BF9;&#x8C61;&#x5305;&#x62EC;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#xFF1A;</p>
+<ol>
+<li>&#x865A;&#x62DF;&#x673A;&#x6808;(&#x6808;&#x5E27;&#x4E2D;&#x7684;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x8868;)&#x4E2D;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7C7B;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x5E38;&#x91CF;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x4E2D;JNI(&#x5373;&#x4E00;&#x822C;&#x8BF4;&#x7684;Native&#x65B9;&#x6CD5;)&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
+</ol>
+<h2 id="&#x5185;&#x5B58;&#x7BA1;&#x7406;"><a href="#&#x5185;&#x5B58;&#x7BA1;&#x7406;" class="headerlink" title="&#x5185;&#x5B58;&#x7BA1;&#x7406;"></a>&#x5185;&#x5B58;&#x7BA1;&#x7406;</h2><ul>
+<li>&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x5F53;&#x4E2D;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x5927;&#x91CF;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x662F;&#x77ED;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5C0F;&#x90E8;&#x5206;&#x662F;&#x957F;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;</li>
+</ul>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x77ED;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x9700;&#x8981;&#x9891;&#x7E41;&#x5730;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4EE5;&#x4FDD;&#x8BC1;&#x65E0;&#x7528;&#x5BF9;&#x8C61;&#x5C3D;&#x65E9;&#x88AB;&#x91CA;&#x653E;&#x6389;</li>
+</ul>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x957F;&#x5468;&#x671F;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x9891;&#x7E41;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4EE5;&#x786E;&#x4FDD;&#x4E0D;&#x8FDB;&#x884C;&#x65E0;&#x8C13;&#x5730;&#x5783;&#x573E;&#x626B;&#x63CF;&#x68C0;&#x6D4B;&#x3002;&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x79CD;&#x77DB;&#x76FE;&#xFF0C;JVM&#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x91C7;&#x7528;&#x5206;&#x4EE3;&#x7684;&#x7B56;&#x7565;&#xFF1A;</li>
+</ul>
+<h4 id="&#x5E74;&#x8F7B;&#x4EE3;-Young-Gen-&#xFF1A;"><a href="#&#x5E74;&#x8F7B;&#x4EE3;-Young-Gen-&#xFF1A;" class="headerlink" title="&#x5E74;&#x8F7B;&#x4EE3;(Young Gen)&#xFF1A;"></a>&#x5E74;&#x8F7B;&#x4EE3;(Young Gen)&#xFF1A;</h4><ul>
+<li>&#x5B58;&#x653E;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;</li>
+</ul>
+<ul>
+<li>&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x76F8;&#x5BF9;&#x4F1A;&#x6BD4;&#x8F83;&#x5C0F;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4F1A;&#x6BD4;&#x8F83;&#x9891;&#x7E41;</li>
+</ul>
+<ul>
+<li>&#x5E74;&#x8F7B;&#x4EE3;&#x5206;&#x6210;1&#x4E2A;Eden Space&#x548C;2&#x4E2A;Suvivor Space&#xFF08;&#x547D;&#x540D;&#x4E3A;A&#x548C;B&#xFF09;</li>
+</ul>
+<ul>
+<li>&#x5F53;&#x5BF9;&#x8C61;&#x5728;&#x5806;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5C06;&#x8FDB;&#x5165;&#x5E74;&#x8F7B;&#x4EE3;&#x7684;Eden Space&#x3002;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#xFF0C;&#x626B;&#x63CF;Eden Space&#x548C;A Suvivor Space&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x4ECD;&#x7136;&#x5B58;&#x6D3B;&#xFF0C;&#x5219;&#x590D;&#x5236;&#x5230;B Suvivor Space&#xFF0C;&#x5982;&#x679C;B Suvivor Space&#x5DF2;&#x7ECF;&#x6EE1;&#xFF0C;&#x5219;&#x590D;&#x5236; Old Gen&#x3002;&#x626B;&#x63CF;A Suvivor Space&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x5DF2;&#x7ECF;&#x7ECF;&#x8FC7;&#x4E86;&#x51E0;&#x6B21;&#x7684;&#x626B;&#x63CF;&#x4ECD;&#x7136;&#x5B58;&#x6D3B;&#xFF0C;JVM&#x8BA4;&#x4E3A;&#x5176;&#x4E3A;&#x4E00;&#x4E2A;Old&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x79FB;&#x5230;Old Gen&#x3002;&#x626B;&#x63CF;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;JVM&#x5C06;Eden Space&#x548C;A Suvivor Space&#x6E05;&#x7A7A;&#xFF0C;&#x7136;&#x540E;&#x4EA4;&#x6362;A&#x548C;B&#x7684;&#x89D2;&#x8272;&#xFF08;&#x5373;&#x4E0B;&#x6B21;&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#x4F1A;&#x626B;&#x63CF;Eden Space&#x548C;BSuvivor Space&#x3002;</li>
+</ul>
+<ul>
+<li>Young Gen&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#xFF0C;&#x91C7;&#x7528;&#x5C06;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x590D;&#x5236;&#x5230;&#x5230;&#x7A7A;&#x7684;Suvivor Space&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x786E;&#x4FDD;&#x4E0D;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF0C;&#x91C7;&#x7528;&#x7A7A;&#x95F4;&#x6362;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x52A0;&#x901F;&#x5185;&#x5B58;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3002;</li>
+</ul>
+<h4 id="&#x5E74;&#x8001;&#x4EE3;-Tenured-Gen-&#xFF1A;"><a href="#&#x5E74;&#x8001;&#x4EE3;-Tenured-Gen-&#xFF1A;" class="headerlink" title="&#x5E74;&#x8001;&#x4EE3;(Tenured Gen)&#xFF1A;"></a>&#x5E74;&#x8001;&#x4EE3;(Tenured Gen)&#xFF1A;</h4><ul>
+<li>JVM&#x8BA4;&#x4E3A;&#x6BD4;&#x8F83;old&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x7ECF;&#x8FC7;&#x51E0;&#x6B21;&#x7684;Young Gen&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x540E;&#x4ECD;&#x7136;&#x5B58;&#x5728;&#xFF09;</li>
+</ul>
+<ul>
+<li>&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x76F8;&#x5BF9;&#x4F1A;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4E5F;&#x76F8;&#x5BF9;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x9891;&#x7E41;&#xFF08;&#x6BD4;&#x5982;&#x53EF;&#x80FD;&#x51E0;&#x4E2A;&#x5C0F;&#x65F6;&#x4E00;&#x6B21;&#xFF09;</li>
+</ul>
+<ul>
+<li>&#x5E74;&#x8001;&#x4EE3;&#x4E3B;&#x8981;&#x91C7;&#x7528;&#x538B;&#x7F29;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x907F;&#x514D;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF08;&#x5C06;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x5230;&#x5185;&#x5B58;&#x7247;&#x7684;&#x4E00;&#x8FB9;&#xFF09;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x6709;&#x4E9B;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#xFF08;&#x6BD4;&#x5982;CMS&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#xFF09;&#x51FA;&#x4E8E;&#x6548;&#x7387;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x4E0D;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x3002;</li>
+</ul>
+<h4 id="&#x6301;&#x4E45;&#x4EE3;-Perm-Gen-&#xFF1A;"><a href="#&#x6301;&#x4E45;&#x4EE3;-Perm-Gen-&#xFF1A;" class="headerlink" title="&#x6301;&#x4E45;&#x4EE3;(Perm Gen)&#xFF1A;"></a>&#x6301;&#x4E45;&#x4EE3;(Perm Gen)&#xFF1A;</h4><ul>
+<li>&#x5B58;&#x653E;&#x7C7B;&#x5B9A;&#x4E49;&#x3001;&#x5B57;&#x8282;&#x7801;&#x548C;&#x5E38;&#x91CF;&#x7B49;&#x5F88;&#x5C11;&#x4F1A;&#x53D8;&#x66F4;&#x7684;&#x4FE1;&#x606F;</li>
+</ul>
+<h2 id="Full-GC"><a href="#Full-GC" class="headerlink" title="Full GC"></a>Full GC</h2><ul>
+<li>new&#x4E86;&#x5F88;&#x591A;&#x5BF9;&#x8C61;,&#x6CA1;&#x6709;&#x5373;&#x65F6;&#x5728;&#x4E3B;&#x52A8;&#x91CA;&#x653E;&#x6389;-&gt;Eden&#x5185;&#x5B58;&#x4E0D;&#x591F;&#x7528;-&gt;&#x4E0D;&#x65AD;&#x628A;&#x5BF9;&#x8C61;&#x5F80;old&#x8FC1;&#x79FB;-&gt;old&#x6EE1;&#x4E86;-&gt;full gc</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[1.Java内存区域与内存溢出异常]]></title>
       <url>http://yoursite.com/2016/05/17/1-%E8%87%AA%E5%8A%A8%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6/</url>
       <content type="html"><![CDATA[<h3 id="&#x6982;&#x8FF0;"><a href="#&#x6982;&#x8FF0;" class="headerlink" title="&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</h3><ul>
