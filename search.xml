@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title><![CDATA[面试关注点]]></title>
+      <url>http://yoursite.com/2016/05/22/%E9%9D%A2%E8%AF%95%E5%85%B3%E6%B3%A8%E7%82%B9/</url>
+      <content type="html"><![CDATA[<h2 id="Java&#x5B9E;&#x4E60;&#x751F;"><a href="#Java&#x5B9E;&#x4E60;&#x751F;" class="headerlink" title="Java&#x5B9E;&#x4E60;&#x751F;"></a>Java&#x5B9E;&#x4E60;&#x751F;</h2><h3 id="&#x7F8E;&#x56E2;"><a href="#&#x7F8E;&#x56E2;" class="headerlink" title="&#x7F8E;&#x56E2;"></a>&#x7F8E;&#x56E2;</h3><ol>
+<li><p>&#x5177;&#x5907;&#x624E;&#x5B9E;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x4E13;&#x4E1A;&#x57FA;&#x672C;&#x529F;&#xFF0C;&#x6DF1;&#x539A;&#x7684;Java&#x7684;&#x7F16;&#x7A0B;&#x57FA;&#x7840;,&#x5BF9;Java&#x5185;&#x5B58;&#x6A21;&#x578B;&#x3001;&#x591A;&#x7EBF;&#x7A0B;&#x3001;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3001;NIO&#x7B49;&#x6709;&#x4E00;&#x5B9A;&#x7814;&#x7A76;&#x3002;      </p>
+</li>
+<li><p>&#x719F;&#x7EC3;&#x638C;&#x63E1;&#x4E3B;&#x6D41;&#x7684;&#x5F00;&#x6E90;&#x6846;&#x67B6;&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;&#xFF0C;&#x5BF9;Spring&#x3001;Mybatis&#x7B49;&#x6709;&#x6DF1;&#x5165;&#x7684;&#x4E86;&#x89E3;&#x3001;&#x7814;&#x7A76;&#x8FC7;&#x6E90;&#x4EE3;&#x7801;&#x8005;&#x4F18;&#x5148;&#x3002;</p>
+</li>
+<li>&#x719F;&#x7EC3;&#x638C;&#x63E1;&#x57FA;&#x4E8E;Oracle&#x6216;&#x8005;Mysql&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x5F00;&#x53D1;&#xFF0C;&#x5BF9;zookeeper&#xFF0C;tair&#xFF0C;redis&#xFF0C;rabbit mq&#x7B49;&#x6709;&#x7ECF;&#x9A8C;&#x8005;&#x4F18;&#x5148;&#x3002;</li>
+<li>&#x719F;&#x6089;Java &#x53CA;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BBE;&#x8BA1;&#x5F00;&#x53D1;&#xFF0C;&#x5BF9;&#x90E8;&#x5206; Java &#x6280;&#x672F;&#x6709;&#x6DF1;&#x5165;&#x7814;&#x7A76;&#xFF0C;&#x7814;&#x7A76;&#x8FC7;&#x4F18;&#x79C0;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#x7684;&#x6E90;&#x7801;&#x5E76;&#x6709;&#x5FC3;&#x5F97;&#x8005;&#x4F18;&#x5148;&#x3002;</li>
+<li>&#x5BF9;&#x5F00;&#x6E90;&#x6280;&#x672F;&#x6709;&#x6D53;&#x539A;&#x5174;&#x8DA3;&#xFF0C;&#x5728;&#x6280;&#x672F;&#x793E;&#x533A;&#x6D3B;&#x8DC3;&#x8005;&#x4F18;&#x5148;&#x3002;</li>
+<li>&#x6709;&#x8F83;&#x5F3A;&#x7684;&#x903B;&#x8F91;&#x5206;&#x6790;&#x3001;&#x6570;&#x636E;&#x5206;&#x6790;&#x3001;&#x95EE;&#x9898;&#x6392;&#x67E5;&#x80FD;&#x529B;&#x3002;</li>
+</ol>
+<h3 id="&#x7F51;&#x6613;"><a href="#&#x7F51;&#x6613;" class="headerlink" title="&#x7F51;&#x6613;"></a>&#x7F51;&#x6613;</h3><ol>
+<li><p>&#x5177;&#x5907;&#x826F;&#x597D;&#x7684;&#x7EFC;&#x5408;&#x7D20;&#x8D28;&#xFF1A;&#x54C1;&#x5B66;&#x517C;&#x4F18;&#x3001;&#x8BDA;&#x5B9E;&#x5B88;&#x4FE1;&#x3001;&#x4E50;&#x89C2;&#x8FDB;&#x53D6;&#x3001;&#x601D;&#x7EF4;&#x654F;&#x6377;&#x3001;&#x4E14;&#x8EAB;&#x4F53;&#x5065;&#x5EB7;&#xFF0C;&#x5177;&#x6709;&#x8F83;&#x5F3A;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x521B;&#x65B0;&#x80FD;&#x529B;&#xFF1B;</p>
+</li>
+<li><p>&#x5177;&#x5907;&#x826F;&#x597D;&#x7684;&#x6C9F;&#x901A;&#x80FD;&#x529B;&#x3001;&#x6587;&#x5B57;&#x8868;&#x8FBE;&#x80FD;&#x529B;&#xFF0C;&#x4EE5;&#x53CA;&#x826F;&#x597D;&#x7684;&#x56E2;&#x961F;&#x534F;&#x4F5C;&#x7CBE;&#x795E;&#xFF1B;</p>
+</li>
+<li>&#x7CBE;&#x901A;Java&#x8BED;&#x8A00;&#xFF0C;&#x719F;&#x6089;&#x5E38;&#x7528;j2ee&#x67B6;&#x6784;&#xFF0C;&#x719F;&#x6089;Spring&#xFF0C;mybatis&#x6846;&#x67B6;&#xFF1B;</li>
+<li>&#x719F;&#x6089;Unix/Linux&#x7CFB;&#x7EDF;&#xFF0C;&#x719F;&#x6089;Java&#x6838;&#x5FC3;&#xFF0C;&#x96C6;&#x5408;&#xFF0C;&#x7F51;&#x7EDC;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;&#xFF0C;&#x8F83;&#x597D;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x6280;&#x672F;&#x57FA;&#x7840;&#xFF0C;&#x719F;&#x6089;&#x5E38;&#x7528;&#x7B97;&#x6CD5;&#x4E0E;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1B;</li>
+</ol>
+<h3 id="&#x53BB;&#x54EA;&#x513F;"><a href="#&#x53BB;&#x54EA;&#x513F;" class="headerlink" title="&#x53BB;&#x54EA;&#x513F;"></a>&#x53BB;&#x54EA;&#x513F;</h3><ol>
+<li>&#x5177;&#x5907;&#x8F83;&#x5F3A;&#x7684;&#x5B66;&#x4E60;&#x80FD;&#x529B;&#x3001;&#x903B;&#x8F91;&#x601D;&#x7EF4;&#x80FD;&#x529B;&#x3002; </li>
+<li>&#x719F;&#x7EC3;&#x4F7F;&#x7528;Java&#x8BED;&#x8A00;&#xFF0C;&#x719F;&#x6089;Web&#x5F00;&#x53D1;&#x3002; </li>
+<li>&#x4E86;&#x89E3;SQL&#xFF0C;&#x719F;&#x6089;Mysql&#x3001;Postgresql&#x7B49;&#x6570;&#x636E;&#x5E93;&#x3002; </li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[解决OS X下系统自带mail无法登陆QQ邮箱的问题]]></title>
       <url>http://yoursite.com/2016/05/22/%E8%A7%A3%E5%86%B3OS-X%E4%B8%8B%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6mail%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86QQ%E9%82%AE%E7%AE%B1%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>&#x89E3;&#x51B3;mac&#x4E0B;&#x7684;QQ&#x90AE;&#x7BB1;&#x7684;&#x9A8C;&#x8BC1;&#x95EE;&#x9898;,&#x636E;&#x8BF4;&#x8FD9;&#x4E2A;&#x662F;&#x817E;&#x8BAF;&#x7684;&#x9505;,&#x6211;&#x4E5F;&#x4E0D;&#x592A;&#x4E86;&#x89E3;</p>
