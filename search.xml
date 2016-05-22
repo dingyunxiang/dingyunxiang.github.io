@@ -4,6 +4,21 @@
   
     
     <entry>
+      <title><![CDATA[解决OS X下系统自带mail无法登陆QQ邮箱的问题]]></title>
+      <url>http://yoursite.com/2016/05/22/%E8%A7%A3%E5%86%B3OS-X%E4%B8%8B%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6mail%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86QQ%E9%82%AE%E7%AE%B1%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>&#x89E3;&#x51B3;mac&#x4E0B;&#x7684;QQ&#x90AE;&#x7BB1;&#x7684;&#x9A8C;&#x8BC1;&#x95EE;&#x9898;,&#x636E;&#x8BF4;&#x8FD9;&#x4E2A;&#x662F;&#x817E;&#x8BAF;&#x7684;&#x9505;,&#x6211;&#x4E5F;&#x4E0D;&#x592A;&#x4E86;&#x89E3;</p>
+<ol>
+<li><p>&#x9996;&#x5148;&#x9700;&#x8981;&#x5728;QQMail&#x7F51;&#x9875;&#x7AEF;&#x7684;&#x8BBE;&#x7F6E;-&#x8D26;&#x6237;&#x4E2D;&#x5F00;&#x542F;IMAP&#x670D;&#x52A1;</p>
+<p><img src="/2016/05/22/&#x89E3;&#x51B3;OS-X&#x4E0B;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;mail&#x65E0;&#x6CD5;&#x767B;&#x9646;QQ&#x90AE;&#x7BB1;&#x7684;&#x95EE;&#x9898;/picnic.png" alt="pic"></p>
+<p><img src="/2016/05/22/&#x89E3;&#x51B3;OS-X&#x4E0B;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;mail&#x65E0;&#x6CD5;&#x767B;&#x9646;QQ&#x90AE;&#x7BB1;&#x7684;&#x95EE;&#x9898;/pic.png" alt="pic"></p>
+<p>&#x200B;</p>
+<p>&#x200B;2.&#x518D;&#x6B21;&#x6253;&#x5F00;&#x7535;&#x8111;&#x81EA;&#x5E26;&#x7684;mail,&#x70B9;&#x51FB;QQ&#x90AE;&#x7BB1;,&#x5728;&#x90AE;&#x7BB1;&#x4E2D;&#x8F93;&#x5165;&#x4F60;&#x7684;&#x90AE;&#x7BB1;,&#x5BC6;&#x7801;&#x4E2D;&#x8F93;&#x5165;&#x6388;&#x6743;&#x7801;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x767B;&#x5F55;.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[1.Linux常用命令]]></title>
       <url>http://yoursite.com/2016/05/22/1-Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
       <content type="html"><![CDATA[<h2 id="&#x5E38;&#x7528;&#x547D;&#x4EE4;&#x6C47;&#x603B;"><a href="#&#x5E38;&#x7528;&#x547D;&#x4EE4;&#x6C47;&#x603B;" class="headerlink" title="&#x5E38;&#x7528;&#x547D;&#x4EE4;&#x6C47;&#x603B;"></a>&#x5E38;&#x7528;&#x547D;&#x4EE4;&#x6C47;&#x603B;</h2><p>mv       &#x2014; &#x79FB;&#x52A8;&#x6587;&#x4EF6;,&#x4E5F;&#x53EF;&#x7528;&#x4E8E;&#x91CD;&#x547D;&#x540D;</p>
