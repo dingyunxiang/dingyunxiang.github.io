@@ -1,0 +1,824 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5728;&amp;#x73B0;&amp;#x5728;&amp;#x7684;web&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;,&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#x8D8A;&amp;#x6765;&amp;#x8D8A;&amp;#x6210;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x91CD;&amp;#x8981;&amp;#x7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4.MySQL性能优化">
+<meta property="og:url" content="http://yoursite.com/2016/05/22/4-MySQL性能优化/index.html">
+<meta property="og:site_name" content="Coding Life">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5728;&amp;#x73B0;&amp;#x5728;&amp;#x7684;web&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;,&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#x8D8A;&amp;#x6765;&amp;#x8D8A;&amp;#x6210;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x91CD;&amp;#x8981;&amp;#x7">
+<meta property="og:updated_time" content="2016-05-22T11:35:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4.MySQL性能优化">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;&amp;#x5728;&amp;#x73B0;&amp;#x5728;&amp;#x7684;web&amp;#x7CFB;&amp;#x7EDF;&amp;#x4E2D;,&amp;#x6570;&amp;#x636E;&amp;#x5E93;&amp;#x7684;&amp;#x64CD;&amp;#x4F5C;&amp;#x8D8A;&amp;#x6765;&amp;#x8D8A;&amp;#x6210;&amp;#x4E3A;&amp;#x4E00;&amp;#x4E2A;&amp;#x91CD;&amp;#x8981;&amp;#x7">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 4.MySQL性能优化 | Coding Life </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f6b89b7bb1c2a928ef2d97a1a5afb063";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Coding Life</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                4.MySQL性能优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-22T18:59:27+08:00" content="2016-05-22">
+              2016-05-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/22/4-MySQL性能优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/22/4-MySQL性能优化/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x7B80;&#x8FF0;"><a href="#&#x7B80;&#x8FF0;" class="headerlink" title="&#x7B80;&#x8FF0;"></a>&#x7B80;&#x8FF0;</h2><p>&#x5728;&#x73B0;&#x5728;&#x7684;web&#x7CFB;&#x7EDF;&#x4E2D;,&#x6570;&#x636E;&#x5E93;&#x7684;&#x64CD;&#x4F5C;&#x8D8A;&#x6765;&#x8D8A;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x9650;&#x5236;&#x56E0;&#x7D20;,&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x63A2;&#x8BA8;&#x90E8;&#x5206;&#x4F18;&#x5316;&#x6280;&#x5DE7;,&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x8865;&#x5145;.</p>
+<h2 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS"></a>TIPS</h2><h3 id="1-&#x4E3A;&#x67E5;&#x8BE2;&#x4F18;&#x5316;&#x4F60;&#x7684;&#x67E5;&#x8BE2;"><a href="#1-&#x4E3A;&#x67E5;&#x8BE2;&#x4F18;&#x5316;&#x4F60;&#x7684;&#x67E5;&#x8BE2;" class="headerlink" title="1.&#x4E3A;&#x67E5;&#x8BE2;&#x4F18;&#x5316;&#x4F60;&#x7684;&#x67E5;&#x8BE2;"></a>1.&#x4E3A;&#x67E5;&#x8BE2;&#x4F18;&#x5316;&#x4F60;&#x7684;&#x67E5;&#x8BE2;</h3><p>&#x5927;&#x591A;&#x6570;&#x7684;MySQL&#x670D;&#x52A1;&#x5668;&#x5F00;&#x542F;&#x4E86;&#x67E5;&#x8BE2;&#x7F13;&#x5B58;,&#x5C31;&#x662F;&#x8BF4;,&#x5F53;&#x76F8;&#x540C;&#x67E5;&#x8BE2;&#x88AB;&#x6267;&#x884C;&#x591A;&#x6B21;&#x4EE5;&#x540E;,&#x8FD9;&#x4E9B;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4F1A;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x7F13;&#x5B58;&#x91CC;&#x9762;,&#x8FD9;&#x6837;&#x540E;&#x7EED;&#x76F8;&#x540C;&#x7684;&#x67E5;&#x8BE2;&#x5C31;&#x4E0D;&#x540C;&#x64CD;&#x4F5C;&#x8868;&#x4E86;</p>
+<blockquote>
+<p>&#x7C7B;&#x4F3C;&#x4E8E;CURDATE(),NOW()&#x548C;RAND()&#x8FD9;&#x4E9B;&#x7C7B;&#x4F3C;&#x7684;SQL&#x51FD;&#x6570;&#x4E0D;&#x4F1A;&#x5F00;&#x542F;&#x67E5;&#x8BE2;&#x7F13;&#x5B58;,&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x6765;&#x4EE3;&#x66FF;,&#x4ECE;&#x800C;&#x5F00;&#x542F;&#x7F13;&#x5B58;</p>
+</blockquote>
+<h3 id="2-Explain&#x4F60;&#x7684;Select"><a href="#2-Explain&#x4F60;&#x7684;Select" class="headerlink" title="2.Explain&#x4F60;&#x7684;Select"></a>2.Explain&#x4F60;&#x7684;Select</h3><p>&#x5728;&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x52A0;&#x7D22;&#x5F15;,&#x4F1A;&#x52A0;&#x5FEB;&#x67E5;&#x8BE2;</p>
+<h3 id="3-&#x4E00;&#x884C;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;LIMIT1"><a href="#3-&#x4E00;&#x884C;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;LIMIT1" class="headerlink" title="3.&#x4E00;&#x884C;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;LIMIT1"></a>3.&#x4E00;&#x884C;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;LIMIT1</h3><p>&#x5F53;&#x4F60;&#x67E5;&#x8BE2;&#x8868;&#x7684;&#x6709;&#x4E9B;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x7ED3;&#x679C;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x6761;&#x7ED3;&#x679C;&#xFF0C;&#x5355;&#x56E0;&#x4E3A;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x53BB;fetch&#x6E38;&#x6807;&#xFF0C;&#x6216;&#x662F;&#x4F60;&#x4E5F;&#x8BB8;&#x4F1A;&#x53BB;&#x68C0;&#x67E5;&#x8FD4;&#x56DE;&#x7684;&#x8BB0;&#x5F55;&#x6570;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x52A0;&#x4E0A;LIMIT 1 &#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x6027;&#x80FD;&#x3002;&#x8FD9;&#x6837;&#x4E00;&#x6837;&#xFF0C; MySQL&#x6570;&#x636E;&#x5E93;&#x5F15;&#x64CE;&#x4F1A;&#x5728;&#x627E;&#x5230;&#x4E00;&#x6761;&#x6570;&#x636E;&#x540E;&#x505C;&#x6B62;&#x641C;&#x7D22;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7EE7;&#x7EED;&#x5F80;&#x540E;&#x67E5;&#x627E;&#x4E0B;&#x4E00;&#x6761;&#x7B26;&#x5408;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="4-&#x4E3A;&#x641C;&#x7D22;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;&#x7D22;&#x5F15;"><a href="#4-&#x4E3A;&#x641C;&#x7D22;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;&#x7D22;&#x5F15;" class="headerlink" title="4.&#x4E3A;&#x641C;&#x7D22;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;&#x7D22;&#x5F15;"></a>4.&#x4E3A;&#x641C;&#x7D22;&#x5B57;&#x6BB5;&#x6DFB;&#x52A0;&#x7D22;&#x5F15;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x7D22;&#x5F15;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x5C31;&#x662F;&#x7ED9;&#x4E3B;&#x952E;&#x6216;&#x662F;&#x552F;&#x4E00;&#x7684;&#x5B57;&#x6BB5;&#x3002;&#x5982;&#x679C;&#x5728;&#x4F60;&#x7684;&#x8868;&#x4E2D;&#xFF0C;&#x6709;&#x67D0;&#x4E2A;&#x5B57;&#x6BB5;&#x4F60;&#x603B;&#x8981;&#x4F1A;&#x7ECF;&#x5E38;&#x7528;&#x6765;&#x505A;&#x641C;&#x7D22;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x8BF7;&#x4E3A;&#x5176;&#x5EFA;&#x7ACB;&#x7D22;&#x5F15;&#x5427;&#x3002;</span><br></pre></td></tr></table></figure>
+<h3 id="5-&#x5728;Join&#x8868;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x76F8;&#x5F53;&#x7C7B;&#x578B;&#x7684;&#x5217;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x7D22;&#x5F15;"><a href="#5-&#x5728;Join&#x8868;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x76F8;&#x5F53;&#x7C7B;&#x578B;&#x7684;&#x5217;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x7D22;&#x5F15;" class="headerlink" title="5.&#x5728;Join&#x8868;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x76F8;&#x5F53;&#x7C7B;&#x578B;&#x7684;&#x5217;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x7D22;&#x5F15;"></a>5.&#x5728;Join&#x8868;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x76F8;&#x5F53;&#x7C7B;&#x578B;&#x7684;&#x5217;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x7D22;&#x5F15;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x5982;&#x679C;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6709;&#x5F88;&#x591A;JOIN&#x67E5;&#x8BE2;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x786E;&#x8BA4;&#x4E24;&#x4E2A;&#x8868;&#x4E2D;Join&#x7684;&#x5B57;&#x6BB5;&#x662F;&#x88AB;&#x5EFA;&#x8FC7;&#x7D22;&#x5F15;&#x7684;&#x3002;&#x8FD9;&#x6837;&#xFF0C;MySQL&#x5185;&#x90E8;&#x4F1A;&#x542F;&#x52A8;&#x4E3A;&#x4F60;&#x4F18;&#x5316;Join&#x7684;SQL&#x8BED;&#x53E5;&#x7684;&#x673A;&#x5236;&#x3002;</span><br><span class="line">&#x800C;&#x4E14;&#xFF0C;&#x8FD9;&#x4E9B;&#x88AB;&#x7528;&#x6765;Join&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x76F8;&#x540C;&#x7684;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF1A;&#x5982;&#x679C;&#x4F60;&#x8981;&#x628A;DECIMAL&#x5B57;&#x6BB5;&#x548C;&#x4E00;&#x4E2A;INT&#x5B57;&#x6BB5;JOIN&#x5728;&#x4E00;&#x8D77;&#xFF0C;MYSQL&#x5C31;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x4ED6;&#x4EEC;&#x7684;&#x7D22;&#x5F15;&#x3002;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;STRING&#x7C7B;&#x578B;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x624D;&#x884C;&#xFF08;&#x4E24;&#x4E2A;&#x8868;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x6709;&#x53EF;&#x80FD;&#x4E0D;&#x4E00;&#x6837;&#xFF09;</span><br></pre></td></tr></table></figure>
+<h3 id="6-&#x907F;&#x514D;select"><a href="#6-&#x907F;&#x514D;select" class="headerlink" title="6.&#x907F;&#x514D;select *"></a>6.&#x907F;&#x514D;select *</h3><p>&#x517B;&#x6210;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x4EC0;&#x4E48;&#x5C31;&#x53D6;&#x4EC0;&#x4E48;&#x7684;&#x4E60;&#x60EF;</p>
+<h3 id="7-&#x4E3A;&#x6240;&#x6709;&#x7684;&#x8868;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x81EA;&#x589E;&#x7684;ID&#x4E3B;&#x952E;"><a href="#7-&#x4E3A;&#x6240;&#x6709;&#x7684;&#x8868;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x81EA;&#x589E;&#x7684;ID&#x4E3B;&#x952E;" class="headerlink" title="7.&#x4E3A;&#x6240;&#x6709;&#x7684;&#x8868;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x81EA;&#x589E;&#x7684;ID&#x4E3B;&#x952E;"></a>7.&#x4E3A;&#x6240;&#x6709;&#x7684;&#x8868;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x81EA;&#x589E;&#x7684;ID&#x4E3B;&#x952E;</h3><p>&#x5373;&#x4F7F;&#x8868;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x5B57;&#x6BB5;,&#x4F7F;&#x7528;varchar&#x6765;&#x4F5C;&#x4E3B;&#x952E;&#x4F1A;&#x4F7F;&#x6027;&#x80FD;&#x4E0B;&#x964D;</p>
+<blockquote>
+<p>&#x5173;&#x4E8E;&#x81EA;&#x589E;ID&#x548C;UUID&#x7684;&#x597D;&#x574F;:</p>
+<p>&#x5728;&#x5355;&#x5E93;&#x4E2D;,&#x4F7F;&#x7528;&#x81EA;&#x589E;id&#x8F83;&#x5FEB;,&#x5982;&#x679C;&#x8981;&#x8003;&#x8651;&#x5230;&#x6570;&#x636E;&#x5E93;&#x96C6;&#x7FA4;,&#x81EA;&#x589E;id&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x51B2;&#x7A81;(&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;,&#x4E3B;&#x7528;&#x5355;id,&#x4ECE;&#x7528;&#x53CC;id),&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5C3D;&#x65E9;&#x8003;&#x8651;&#x662F;&#x5426;&#x4F7F;&#x7528;uuid</p>
+<p>&#x81EA;&#x589E;id&#x7684;&#x597D;&#x5904;&#x662F;:&#x67E5;&#x8BE2;&#x5FEB;,&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x5C0F;</p>
+<p>uuid&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x8F83;&#x5927;,&#x4F46;&#x662F;&#x552F;&#x4E00;</p>
+</blockquote>
+<h3 id="8-&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;ENUM"><a href="#8-&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;ENUM" class="headerlink" title="8.&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;ENUM"></a>8.&#x7279;&#x5B9A;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;ENUM</h3><p>ENUM &#x7C7B;&#x578B;&#x662F;&#x975E;&#x5E38;&#x5FEB;&#x548C;&#x7D27;&#x51D1;&#x7684;&#x3002;&#x5728;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x5176;&#x4FDD;&#x5B58;&#x7684;&#x662F; TINYINT&#xFF0C;&#x4F46;&#x5176;&#x5916;&#x8868;&#x4E0A;&#x663E;&#x793A;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x7528;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x6765;&#x505A;&#x4E00;&#x4E9B;&#x9009;&#x9879;&#x5217;&#x8868;&#x53D8;&#x5F97;&#x76F8;&#x5F53;&#x7684;&#x5B8C;&#x7F8E;&#x3002;</p>
+<blockquote>
+<p>&#x5728;&#x4F7F;&#x7528;PHP&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x65F6;,&#x8C28;&#x614E;&#x4F7F;&#x7528;ENUM,&#x56E0;&#x4E3A;PHP&#x662F;&#x5F31;&#x7C7B;&#x578B;,&#x65E0;&#x6CD5;&#x5206;&#x8FA8;1,&#x2019;1&#x2019;</p>
+</blockquote>
+<h3 id="9-&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;NOT-NULL"><a href="#9-&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;NOT-NULL" class="headerlink" title="9.&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;NOT NULL"></a>9.&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;NOT NULL</h3><p>NULL&#x4E5F;&#x9700;&#x8981;&#x7A7A;&#x95F4;,&#x5E76;&#x4E14;&#x5728;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x7684;&#x65F6;&#x5019;,&#x7A0B;&#x5E8F;&#x4F1A;&#x53D8;&#x5F97;&#x66F4;&#x590D;&#x6742;,&#x5426;&#x5219;,&#x5C3D;&#x91CF;&#x8BA9;&#x4F60;&#x7684;&#x5B50;&#x5F39;&#x4FDD;&#x6301;not null</p>
+<h3 id="10-IP&#x5730;&#x5740;&#x5C3D;&#x91CF;&#x5B58;&#x4E3A;Unsigned-Int"><a href="#10-IP&#x5730;&#x5740;&#x5C3D;&#x91CF;&#x5B58;&#x4E3A;Unsigned-Int" class="headerlink" title="10.IP&#x5730;&#x5740;&#x5C3D;&#x91CF;&#x5B58;&#x4E3A;Unsigned Int"></a>10.IP&#x5730;&#x5740;&#x5C3D;&#x91CF;&#x5B58;&#x4E3A;Unsigned Int</h3><p>&#x5F80;&#x5F80;&#x6211;&#x4EEC;&#x4F7F;&#x7528;varchar&#x800C;&#x4E0D;&#x662F;&#x6574;&#x578B;&#x6765;&#x5B58;&#x50A8;IP,&#x5982;&#x679C;&#x4F7F;&#x7528;&#x6574;&#x578B;,&#x53EA;&#x9700;4&#x4E2A;&#x5B57;&#x8282;,&#x5E76;&#x4E14;&#x4F1A;&#x5E26;&#x6765;&#x67E5;&#x8BE2;&#x4E0A;&#x7684;&#x4F18;&#x52BF;.</p>
+<h3 id="11-&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x8868;&#x67E5;&#x8BE2;&#x5F97;&#x66F4;&#x5FEB;"><a href="#11-&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x8868;&#x67E5;&#x8BE2;&#x5F97;&#x66F4;&#x5FEB;" class="headerlink" title="11.&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x8868;&#x67E5;&#x8BE2;&#x5F97;&#x66F4;&#x5FEB;"></a>11.&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x8868;&#x67E5;&#x8BE2;&#x5F97;&#x66F4;&#x5FEB;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x5982;&#x679C;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#x90FD;&#x662F;&#x201C;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x201D;&#x7684;&#xFF0C;&#x6574;&#x4E2A;&#x8868;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F; &#x201C;static&#x201D; &#x6216; &#x201C;fixed-length&#x201D;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x8868;&#x4E2D;&#x6CA1;&#x6709;&#x5982;&#x4E0B;&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x6BB5;&#xFF1A; VARCHAR&#xFF0C;TEXT&#xFF0C;BLOB&#x3002;&#x53EA;&#x8981;&#x4F60;&#x5305;&#x62EC;&#x4E86;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x8FD9;&#x4E9B;&#x5B57;&#x6BB5;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x8868;&#x5C31;&#x4E0D;&#x662F;&#x201C;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x9759;&#x6001;&#x8868;&#x201D;&#x4E86;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;MySQL &#x5F15;&#x64CE;&#x4F1A;&#x7528;&#x53E6;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x5904;&#x7406;&#x3002;</span><br></pre></td></tr></table></figure>
+<p>&#x5E76;&#x4E14;&#xFF0C;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x8868;&#x4E5F;&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x7F13;&#x5B58;&#x548C;&#x91CD;&#x5EFA;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x526F;&#x4F5C;&#x7528;&#x662F;&#xFF0C;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x6BB5;&#x4F1A;&#x6D6A;&#x8D39;&#x4E00;&#x4E9B;&#x7A7A;&#x95F4;&#xFF0C;&#x56E0;&#x4E3A;&#x5B9A;&#x957F;&#x7684;&#x5B57;&#x6BB5;&#x65E0;&#x8BBA;&#x4F60;&#x7528;&#x4E0D;&#x7528;&#xFF0C;&#x4ED6;&#x90FD;&#x662F;&#x8981;&#x5206;&#x914D;&#x90A3;&#x4E48;&#x591A;&#x7684;&#x7A7A;&#x95F4;&#x3002;</p>
+<h3 id="12-&#x5782;&#x76F4;&#x5206;&#x5272;"><a href="#12-&#x5782;&#x76F4;&#x5206;&#x5272;" class="headerlink" title="12.&#x5782;&#x76F4;&#x5206;&#x5272;"></a>12.&#x5782;&#x76F4;&#x5206;&#x5272;</h3><p>&#x5C06;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x5F20;&#x8868;&#x6309;&#x5217;&#x7F16;&#x7A0B;&#x51E0;&#x5F20;&#x8868;,&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x964D;&#x4F4E;&#x8868;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x548C;&#x5B57;&#x6BB5;&#x7684;&#x6570;&#x76EE;,&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x4F18;&#x5316;&#x7684;&#x76EE;&#x7684;;</p>
+<p>&#x5C06;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x653E;&#x5230;&#x4E00;&#x5F20;&#x8868;&#x4E2D;;&#x5C06;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x66F4;&#x6539;&#x7684;&#x6570;&#x636E;&#x548C;&#x9700;&#x8981;&#x67E5;&#x8BE2;&#x7684;&#x6570;&#x636E;&#x5206;&#x5F00;,&#x4EE5;&#x4FBF;&#x66F4;&#x597D;&#x7684;&#x4F7F;&#x7528;&#x7F13;&#x5B58;;</p>
+<blockquote>
+<p>&#x6CE8;&#x610F;,&#x5206;&#x5272;&#x5F00;&#x7684;&#x5B57;&#x6BB5;,&#x5982;&#x679C;&#x7ECF;&#x5E38;&#x9700;&#x8981;join,&#x4F1A;&#x6BD4;&#x4E0D;&#x5206;&#x5272;&#x5177;&#x6709;&#x66F4;&#x5DEE;&#x7684;&#x6027;&#x80FD;</p>
+</blockquote>
+<h3 id="13-&#x62C6;&#x5206;&#x5927;&#x7684;delete&#x6216;&#x8005;Insert&#x8BED;&#x53E5;"><a href="#13-&#x62C6;&#x5206;&#x5927;&#x7684;delete&#x6216;&#x8005;Insert&#x8BED;&#x53E5;" class="headerlink" title="13.&#x62C6;&#x5206;&#x5927;&#x7684;delete&#x6216;&#x8005;Insert&#x8BED;&#x53E5;"></a>13.&#x62C6;&#x5206;&#x5927;&#x7684;delete&#x6216;&#x8005;Insert&#x8BED;&#x53E5;</h3><p>&#x5F53;&#x4F60;&#x9700;&#x8981;&#x6267;&#x884C;&#x8FD9;&#x4E24;&#x79CD;SQL&#x65F6;,&#x4F60;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;,&#x8FD9;&#x4E24;&#x79CD;&#x64CD;&#x4F5C;&#x4F1A;&#x9501;&#x8868;,&#x80AF;&#x5462;&#x4E2A;&#x5BFC;&#x81F4;&#x7F51;&#x7AD9;&#x505C;&#x6B62;;</p>
+<blockquote>
+<p>&#x4F7F;&#x7528;LImit,&#x6BCF;&#x6B21;&#x53EA;&#x5220;1000&#x6761;</p>
+</blockquote>
+<h3 id="14-&#x5217;&#x8D8A;&#x5C0F;-&#x901F;&#x5EA6;&#x8D8A;&#x5FEB;"><a href="#14-&#x5217;&#x8D8A;&#x5C0F;-&#x901F;&#x5EA6;&#x8D8A;&#x5FEB;" class="headerlink" title="14.&#x5217;&#x8D8A;&#x5C0F;,&#x901F;&#x5EA6;&#x8D8A;&#x5FEB;"></a>14.&#x5217;&#x8D8A;&#x5C0F;,&#x901F;&#x5EA6;&#x8D8A;&#x5FEB;</h3><p>&#x5BF9;&#x5927;&#x591A;&#x6570;&#x5F15;&#x64CE;&#x6765;,&#x786C;&#x76D8;&#x64CD;&#x4F5C;&#x53EF;&#x80FD;&#x662F;&#x5176;&#x74F6;&#x9888;</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8868;&#x53EA;&#x4F1A;&#x6709;&#x51E0;&#x5217;&#x7F62;&#x4E86;&#xFF08;&#x6BD4;&#x5982;&#x8BF4;&#x5B57;&#x5178;&#x8868;&#xFF0C;&#x914D;&#x7F6E;&#x8868;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x6CA1;&#x6709;&#x7406;&#x7531;&#x4F7F;&#x7528; INT &#x6765;&#x505A;&#x4E3B;&#x952E;&#xFF0C;&#x4F7F;&#x7528; MEDIUMINT, SMALLINT &#x6216;&#x662F;&#x66F4;&#x5C0F;&#x7684; TINYINT &#x4F1A;&#x66F4;&#x7ECF;&#x6D4E;&#x4E00;&#x4E9B;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x65F6;&#x95F4;&#xFF0C;&#x4F7F;&#x7528; DATE &#x8981;&#x6BD4; DATETIME &#x597D;&#x5F97;&#x591A;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x4F60;&#x4E5F;&#x9700;&#x8981;&#x7559;&#x591F;&#x8DB3;&#x591F;&#x7684;&#x6269;&#x5C55;&#x7A7A;&#x95F4;&#xFF0C;&#x4E0D;&#x7136;&#xFF0C;&#x4F60;&#x65E5;&#x540E;&#x6765;&#x5E72;&#x8FD9;&#x4E2A;&#x4E8B;&#xFF0C;&#x4F60;&#x4F1A;&#x6B7B;&#x7684;&#x5F88;&#x96BE;&#x770B;&#xFF0C;&#x53C2;&#x770B;Slashdot&#x7684;&#x4F8B;&#x5B50;&#xFF08;2009&#x5E74;11&#x6708;06&#x65E5;&#xFF09;&#xFF0C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;ALTER TABLE&#x8BED;&#x53E5;&#x82B1;&#x4E86;3&#x4E2A;&#x591A;&#x5C0F;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;&#x91CC;&#x9762;&#x6709;&#x4E00;&#x5343;&#x516D;&#x767E;&#x4E07;&#x6761;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="15-&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;"><a href="#15-&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;" class="headerlink" title="15.&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;"></a>15.&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</h3><p>MyISAM &#x9002;&#x5408;&#x4E8E;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x5927;&#x91CF;&#x67E5;&#x8BE2;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x4F46;&#x5176;&#x5BF9;&#x4E8E;&#x6709;&#x5927;&#x91CF;&#x5199;&#x64CD;&#x4F5C;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x3002;&#x751A;&#x81F3;&#x4F60;&#x53EA;&#x662F;&#x9700;&#x8981;update&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x6574;&#x4E2A;&#x8868;&#x90FD;&#x4F1A;&#x88AB;&#x9501;&#x8D77;&#x6765;&#xFF0C;&#x800C;&#x522B;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x5C31;&#x7B97;&#x662F;&#x8BFB;&#x8FDB;&#x7A0B;&#x90FD;&#x65E0;&#x6CD5;&#x64CD;&#x4F5C;&#x76F4;&#x5230;&#x8BFB;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x3002;&#x53E6;&#x5916;&#xFF0C;MyISAM &#x5BF9;&#x4E8E; SELECT COUNT(*) &#x8FD9;&#x7C7B;&#x7684;&#x8BA1;&#x7B97;&#x662F;&#x8D85;&#x5FEB;&#x65E0;&#x6BD4;&#x7684;&#x3002;</p>
+<p>InnoDB &#x7684;&#x8D8B;&#x52BF;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x590D;&#x6742;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x5C0F;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x5B83;&#x4F1A;&#x6BD4; MyISAM &#x8FD8;&#x6162;&#x3002;&#x4ED6;&#x662F;&#x5B83;&#x652F;&#x6301;&#x201C;&#x884C;&#x9501;&#x201D; &#xFF0C;&#x4E8E;&#x662F;&#x5728;&#x5199;&#x64CD;&#x4F5C;&#x6BD4;&#x8F83;&#x591A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x66F4;&#x4F18;&#x79C0;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x4ED6;&#x8FD8;&#x652F;&#x6301;&#x66F4;&#x591A;&#x7684;&#x9AD8;&#x7EA7;&#x5E94;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;&#x4E8B;&#x52A1;&#x3002;</p>
+<p>&#x53C2;&#x89C1;<a href="http://dingyunxiang.cn/2016/05/22/3-MySQL%E4%B8%A4%E7%A7%8D%E5%B8%B8%E8%A7%81%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/" target="_blank" rel="external">MySQL&#x4E24;&#x79CD;&#x5E38;&#x89C1;&#x5B58;&#x50A8;&#x5F15;&#x64CE;</a></p>
+<h3 id="16-&#x4F7F;&#x7528;join&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;"><a href="#16-&#x4F7F;&#x7528;join&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;" class="headerlink" title="16.&#x4F7F;&#x7528;join&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;"></a>16.&#x4F7F;&#x7528;join&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    mysql&gt; select sql_no_cache * from guang_deal_outs where deal_id in (select id from guang_deals where id = 100017151) ;</span><br><span class="line"> Empty set (18.87 sec)</span><br><span class="line"></span><br><span class="line">    mysql&gt; select sql_no_cache a.* from guang_deal_outs a inner join guang_deals b on a.deal_id = b.id where b.id = 100017151;</span><br><span class="line">    Empty set (0.01 sec)</span><br><span class="line"></span><br><span class="line">&#x539F;&#x56E0;</span><br><span class="line">mysql&gt; desc select sql_no_cache * from guang_deal_outs where deal_id in (select id from guang_deals where id = 100017151) ;</span><br><span class="line">2 rows in set (0.04 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; desc select sql_no_cache a.* from guang_deal_outs a inner join guang_deals b on a.deal_id = b.id where b.id = 100017151;</span><br><span class="line"> 2 rows in set (0.05 sec)</span><br></pre></td></tr></table></figure>
+<p>&#x5176;&#x5B9E;&#x5728;     <code>guang_deal_outs</code>  &#x5728;deal_id &#x4E0A;&#x4E5F;&#x662F;&#x6709;&#x7D22;&#x5F15;&#x7684;&#x3002;</p>
+<p>&#x5176;&#x5B9E;&#x5728;     <code>guang_deal_outs</code>  &#x5728;deal_id &#x4E0A;&#x4E5F;&#x662F;&#x6709;&#x7D22;&#x5F15;&#x7684;&#x3002;<br>&#x200B;    &#x5176;&#x5B9E;&#x6211;&#x60F3;&#x628A;&#x5B50;&#x67E5;&#x8BE2;&#x8BBE;&#x7F6E;&#x4E3A; </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> guang_deal_outs <span class="keyword">where</span> deal_id <span class="keyword">in</span> (<span class="keyword">select</span> <span class="keyword">id</span> <span class="keyword">from</span> guang_deals <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">100017151</span>);</span><br></pre></td></tr></table></figure>
+<p>&#x53D8;&#x6210;&#x4E0B;&#x9762;&#x7684;&#x6837;&#x5B50;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> guang_deal_outs <span class="keyword">where</span> deal_id <span class="keyword">in</span> (<span class="number">100017151</span>);</span><br></pre></td></tr></table></figure>
+<p>&#x4F46;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x6B63;&#x597D;&#x76F8;&#x53CD;&#x3002;MySQL&#x8BD5;&#x56FE;&#x8BA9;&#x5B83;&#x548C;&#x5916;&#x9762;&#x7684;&#x8868;&#x4EA7;&#x751F;&#x8054;&#x7CFB;&#x6765;&#x201C;&#x5E2E;&#x52A9;&#x201D;&#x4F18;&#x5316;&#x67E5;&#x8BE2;&#xFF0C;&#x5B83;&#x8BA4;&#x4E3A;&#x4E0B;&#x9762;&#x7684;exists&#x5F62;&#x5F0F;&#x66F4;&#x6709;&#x6548;&#x7387;</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> guang_deal_outs <span class="keyword">where</span> <span class="keyword">exists</span> (<span class="keyword">select</span> * <span class="keyword">from</span> guang_deals <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">100017151</span> <span class="keyword">and</span> <span class="keyword">id</span> = guang_deal_outs.deal_id);</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x79CD;in&#x5B50;&#x67E5;&#x8BE2;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5728;&#x5916;&#x90E8;&#x8868;&#xFF08;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x7684;guang_deals&#xFF09;&#x6570;&#x636E;&#x91CF;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x65F6;&#x5019;&#x6548;&#x7387;&#x662F;&#x5F88;&#x5DEE;&#x7684;&#xFF08;&#x5982;&#x679C;&#x5BF9;&#x4E8E;&#x8F83;&#x5C0F;&#x7684;&#x8868;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x663E;&#x8457;&#x5730;&#x5F71;&#x54CD;&#xFF09;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag">#数据库</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/22/面试关注点/" rel="next" title="面试关注点">
+                <i class="fa fa-chevron-left"></i> 面试关注点
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/22/4-MySQL性能优化/"
+     data-title="4.MySQL性能优化"
+     data-content=""
+     data-url="http://yoursite.com/2016/05/22/4-MySQL性能优化/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/22/4-MySQL性能优化/"
+           data-title="4.MySQL性能优化" data-url="http://yoursite.com/2016/05/22/4-MySQL性能优化/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/icon.jpg"
+               alt="Veblen" />
+          <p class="site-author-name" itemprop="name">Veblen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TIPS"><span class="nav-number">2.</span> <span class="nav-text">TIPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为查询优化你的查询"><span class="nav-number">2.1.</span> <span class="nav-text">1.为查询优化你的查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Explain你的Select"><span class="nav-number">2.2.</span> <span class="nav-text">2.Explain你的Select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-一行数据的时候使用LIMIT1"><span class="nav-number">2.3.</span> <span class="nav-text">3.一行数据的时候使用LIMIT1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-为搜索字段添加索引"><span class="nav-number">2.4.</span> <span class="nav-text">4.为搜索字段添加索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-在Join表的时候使用相当类型的列，并将其索引"><span class="nav-number">2.5.</span> <span class="nav-text">5.在Join表的时候使用相当类型的列，并将其索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-避免select"><span class="nav-number">2.6.</span> <span class="nav-text">6.避免select *</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-为所有的表设置一个自增的ID主键"><span class="nav-number">2.7.</span> <span class="nav-text">7.为所有的表设置一个自增的ID主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-特定字段使用ENUM"><span class="nav-number">2.8.</span> <span class="nav-text">8.特定字段使用ENUM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-尽可能使用NOT-NULL"><span class="nav-number">2.9.</span> <span class="nav-text">9.尽可能使用NOT NULL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-IP地址尽量存为Unsigned-Int"><span class="nav-number">2.10.</span> <span class="nav-text">10.IP地址尽量存为Unsigned Int</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-固定长度的表查询得更快"><span class="nav-number">2.11.</span> <span class="nav-text">11.固定长度的表查询得更快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-垂直分割"><span class="nav-number">2.12.</span> <span class="nav-text">12.垂直分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-拆分大的delete或者Insert语句"><span class="nav-number">2.13.</span> <span class="nav-text">13.拆分大的delete或者Insert语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-列越小-速度越快"><span class="nav-number">2.14.</span> <span class="nav-text">14.列越小,速度越快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-选择一个正确的存储引擎"><span class="nav-number">2.15.</span> <span class="nav-text">15.选择一个正确的存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-使用join优化查询速度"><span class="nav-number">2.16.</span> <span class="nav-text">16.使用join优化查询速度</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Veblen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"veblen96"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
