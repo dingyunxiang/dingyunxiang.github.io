@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/22/2-事务隔离级别/index.html">
 <meta property="og:site_name" content="Coding Life">
 <meta property="og:description" content="&amp;#x7B80;&amp;#x8FF0;4&amp;#x4E2A;&amp;#x7B49;&amp;#x7EA7;&amp;#x7684;&amp;#x4E8B;&amp;#x52A1;&amp;#x9694;&amp;#x79BB;&amp;#x7EA7;&amp;#x522B;&amp;#xFF0C;&amp;#x5728;&amp;#x76F8;&amp;#x540C;&amp;#x6570;&amp;#x636E;&amp;#x73AF;&amp;#x5883;&amp;#x4E0B;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x76F8">
-<meta property="og:updated_time" content="2016-05-22T06:16:45.000Z">
+<meta property="og:updated_time" content="2016-05-23T08:37:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2.事务隔离级别">
 <meta name="twitter:description" content="&amp;#x7B80;&amp;#x8FF0;4&amp;#x4E2A;&amp;#x7B49;&amp;#x7EA7;&amp;#x7684;&amp;#x4E8B;&amp;#x52A1;&amp;#x9694;&amp;#x79BB;&amp;#x7EA7;&amp;#x522B;&amp;#xFF0C;&amp;#x5728;&amp;#x76F8;&amp;#x540C;&amp;#x6570;&amp;#x636E;&amp;#x73AF;&amp;#x5883;&amp;#x4E0B;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&amp;#x76F8">
@@ -322,6 +322,10 @@
 
       
         <h2 id="&#x7B80;&#x8FF0;"><a href="#&#x7B80;&#x8FF0;" class="headerlink" title="&#x7B80;&#x8FF0;"></a>&#x7B80;&#x8FF0;</h2><p>4&#x4E2A;&#x7B49;&#x7EA7;&#x7684;&#x4E8B;&#x52A1;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#xFF0C;&#x5728;&#x76F8;&#x540C;&#x6570;&#x636E;&#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x6267;&#x884C;&#x76F8;&#x540C;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#xFF0C;&#x53EF;&#x4EE5;&#x5BFC;&#x81F4;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x4E0D;&#x540C;&#x4E8B;&#x52A1;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x80FD;&#x591F;&#x89E3;&#x51B3;&#x7684;&#x6570;&#x636E;&#x5E76;&#x53D1;&#x95EE;&#x9898;&#x7684;&#x80FD;&#x529B;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;</p>
+<h2 id="&#x56DB;&#x5927;&#x7279;&#x6027;"><a href="#&#x56DB;&#x5927;&#x7279;&#x6027;" class="headerlink" title="&#x56DB;&#x5927;&#x7279;&#x6027;"></a>&#x56DB;&#x5927;&#x7279;&#x6027;</h2><p>1&#x3001;&#x539F;&#x5B50;&#x6027;(Atomicity)&#xFF1A;&#x4E8B;&#x52A1;&#x4E2D;&#x7684;&#x5168;&#x90E8;&#x64CD;&#x4F5C;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x662F;&#x4E0D;&#x53EF;&#x5206;&#x5272;&#x7684;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90E8;&#x5B8C;&#x6210;&#xFF0C;&#x8981;&#x4E48;&#x5747;&#x4E0D;&#x6267;&#x884C;&#x3002;</p>
+<p>2&#x3001;&#x4E00;&#x81F4;&#x6027;(Consistency)&#xFF1A;&#x51E0;&#x4E2A;&#x5E76;&#x884C;&#x6267;&#x884C;&#x7684;&#x4E8B;&#x52A1;&#xFF0C;&#x5176;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5FC5;&#x987B;&#x4E0E;&#x6309;&#x67D0;&#x4E00;&#x987A;&#x5E8F;&#x4E32;&#x884C;&#x6267;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x76F8;&#x4E00;&#x81F4;&#x3002;</p>
+<p>3&#x3001;&#x9694;&#x79BB;&#x6027;(Isolation)&#xFF1A;&#x4E8B;&#x52A1;&#x7684;&#x6267;&#x884C;&#x4E0D;&#x53D7;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x7684;&#x5E72;&#x6270;&#xFF0C;&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x7684;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x5BF9;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x5FC5;&#x987B;&#x662F;&#x900F;&#x660E;&#x7684;&#x3002;</p>
+<p>4&#x3001;&#x6301;&#x4E45;&#x6027;(Durability)&#xFF1A;&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x5DF2;&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#xFF0C;&#x7CFB;&#x7EDF;&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x8BE5;&#x4E8B;&#x52A1;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6539;&#x53D8;&#x4E0D;&#x88AB;&#x4E22;&#x5931;&#xFF0C;&#x5373;&#x4F7F;&#x6570;&#x636E;&#x5E93;&#x51FA;&#x73B0;&#x6545;&#x969C;&#x3002;     </p>
 <h2 id="&#x8BFB;&#x672A;&#x63D0;&#x4EA4;"><a href="#&#x8BFB;&#x672A;&#x63D0;&#x4EA4;" class="headerlink" title="&#x8BFB;&#x672A;&#x63D0;&#x4EA4;"></a>&#x8BFB;&#x672A;&#x63D0;&#x4EA4;</h2><ol>
 <li>&#x4E0D;&#x8003;&#x8651;&#x4EFB;&#x4F55;&#x5E76;&#x53D1;&#x95EE;&#x9898;</li>
 <li>&#x6027;&#x80FD;&#x6700;&#x597D;,&#x4F46;&#x662F;&#x4F1A;&#x51FA;&#x73B0;&#x5404;&#x79CD;&#x95EE;&#x9898;</li>
@@ -477,7 +481,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -516,7 +520,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交"><span class="nav-number">2.</span> <span class="nav-text">读未提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读已提交-Oracle"><span class="nav-number">3.</span> <span class="nav-text">读已提交(Oracle)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可重复读-MySQL"><span class="nav-number">4.</span> <span class="nav-text">可重复读(MySQL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串行化"><span class="nav-number">5.</span> <span class="nav-text">串行化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tips"><span class="nav-number">5.1.</span> <span class="nav-text">tips:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四大特性"><span class="nav-number">2.</span> <span class="nav-text">四大特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读未提交"><span class="nav-number">3.</span> <span class="nav-text">读未提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读已提交-Oracle"><span class="nav-number">4.</span> <span class="nav-text">读已提交(Oracle)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可重复读-MySQL"><span class="nav-number">5.</span> <span class="nav-text">可重复读(MySQL)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串行化"><span class="nav-number">6.</span> <span class="nav-text">串行化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tips"><span class="nav-number">6.1.</span> <span class="nav-text">tips:</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
