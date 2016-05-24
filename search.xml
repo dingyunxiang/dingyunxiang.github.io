@@ -58,7 +58,14 @@
 <blockquote>
 <p>&#x975E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;</p>
 </blockquote>
-<h2 id="&#x5E76;&#x53D1;&#x5305;"><a href="#&#x5E76;&#x53D1;&#x5305;" class="headerlink" title="&#x5E76;&#x53D1;&#x5305;"></a>&#x5E76;&#x53D1;&#x5305;</h2>]]></content>
+<hr>
+<h2 id="&#x5E76;&#x53D1;&#x5305;"><a href="#&#x5E76;&#x53D1;&#x5305;" class="headerlink" title="&#x5E76;&#x53D1;&#x5305;"></a>&#x5E76;&#x53D1;&#x5305;</h2><h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><p>ConcurrentHashMap&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;HashMap&#x7684;&#x5B9E;&#x73B0;</p>
+<h3 id="ConcurrentHashMap-1"><a href="#ConcurrentHashMap-1" class="headerlink" title="ConcurrentHashMap()"></a>ConcurrentHashMap()</h3><p>initCapacity 16 loadFactor 0.75 concurrencyLevel 16</p>
+<h3 id="put-Obejct-key-Object-value-1"><a href="#put-Obejct-key-Object-value-1" class="headerlink" title="put(Obejct key,Object value)"></a>put(Obejct key,Object value)</h3><p>&#x6B64;&#x65B9;&#x6CD5;&#x5E76;&#x6CA1;&#x6709;&#x52A0;sychronized,&#x5148;&#x5224;&#x65AD;value&#x662F;&#x5426;&#x4E3A;null,&#x5982;&#x4E3A;null&#x629B;&#x51FA;&#x5F02;&#x5E38;,&#x4E0D;&#x4E3A;null&#x65F6;,&#x7EE7;&#x7EED;&#x4E0B;&#x9762;&#x7684;&#x64CD;&#x4F5C;:</p>
+<p>&#x5148;&#x5BF9;key.hashCode&#x8FDB;&#x884C;hash&#x64CD;&#x4F5C;,&#x5F97;&#x5230;key&#x7684;hash&#x503C;,&#x6839;&#x636E;&#x5B89;&#x5FBD;&#x7701;&#x503C;&#x8BA1;&#x7B97;&#x658C;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x6570;&#x7EC4;&#x4E2D;&#x7684;Segement&#x5BF9;&#x8C61;,&#x5728;&#x627E;&#x5230;Segment&#x5BF9;&#x8C61;&#x65F6;,&#x518D;&#x8C03;&#x7528;&#x5176;&#x7684;put()&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
+<p>&#x5728;&#x8C03;&#x7528;put()&#x65F6;,&#x5BF9;&#x5176;&#x8FDB;&#x884C;lock()&#x65B9;&#x6CD5;,&#x7136;&#x540E;&#x8FDB;&#x884C;&#x7684;&#x57FA;&#x672C;&#x4E0E;HashMap&#x4E00;&#x81F4;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;ConcurrentHashMap&#x57FA;&#x4E8E;concurrentLevel&#x5212;&#x5206;&#x51FA;&#x4E86;&#x591A;&#x4E2A;Segement&#x6765;&#x5BF9;key-value&#x8FDB;&#x884C;&#x5B58;&#x50A8;,&#x4ECE;&#x800C;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x9501;&#x4F4F;&#x6574;&#x4E2A;&#x6570;&#x7EC4;,&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x4EE5;&#x5141;&#x8BB8;16&#x4E2A;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x65E0;&#x963B;&#x585E;&#x7684;&#x64CD;&#x4F5C;&#x96C6;&#x5408;&#x5BF9;&#x8C61;</p>
+<h3 id="remove-Object-key"><a href="#remove-Object-key" class="headerlink" title="remove(Object key)"></a>remove(Object key)</h3>]]></content>
     </entry>
     
     <entry>
