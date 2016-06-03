@@ -4,9 +4,64 @@
   
     
     <entry>
+      <title><![CDATA[网络爬虫之requests]]></title>
+      <url>http://yoursite.com/2016/06/03/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E4%B9%8Brequests/</url>
+      <content type="html"><![CDATA[<h2 id="requests&#x5E93;"><a href="#requests&#x5E93;" class="headerlink" title="requests&#x5E93;"></a>requests&#x5E93;</h2><p>HTTP for Humans</p>
+<h2 id="&#x4F7F;&#x7528;"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">re = requests.get(<span class="string">&quot;http://www.shixiseng.com/interns?k=Java&amp;p=1&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> re.text</span><br></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x91C7;&#x7528;get&#x7684;HTTP&#x8BF7;&#x6C42;,requests&#x63D0;&#x4F9B;4&#x79CD;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;</p>
+<p>PUT ,DELETE &lt;HEAD&lt;OPTIONS&lt;POST</p>
+<h3 id="&#x4E3A;URL&#x4F20;&#x9012;&#x53C2;&#x6570;"><a href="#&#x4E3A;URL&#x4F20;&#x9012;&#x53C2;&#x6570;" class="headerlink" title="&#x4E3A;URL&#x4F20;&#x9012;&#x53C2;&#x6570;"></a>&#x4E3A;URL&#x4F20;&#x9012;&#x53C2;&#x6570;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">para = {&apos;k&apos;:&apos;java&apos;,&apos;p&apos;:&apos;1&apos;}</span><br><span class="line">url = &apos;http://www.shixiseng.com/interns&apos;</span><br><span class="line"></span><br><span class="line">r = requests.get(url,para)</span><br><span class="line"></span><br><span class="line">print r.url</span><br></pre></td></tr></table></figure>
+<h3 id="&#x786E;&#x8BA4;&#x7F16;&#x7801;"><a href="#&#x786E;&#x8BA4;&#x7F16;&#x7801;" class="headerlink" title="&#x786E;&#x8BA4;&#x7F16;&#x7801;"></a>&#x786E;&#x8BA4;&#x7F16;&#x7801;</h3><blockquote>
+<p>r.encoding</p>
+</blockquote>
+<h3 id="&#x4E8C;&#x8FDB;&#x5236;&#x76F8;&#x5E94;&#x5185;&#x5BB9;"><a href="#&#x4E8C;&#x8FDB;&#x5236;&#x76F8;&#x5E94;&#x5185;&#x5BB9;" class="headerlink" title="&#x4E8C;&#x8FDB;&#x5236;&#x76F8;&#x5E94;&#x5185;&#x5BB9;"></a>&#x4E8C;&#x8FDB;&#x5236;&#x76F8;&#x5E94;&#x5185;&#x5BB9;</h3><blockquote>
+<p>r.content</p>
+</blockquote>
+<h3 id="&#x539F;&#x59CB;&#x76F8;&#x5E94;&#x5185;&#x5BB9;"><a href="#&#x539F;&#x59CB;&#x76F8;&#x5E94;&#x5185;&#x5BB9;" class="headerlink" title="&#x539F;&#x59CB;&#x76F8;&#x5E94;&#x5185;&#x5BB9;"></a>&#x539F;&#x59CB;&#x76F8;&#x5E94;&#x5185;&#x5BB9;</h3><blockquote>
+<p>r.raw</p>
+</blockquote>
+<h3 id="&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;"><a href="#&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;" class="headerlink" title="&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;"></a>&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;</h3><p>&#x4E3A;&#x8BF7;&#x6C42;&#x5236;&#x5B9A;HTTP&#x5934;&#x90E8;,&#x53EA;&#x9700;&#x554A;&#x54DF;&#x4F20;&#x9012;&#x4E00;&#x4E2A;dict&#x7ED9;headers</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">import json</span><br><span class="line">url = &apos;https://api.github.com/some/endpoint&apos;</span><br><span class="line">payload = {&apos;some&apos;: &apos;data&apos;}</span><br><span class="line">headers = {&apos;content-type&apos;: &apos;application/json&apos;}</span><br><span class="line"></span><br><span class="line">r = requests.post(url, data=json.dumps(payload), headers=headers)</span><br></pre></td></tr></table></figure>
+<h3 id="&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;POST&#x8BF7;&#x6C42;"><a href="#&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;POST&#x8BF7;&#x6C42;" class="headerlink" title="&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;POST&#x8BF7;&#x6C42;"></a>&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;POST&#x8BF7;&#x6C42;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.post(&quot;http://httpbin.org/post&quot;, data=payload)</span><br></pre></td></tr></table></figure>
+<h3 id="&#x76F8;&#x5E94;&#x72B6;&#x6001;&#x7801;"><a href="#&#x76F8;&#x5E94;&#x72B6;&#x6001;&#x7801;" class="headerlink" title="&#x76F8;&#x5E94;&#x72B6;&#x6001;&#x7801;"></a>&#x76F8;&#x5E94;&#x72B6;&#x6001;&#x7801;</h3><blockquote>
+<p>r.status_code</p>
+</blockquote>
+<h3 id="&#x54CD;&#x5E94;&#x5934;"><a href="#&#x54CD;&#x5E94;&#x5934;" class="headerlink" title="&#x54CD;&#x5E94;&#x5934;"></a>&#x54CD;&#x5E94;&#x5934;</h3><blockquote>
+<p>r.headers </p>
+<p>r.header.get(&#x2018;<em>*</em>&#x2018;)</p>
+</blockquote>
+<h3 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h3><p>&#x5982;&#x679C;&#x8981;&#x5C06;&#x4F60;&#x7684;cookies&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;cookies&#x53C2;&#x6570;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &apos;http://httpbin.org/cookies&apos;</span><br><span class="line">cookies = {&apos;cookies_are&apos;:&apos;working&apos;}</span><br><span class="line"></span><br><span class="line">r = requests.get(url, cookies=cookies)</span><br><span class="line">print r.text</span><br></pre></td></tr></table></figure>
+<h3 id="&#x91CD;&#x5B9A;&#x5411;&#x95EE;&#x9898;"><a href="#&#x91CD;&#x5B9A;&#x5411;&#x95EE;&#x9898;" class="headerlink" title="&#x91CD;&#x5B9A;&#x5411;&#x95EE;&#x9898;"></a>&#x91CD;&#x5B9A;&#x5411;&#x95EE;&#x9898;</h3><blockquote>
+<p>Ex:</p>
+<p><a href="http://github.com" target="_blank" rel="external">http://github.com</a>  &gt;&gt; <a href="https://github.com" target="_blank" rel="external">https://github.com</a></p>
+<p>&#x4F7F;&#x7528;r.history&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#x662F;&#x5426;&#x8FDB;&#x884C;&#x4E86;&#x91CD;&#x5B9A;&#x5411;</p>
+<p>false &#x2014; &#x7981;&#x6B62;&#x91CD;&#x5B9A;&#x5411;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; r = requests.get(&apos;http://github.com&apos;, allow_redirects=False)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="&#x8D85;&#x65F6;"><a href="#&#x8D85;&#x65F6;" class="headerlink" title="&#x8D85;&#x65F6;"></a>&#x8D85;&#x65F6;</h3><p>timeout = 0.001</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests.get(&apos;http://github.com&apos;, timeout=0.001)</span><br></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[1.介绍]]></title>
+      <url>http://yoursite.com/2016/05/30/1-%E4%BB%8B%E7%BB%8D/</url>
+      <content type="html"><![CDATA[<h2 id="1-1&#x5386;&#x53F2;"><a href="#1-1&#x5386;&#x53F2;" class="headerlink" title="1.1&#x5386;&#x53F2;"></a>1.1&#x5386;&#x53F2;</h2><p>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x53D1;&#x5C55;&#x4F7F;&#x5F97;&#x591A;&#x4E2A;&#x7A0B;&#x5E8F;&#x80FD;&#x591F;&#x540C;&#x65F6;&#x8FD0;&#x884C;,&#x7A0B;&#x5E8F;&#x5728;&#x5404;&#x81EA;&#x7684;&#x8FDB;&#x7A0B;&#x4E2D;&#x8FD0;&#x884C;,&#x76F8;&#x4E92;&#x5206;&#x79BB;,&#x5404;&#x81EA;&#x72EC;&#x7ACB;&#x6267;&#x884C;,&#x7531;&#x7CFB;&#x7EDF;&#x6765;&#x5206;&#x914D;&#x8D44;&#x6E90;,&#x6709;&#x4E00;&#x4E9B;&#x4FC3;&#x8FDB;&#x56E0;&#x7D20;,&#x63A8;&#x52A8;&#x4E86;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x652F;&#x6301;&#x591A;&#x7A0B;&#x5E8F;&#x7684;&#x540C;&#x65F6;&#x6267;&#x884C;&#x7684;&#x53D1;&#x5C55;:</p>
+<ul>
+<li>&#x8D44;&#x6E90;&#x5229;&#x7528;    :&#x7A0B;&#x5E8F;&#x6709;&#x65F6;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x5916;&#x90E8;&#x64CD;&#x4F5C;,&#x4F8B;&#x5982;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;,&#x5E76;&#x4E14;&#x5728;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x6709;&#x4EF7;&#x503C;&#x7684;&#x5DE5;&#x4F5C;.&#x5728;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x5019;,&#x8BA9;&#x5176;&#x4ED6;&#x7684;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x4F1A;&#x63D0;&#x9AD8;&#x6548;&#x7387;;</li>
+<li>&#x516C;&#x5E73; :&#x591A;&#x4E2A;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x5BF9;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#x6709;&#x5E73;&#x7B49;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x522B;,&#x8BA9;&#x4ED6;&#x4EEC;&#x901A;&#x8FC7;&#x66F4;&#x597D;&#x7684;&#x65F6;&#x95F4;&#x7247;&#x6765;&#x5171;&#x4EAB;&#x8BA1;&#x7B97;&#x673A;,&#x6BD4;&#x7ED3;&#x675F;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x540E;&#x624D;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x4E2A;&#x66F4;&#x53EF;&#x53D6;;</li>
+<li>&#x65B9;&#x4FBF; :&#x8BA9;&#x4E00;&#x4E9B;&#x7A0B;&#x5E8F;&#x5404;&#x81EA;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x4EFB;&#x52A1;&#x5E76;&#x8FDB;&#x884C;&#x5FC5;&#x8981;&#x7684;&#x76F8;&#x4E92;&#x534F;&#x8C03;,&#x6BD4;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x6765;&#x6267;&#x884C;&#x6240;&#x6709;&#x7684;&#x4EFB;&#x52A1;&#x66F4;&#x5BB9;&#x6613;;</li>
+</ul>
+<hr>
+<p>&#x987A;&#x5E8F;&#x6A21;&#x578B;&#x662F;&#x81EA;&#x7136;&#x7684;,&#x5E38;&#x89C4;&#x7684;,&#x4E00;&#x6B21;&#x505A;&#x4E00;&#x4EF6;&#x4E8B;,&#x987A;&#x5E8F;&#x8FDB;&#x884C;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[2.Java基础]]></title>
       <url>http://yoursite.com/2016/05/29/2-Java%E5%9F%BA%E7%A1%80/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<h2 id="1-&#x90E8;&#x5206;Java&#x6E90;&#x4EE3;&#x7801;"><a href="#1-&#x90E8;&#x5206;Java&#x6E90;&#x4EE3;&#x7801;" class="headerlink" title="1.&#x90E8;&#x5206;Java&#x6E90;&#x4EE3;&#x7801;"></a>1.&#x90E8;&#x5206;Java&#x6E90;&#x4EE3;&#x7801;</h2><h3 id="1-String"><a href="#1-String" class="headerlink" title="1.String"></a>1.String</h3><p>&#x5C5E;&#x6027;&#x4E3B;&#x8981;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;;1.value()&#x6570;&#x7EC4;&#x548C;hash&#x503C;</p>
+]]></content>
     </entry>
     
     <entry>
@@ -469,7 +524,20 @@
 <p>cat        &#x2014; &#x7531;&#x7B2C;&#x4E00;&#x884C;&#x5F00;&#x59CB;&#x663E;&#x793A;</p>
 <p>locate    &#x2014; &#x5BFB;&#x627E;&#x7279;&#x5B9A;&#x6863;&#x6848;</p>
 <p>find        &#x2014; &#x5B9A;&#x4F4D;&#x7279;&#x5B9A;&#x6863;&#x6848;</p>
-]]></content>
+<h2 id="&#x642D;&#x5EFA;Linux&#x670D;&#x52A1;&#x5668;"><a href="#&#x642D;&#x5EFA;Linux&#x670D;&#x52A1;&#x5668;" class="headerlink" title="&#x642D;&#x5EFA;Linux&#x670D;&#x52A1;&#x5668;"></a>&#x642D;&#x5EFA;Linux&#x670D;&#x52A1;&#x5668;</h2><h3 id="1-&#x5173;&#x4E8E;&#x914D;&#x7F6E;Linux&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;"><a href="#1-&#x5173;&#x4E8E;&#x914D;&#x7F6E;Linux&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;" class="headerlink" title="1.&#x5173;&#x4E8E;&#x914D;&#x7F6E;Linux&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;"></a>1.&#x5173;&#x4E8E;&#x914D;&#x7F6E;Linux&#x514D;&#x5BC6;&#x7801;&#x767B;&#x5F55;</h3><ul>
+<li>ssh-keygen -t rsa</li>
+</ul>
+<p>&#x9996;&#x5148;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x673A;&#x5668;&#x4E0A;&#x751F;&#x6210;&#x516C;&#x94A5;id_rsa.pub&#x548C;&#x79C1;&#x94A5;id_rsa</p>
+<p>&#x7136;&#x540E;&#x5728;&#x76EE;&#x6807;&#x4E3B;&#x673A;&#x4E0A;&#x7684;~&#x6587;&#x4EF6;&#x4E0B;&#x65B0;&#x5EFA;.ssh&#x6587;&#x4EF6;&#x5939;,&#x7136;&#x540E;&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x4F7F;&#x7528;scp &#x5C06;&#x5176;&#x53D1;&#x9001;&#x5230;&#x6B64;&#x5904;</p>
+<p>scp id_rsa.pub root@&#x2026;.:~/.ssh</p>
+<p>&#x7136;&#x540E; A.id_rsa.pub &gt;&gt; authorized_keys&#x5373;&#x53EF;</p>
+<h3 id="2-&#x5B89;&#x88C5;oh-my-zsh"><a href="#2-&#x5B89;&#x88C5;oh-my-zsh" class="headerlink" title="2.&#x5B89;&#x88C5;oh-my-zsh"></a>2.&#x5B89;&#x88C5;oh-my-zsh</h3><p>oh-my-zsh&#x662F;&#x4E2A;&#x4EBA;&#x6BD4;&#x8F83;&#x559C;&#x6B22;&#x7684;&#x4E00;&#x79CD;shell</p>
+<p>mac&#x4E0A;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x4E0D;&#x505A;&#x4ECB;&#x7ECD;,&#x8FD9;&#x91CC;&#x8BB2;&#x4E00;&#x4E0B;Ubuntu&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</p>
+<p>&#x9996;&#x5148;&#x5B89;&#x88C5;zsh:sudo apt-get install zsh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s /bin/zsh</span><br></pre></td></tr></table></figure>
+<p>&#x91CD;&#x542F;&#x5373;&#x53EF;</p>
+<h3 id="3-&#x5B89;&#x88C5;jdk"><a href="#3-&#x5B89;&#x88C5;jdk" class="headerlink" title="3.&#x5B89;&#x88C5;jdk"></a>3.&#x5B89;&#x88C5;jdk</h3>]]></content>
     </entry>
     
     <entry>
@@ -741,7 +809,12 @@
 <p>3&#x3001; &#x5206;&#x53D1;&#x7EBF;&#x7A0B;&#x4E0D;&#x505C;&#x7684;&#x8F6E;&#x8BE2;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x961F;&#x5217;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x6709;&#x53EF;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x6254;&#x7ED9;&#x63A5;&#x6536;&#x7EBF;&#x7A0B;&#x6C60;&#x53BB;&#x5904;&#x7406;&#xFF1B;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x6709;&#x53EF;&#x53D1;&#x9001;&#x6570;&#x636E;&#x7684;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x6254;&#x7ED9;&#x53D1;&#x9001;&#x7EBF;&#x7A0B;&#x6C60;&#x53BB;&#x5904;&#x7406;&#x3002;&#x5982;&#x679C;&#x8F6E;&#x8BE2;&#x4E00;&#x5708;&#x53D1;&#x73B0;&#x65E2;&#x6CA1;&#x6709;&#x53EF;&#x53D1;&#x9001;&#x6570;&#x636E;&#x7684;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x4E5F;&#x6CA1;&#x6709;&#x53EF;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x8BE5;&#x7EBF;&#x7A0B;&#x4F1A;&#x4F11;&#x7720;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF0C;&#x4F11;&#x7720;&#x8FC7;&#x540E;&#x53C8;&#x63A5;&#x7740;&#x5FAA;&#x73AF;&#x3002;</p>
 <p>4&#x3001; &#x53D1;&#x9001;&#x7EBF;&#x7A0B;&#x6C60;&#x5185;&#x6709;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x961F;&#x5217;&#xFF0C;&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x5E76;&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;&#x4E14;&#x8BB0;&#x5F55;&#x8FDE;&#x63A5;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x3002;</p>
 <p>5&#x3001; &#x63A5;&#x6536;&#x7EBF;&#x7A0B;&#x6C60;&#x5185;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x961F;&#x5217;&#xFF0C;&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5BF9;&#x8C61;&#x5E76;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x4E14;&#x8BB0;&#x5F55;&#x8FDE;&#x63A5;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x679C;&#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#x5305;&#x662F;&#x5FC3;&#x8DF3;&#x68C0;&#x6D4B;&#x5305;&#x5219;&#x66F4;&#x65B0;&#x8FDE;&#x63A5;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x6570;&#x636E;&#x5305;&#x5219;&#x901A;&#x8FC7;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x5BF9;&#x8C61;&#x53D1;&#x9001;&#x7ED9;probe&#x7CFB;&#x7EDF;&#x3002;</p>
-<h2 id="&#x6709;&#x5F85;&#x52A0;&#x5F3A;"><a href="#&#x6709;&#x5F85;&#x52A0;&#x5F3A;" class="headerlink" title="&#x6709;&#x5F85;&#x52A0;&#x5F3A;"></a><strong>&#x6709;&#x5F85;&#x52A0;&#x5F3A;</strong></h2>]]></content>
+<h2 id="&#x57FA;&#x4E8E;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x95F4;&#x7684;&#x901A;&#x4FE1;"><a href="#&#x57FA;&#x4E8E;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x95F4;&#x7684;&#x901A;&#x4FE1;" class="headerlink" title="&#x57FA;&#x4E8E;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x95F4;&#x7684;&#x901A;&#x4FE1;"></a>&#x57FA;&#x4E8E;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x95F4;&#x7684;&#x901A;&#x4FE1;</h2><h3 id="&#x57FA;&#x4E8E;Java&#x81EA;&#x8EAB;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x8FDC;&#x7A0B;&#x4EE3;&#x7528;&#x65B9;&#x5F0F;&#x7684;&#x7CFB;&#x7EDF;&#x95F4;&#x901A;&#x4FE1;"><a href="#&#x57FA;&#x4E8E;Java&#x81EA;&#x8EAB;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x8FDC;&#x7A0B;&#x4EE3;&#x7528;&#x65B9;&#x5F0F;&#x7684;&#x7CFB;&#x7EDF;&#x95F4;&#x901A;&#x4FE1;" class="headerlink" title="&#x57FA;&#x4E8E;Java&#x81EA;&#x8EAB;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x8FDC;&#x7A0B;&#x4EE3;&#x7528;&#x65B9;&#x5F0F;&#x7684;&#x7CFB;&#x7EDF;&#x95F4;&#x901A;&#x4FE1;"></a>&#x57FA;&#x4E8E;Java&#x81EA;&#x8EAB;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x8FDC;&#x7A0B;&#x4EE3;&#x7528;&#x65B9;&#x5F0F;&#x7684;&#x7CFB;&#x7EDF;&#x95F4;&#x901A;&#x4FE1;</h3><h4 id="RMI"><a href="#RMI" class="headerlink" title="RMI"></a>RMI</h4><p>&#x5BA2;&#x6237;&#x7AEF;&#x4EC5;&#x6709;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;,&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x5BF9;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x63A5;&#x53E3;&#x7684;&#x8C03;&#x7528;;</p>
+<p> <img src="/2016/05/19/1-&#x5206;&#x5E03;&#x5F0F;Java&#x5E94;&#x7528;/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-05-31 &#x4E0A;&#x5348;9.05.39.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-05-31 &#x4E0A;&#x5348;9.05.39"></p>
+<p>Sun JDK1.6&#x4EE5;&#x524D;&#x91C7;&#x7528;&#x7684;RMI&#x5B9E;&#x73B0;&#x57FA;&#x4E8E;TCP/IP+BIO&#x5B9E;&#x73B0;&#x7684;,RMI&#x901A;&#x8FC7;&#x542F;&#x52A8;RMI&#x6CE8;&#x518C;&#x5BF9;&#x8C61;&#x5728;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x4E0A;&#x76D1;&#x542C;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;,&#x5176;&#x5B9E;&#x73B0;&#x5B9E;&#x4F8B;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x5F0F;&#x7ED1;&#x5B9A;&#x5230;RMI&#x6CE8;&#x518C;&#x5BF9;&#x8C61;&#x4E0A;.</p>
+<h4 id="WebService"><a href="#WebService" class="headerlink" title="WebService"></a>WebService</h4><p>&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x529F;&#x80FD;&#x7684;&#x4E00;&#x65B9;&#x4EE5;HTTP&#x7684;&#x65B9;&#x5F0F;&#x63D0;&#x4F9B;&#x670D;&#x52A1;,&#x8BE5;&#x670D;&#x52A1;&#x4E00;WSDL&#x63CF;&#x8FF0;.&#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x63CF;&#x8FF0;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x534F;&#x8BAE;.&#x671F;&#x671B;&#x53C2;&#x6570;,&#x8FD4;&#x56DE;&#x683C;&#x5F0F;.&#x670D;&#x52A1;&#x5668;&#x548C;&#x8C03;&#x7528;&#x7AEF;&#x901A;&#x8FC7;SOAP&#x65B9;&#x5F0F;&#x6765;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;.</p>
+<p> <img src="/2016/05/19/1-&#x5206;&#x5E03;&#x5F0F;Java&#x5E94;&#x7528;/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-05-31 &#x4E0A;&#x5348;9.14.06.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-05-31 &#x4E0A;&#x5348;9.14.06"></p>
+]]></content>
     </entry>
     
     <entry>
