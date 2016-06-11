@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title><![CDATA[3.MongoDB操作]]></title>
+      <url>http://yoursite.com/2016/06/08/3-MongoDB%E6%93%8D%E4%BD%9C/</url>
+      <content type="html"><![CDATA[<h3 id="Mongdb&#x7684;&#x63D2;&#x5165;"><a href="#Mongdb&#x7684;&#x63D2;&#x5165;" class="headerlink" title="Mongdb&#x7684;&#x63D2;&#x5165;"></a>Mongdb&#x7684;&#x63D2;&#x5165;</h3><h4 id="&#x5355;&#x4E2A;&#x63D2;&#x5165;"><a href="#&#x5355;&#x4E2A;&#x63D2;&#x5165;" class="headerlink" title="&#x5355;&#x4E2A;&#x63D2;&#x5165;"></a>&#x5355;&#x4E2A;&#x63D2;&#x5165;</h4><p>db.foo.insert(&#x201C;dict&#x201D;:&#x201D;&#x2026;&#x201D;);</p>
+<h4 id="&#x6279;&#x91CF;&#x63D2;&#x5165;"><a href="#&#x6279;&#x91CF;&#x63D2;&#x5165;" class="headerlink" title="&#x6279;&#x91CF;&#x63D2;&#x5165;"></a>&#x6279;&#x91CF;&#x63D2;&#x5165;</h4><p>&#x4E00;&#x6B21;&#x63D2;&#x5165;&#x591A;&#x4E2A;&#x6587;&#x6863;&#x65F6;,&#x6279;&#x91CF;&#x63D2;&#x5165;&#x4F20;&#x9012;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7531;&#x6587;&#x6863;&#x6784;&#x6210;&#x7684;&#x6570;&#x7EC4;,&#x53EA;&#x662F;&#x5355;&#x4E2A;&#x7684;TCP&#x8BF7;&#x6C42;,&#x8282;&#x7701;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x5904;&#x7406;&#x65F6;&#x95F4;.&#x6D88;&#x606F;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E3A;16MB</p>
+<h4 id="&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;"><a href="#&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;" class="headerlink" title="&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;"></a>&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;</h4><p>&#x6267;&#x884C;&#x63D2;&#x5165;&#x7684;&#x65F6;&#x5019;,&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x4F1A;&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x5316;&#x6210;BSON&#x7684;&#x5F62;&#x5F0F;,&#x7136;&#x540E;&#x5C06;&#x5176;&#x9001;&#x5165;&#x6570;&#x636E;&#x5E93;.&#x6570;&#x636E;&#x5E93;&#x89E3;&#x6790;BSON,&#x68C0;&#x67E5;&#x662F;&#x5426;&#x5305;&#x542B;&#x201D;_id&#x201D;,&#x5E76;&#x4E14;&#x6587;&#x6863;&#x4E0D;&#x8D85;&#x8FC7;4MB(&#x5141;&#x8BB8;&#x63D2;&#x5165;&#x65E0;&#x6548;&#x7684;&#x6570;&#x636E;)</p>
+<h3 id="&#x5220;&#x9664;&#x6587;&#x6863;"><a href="#&#x5220;&#x9664;&#x6587;&#x6863;" class="headerlink" title="&#x5220;&#x9664;&#x6587;&#x6863;"></a>&#x5220;&#x9664;&#x6587;&#x6863;</h3><p>db.users.remove()</p>
+<p>&#x4E0A;&#x8BC9;&#x64CD;&#x4F5C;&#x4F1A;&#x5220;&#x9664;users&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x6863;,&#x4F46;&#x4E0D;&#x4F1A;&#x5220;&#x9664;&#x96C6;&#x5408;&#x672C;&#x8EAB;,&#x7D22;&#x5F15;&#x4E5F;&#x4F1A;&#x4FDD;&#x7559;</p>
+<p>&#x4E5F;&#x53EF;&#x5E26;&#x53C2;&#x6570;</p>
+<blockquote>
+<p>db.mailing.list.remove({&#x201C;opt-out&#x201D;:&#x201D;true&#x201D;})</p>
+</blockquote>
+<p>&#x6570;&#x636E;&#x5220;&#x9664;&#x662F;&#x6C38;&#x4E45;&#x6027;&#x7684;,&#x4E0D;&#x53EF;&#x5220;&#x9664;,&#x4E5F;&#x4E0D;&#x53EF;&#x6062;&#x590D;</p>
+<h4 id="&#x5220;&#x9664;&#x901F;&#x5EA6;"><a href="#&#x5220;&#x9664;&#x901F;&#x5EA6;" class="headerlink" title="&#x5220;&#x9664;&#x901F;&#x5EA6;"></a>&#x5220;&#x9664;&#x901F;&#x5EA6;</h4><p>sb.drop_collection(&#x201C;bar&#x201D;) &#x6765;&#x66FF;&#x4EE3;remove()&#x65F6;,&#x6574;&#x4E2A;&#x96C6;&#x5408;&#x548C;&#x7D22;&#x5F15;&#x90FD;&#x4F1A;&#x88AB;&#x5220;&#x9664;</p>
+<h3 id="&#x66F4;&#x65B0;&#x6587;&#x6863;"><a href="#&#x66F4;&#x65B0;&#x6587;&#x6863;" class="headerlink" title="&#x66F4;&#x65B0;&#x6587;&#x6863;"></a>&#x66F4;&#x65B0;&#x6587;&#x6863;</h3><p>&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x662F;&#x539F;&#x5B50;&#x7684;,&#x82E5;&#x4E24;&#x4E2A;&#x66F4;&#x65B0;&#x540C;&#x65F6;&#x53D1;&#x751F;,&#x5148;&#x5230;&#x8FBE;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5148;&#x6267;&#x884C;,&#x63A5;&#x7740;&#x6267;&#x884C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;</p>
+<h4 id="&#x6587;&#x6863;&#x66FF;&#x6362;"><a href="#&#x6587;&#x6863;&#x66FF;&#x6362;" class="headerlink" title="&#x6587;&#x6863;&#x66FF;&#x6362;"></a>&#x6587;&#x6863;&#x66FF;&#x6362;</h4><p>&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x662F;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5339;&#x914D;&#x4E86;&#x591A;&#x4E2A;&#x6587;&#x6863;,&#x6B64;&#x65F6;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x4F1A;&#x5931;&#x8D25;,&#x6240;&#x4EE5;&#x5728;&#x66F4;&#x65B0;&#x65F6;&#x6700;&#x597D;&#x4FDD;&#x8BC1;&#x5236;&#x5B9A;&#x552F;&#x4E00;&#x6587;&#x6863;</p>
+<blockquote>
+<p>&#x5148;&#x53BB;&#x5230;&#x5BF9;&#x5E94;&#x5217;&#x7684;&#x503C;,&#x518D;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5904;&#x7406;</p>
+</blockquote>
+<h4 id="&#x4F7F;&#x7528;&#x4FEE;&#x6539;&#x5668;"><a href="#&#x4F7F;&#x7528;&#x4FEE;&#x6539;&#x5668;" class="headerlink" title="&#x4F7F;&#x7528;&#x4FEE;&#x6539;&#x5668;"></a>&#x4F7F;&#x7528;&#x4FEE;&#x6539;&#x5668;</h4><h5 id="&#x201C;-set&#x201D;&#x4FEE;&#x6539;&#x5668;&#x5165;&#x95E8;"><a href="#&#x201C;-set&#x201D;&#x4FEE;&#x6539;&#x5668;&#x5165;&#x95E8;" class="headerlink" title="&#x201C;$set&#x201D;&#x4FEE;&#x6539;&#x5668;&#x5165;&#x95E8;"></a>&#x201C;$set&#x201D;&#x4FEE;&#x6539;&#x5668;&#x5165;&#x95E8;</h5><blockquote>
+<p>db.users.update({&#x201C;name&#x201D;:&#x201D;joe&#x201D;},&#x2026;{&#x201C;$set&#x201D;:{&#x201C;a&#x201D;:&#x201D;b&#x201D;}})</p>
+</blockquote>
+<h5 id="&#x589E;&#x52A0;&#x548C;&#x51CF;&#x5C11;"><a href="#&#x589E;&#x52A0;&#x548C;&#x51CF;&#x5C11;" class="headerlink" title="&#x589E;&#x52A0;&#x548C;&#x51CF;&#x5C11;"></a>&#x589E;&#x52A0;&#x548C;&#x51CF;&#x5C11;</h5><p>&#x201C;$inc&#x201D;&#x7528;&#x6765;&#x65E9;&#x5462;&#x66F4;&#x52A0;&#x5DF2;&#x6709;&#x952E;&#x7684;&#x503C;</p>
+<p>(inc&#x952E;&#x7684;&#x503C;&#x5FC5;&#x987B;&#x4E3A;&#x6570;&#x5B57;,&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7C7B;&#x578B;)</p>
+<h4 id="&#x201C;-push&#x201D;&#x6570;&#x7EC4;&#x4FEE;&#x6539;&#x5668;"><a href="#&#x201C;-push&#x201D;&#x6570;&#x7EC4;&#x4FEE;&#x6539;&#x5668;" class="headerlink" title="&#x201C;$push&#x201D;&#x6570;&#x7EC4;&#x4FEE;&#x6539;&#x5668;"></a>&#x201C;$push&#x201D;&#x6570;&#x7EC4;&#x4FEE;&#x6539;&#x5668;</h4><p>&#x7528;&#x6765;&#x6DFB;&#x52A0;&#x4E00;&#x6761;&#x6570;&#x636E;</p>
+<p>$ne : &#x5982;&#x679C;&#x6570;&#x636E;&#x4E0D;&#x518D;,&#x5C31;&#x5C06;&#x6570;&#x636E;&#x63D2;&#x5165;</p>
+<p>&#x201C;$addToSet&#x201D;:&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x91CD;&#x590D;</p>
+<p>&#x201C;$each&#x201D;:</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[2.MongoDB入门]]></title>
       <url>http://yoursite.com/2016/06/07/2-MongoDB%E5%85%A5%E9%97%A8/</url>
       <content type="html"><![CDATA[<h2 id="&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2><h3 id="1-&#x6587;&#x6863;"><a href="#1-&#x6587;&#x6863;" class="headerlink" title="1.&#x6587;&#x6863;"></a>1.&#x6587;&#x6863;</h3><p>&#x591A;&#x4E2A;&#x952E;&#x53CA;&#x5176;&#x5173;&#x8054;&#x7684;&#x503C;&#x6709;&#x5E8F;&#x7684;&#x653E;&#x7F6E;&#x5728;&#x4E00;&#x8D77;&#x4FBF;&#x662F;&#x6587;&#x6863;</p>
