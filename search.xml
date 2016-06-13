@@ -4,9 +4,83 @@
   
     
     <entry>
+      <title><![CDATA[六月规划]]></title>
+      <url>http://yoursite.com/2016/06/12/%E5%85%AD%E6%9C%88%E8%A7%84%E5%88%92/</url>
+      <content type="html"><![CDATA[<h2 id="&#x590D;&#x4E60;&#x8981;&#x70B9;"><a href="#&#x590D;&#x4E60;&#x8981;&#x70B9;" class="headerlink" title="&#x590D;&#x4E60;&#x8981;&#x70B9;"></a>&#x590D;&#x4E60;&#x8981;&#x70B9;</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><ul>
+<li>&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;</li>
+<li>&#x7EBF;&#x7A0B;</li>
+<li>&#x96C6;&#x5408;&#x7C7B;</li>
+<li>JVM</li>
+</ul>
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><ul>
+<li>Spring</li>
+<li>Mybatis</li>
+</ul>
+<h3 id="&#x6570;&#x636E;&#x5E93;"><a href="#&#x6570;&#x636E;&#x5E93;" class="headerlink" title="&#x6570;&#x636E;&#x5E93;"></a>&#x6570;&#x636E;&#x5E93;</h3><ul>
+<li>&#x5B58;&#x50A8;&#x5F15;&#x64CE;</li>
+<li>&#x4E8B;&#x52A1;</li>
+<li>&#x7D22;&#x5F15;</li>
+<li>NoSQL</li>
+</ul>
+<h3 id="&#x7F51;&#x7EDC;"><a href="#&#x7F51;&#x7EDC;" class="headerlink" title="&#x7F51;&#x7EDC;"></a>&#x7F51;&#x7EDC;</h3><ul>
+<li>TCP/IP</li>
+<li>&#x6ED1;&#x52A8;&#x63A7;&#x5236;&#x4E0E;&#x62E5;&#x585E;&#x907F;&#x514D;</li>
+</ul>
+<h3 id="&#x5176;&#x4ED6;"><a href="#&#x5176;&#x4ED6;" class="headerlink" title="&#x5176;&#x4ED6;"></a>&#x5176;&#x4ED6;</h3><ul>
+<li>&#x9AD8;&#x5E76;&#x53D1;</li>
+<li>&#x5206;&#x5E03;&#x5F0F;</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[1.OSX下的抓包工具]]></title>
+      <url>http://yoursite.com/2016/06/11/1-OSX%E4%B8%8B%E7%9A%84%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/</url>
+      <content type="html"><![CDATA[<h2 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>&#x4ECB;&#x7ECD;&#x4E00;&#x6B3E;OSX&#x4E0B;&#x7684;&#x6293;&#x5305;&#x5DE5;&#x5177;</p>
+<p><a href="http://pan.baidu.com/s/1gdu0S4V" target="_blank" rel="external">&#x8F6F;&#x4EF6;&#x5730;&#x5740;</a></p>
+<p><a href="http://pan.baidu.com/s/1i3gjEfj" target="_blank" rel="external">&#x7834;&#x89E3;jar&#x5305;&#x5730;&#x5740;</a></p>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x540E;&#x5728;resource-java&#x4E0B;&#x66FF;&#x6362;jar&#x5305;&#x5373;&#x53EF;</p>
+<h3 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h3>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[4.Mongo分布式]]></title>
+      <url>http://yoursite.com/2016/06/11/4-Mongo%E5%88%86%E5%B8%83%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<h2 id="Mongodb&#x590D;&#x5236;&#x539F;&#x7406;"><a href="#Mongodb&#x590D;&#x5236;&#x539F;&#x7406;" class="headerlink" title="Mongodb&#x590D;&#x5236;&#x539F;&#x7406;"></a>Mongodb&#x590D;&#x5236;&#x539F;&#x7406;</h2><p>Mongodb&#x7684;&#x590D;&#x5236;&#x53EA;&#x5C11;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x8282;&#x70B9;,&#x4E00;&#x4E2A;&#x662F;&#x4E3B;&#x8282;&#x70B9;,&#x8D1F;&#x8D23;&#x5904;&#x7406;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;,&#x5176;&#x4F59;&#x7684;&#x662F;&#x4ECE;&#x8282;&#x70B9;,&#x8D1F;&#x8D23;&#x590D;&#x5236;&#x4E3B;&#x8282;&#x70B9;&#x4E0A;&#x7684;&#x6570;&#x636E;</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[3.MongoDB操作]]></title>
       <url>http://yoursite.com/2016/06/08/3-MongoDB%E6%93%8D%E4%BD%9C/</url>
-      <content type="html"><![CDATA[<h3 id="Mongdb&#x7684;&#x63D2;&#x5165;"><a href="#Mongdb&#x7684;&#x63D2;&#x5165;" class="headerlink" title="Mongdb&#x7684;&#x63D2;&#x5165;"></a>Mongdb&#x7684;&#x63D2;&#x5165;</h3><h4 id="&#x5355;&#x4E2A;&#x63D2;&#x5165;"><a href="#&#x5355;&#x4E2A;&#x63D2;&#x5165;" class="headerlink" title="&#x5355;&#x4E2A;&#x63D2;&#x5165;"></a>&#x5355;&#x4E2A;&#x63D2;&#x5165;</h4><p>db.foo.insert(&#x201C;dict&#x201D;:&#x201D;&#x2026;&#x201D;);</p>
+      <content type="html"><![CDATA[<h2 id="&#x7B80;&#x5355;&#x547D;&#x4EE4;"><a href="#&#x7B80;&#x5355;&#x547D;&#x4EE4;" class="headerlink" title="&#x7B80;&#x5355;&#x547D;&#x4EE4;"></a>&#x7B80;&#x5355;&#x547D;&#x4EE4;</h2><blockquote>
+<p>&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;     use  test (&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#x4F1A;&#x521B;&#x5EFA;)</p>
+<p>&#x67E5;&#x770B;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;    show dbs</p>
+<p>&#x5220;&#x9664;&#x6570;&#x636E;&#x5E93;        db.dropDatabase()</p>
+<p>&#x5220;&#x9664;&#x96C6;&#x5408;            db.collection.drop()</p>
+</blockquote>
+<p>&#x63D2;&#x5165;&#x6587;&#x6863;</p>
+<blockquote>
+<p>db.collection.insert(doc)</p>
+</blockquote>
+<p>&#x66F4;&#x65B0;&#x6587;&#x6863;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(</span><br><span class="line">   &lt;query&gt;,</span><br><span class="line">   &lt;update&gt;,</span><br><span class="line">   {</span><br><span class="line">     upsert: &lt;boolean&gt;,</span><br><span class="line">     multi: &lt;boolean&gt;,</span><br><span class="line">     writeConcern: &lt;document&gt;</span><br><span class="line">   }</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>db.collection.update()</p>
+<p>db.collection.save()      &#x2014;&#x4F7F;&#x7528;id&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x91CD;&#x590D;&#x503C;</p>
+</blockquote>
+<p> <img src="/2016/06/08/3-MongoDB&#x64CD;&#x4F5C;/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-06-11 &#x4E0A;&#x5348;11.22.09.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-06-11 &#x4E0A;&#x5348;11.22.09"></p>
+<p>&#x5220;&#x9664;&#x6587;&#x6863;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(</span><br><span class="line">  &lt;query&gt; ,</span><br><span class="line">  {</span><br><span class="line">    justOne:&lt;boolean&gt;,</span><br><span class="line">    writeConnection:&lt;doc&gt;</span><br><span class="line">  }</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="&#x67E5;&#x8BE2;&#x6587;&#x6863;"><a href="#&#x67E5;&#x8BE2;&#x6587;&#x6863;" class="headerlink" title="&#x67E5;&#x8BE2;&#x6587;&#x6863;"></a>&#x67E5;&#x8BE2;&#x6587;&#x6863;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find()</span><br><span class="line">db.collection.find().pretty() (&#x4EE5;&#x6613;&#x8BFB;&#x7684;&#x65B9;&#x5F0F;&#x663E;&#x793A;)</span><br><span class="line">findOne()&#x53EA;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6587;&#x6863;</span><br></pre></td></tr></table></figure>
+<p> <img src="/2016/06/08/3-MongoDB&#x64CD;&#x4F5C;/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-06-11 &#x4E0B;&#x5348;12.58.31.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-06-11 &#x4E0B;&#x5348;12.58.31"></p>
+<h4 id="AND&#x6761;&#x4EF6;"><a href="#AND&#x6761;&#x4EF6;" class="headerlink" title="AND&#x6761;&#x4EF6;"></a>AND&#x6761;&#x4EF6;</h4><p>&#x6BCF;&#x4E2A;key&#x6839;&#x636E;&#x90FD;&#x597D;&#x9694;&#x5F00;,&#x76F8;&#x5F53;&#x4E8E;SQL&#x4E2D;&#x7684;and</p>
+<h4 id="OR&#x6761;&#x4EF6;"><a href="#OR&#x6761;&#x4EF6;" class="headerlink" title="OR&#x6761;&#x4EF6;"></a>OR&#x6761;&#x4EF6;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">db.col.find(</span><br><span class="line">   {</span><br><span class="line">      $or: [</span><br><span class="line">	     {key1: value1}, {key2:value2}</span><br><span class="line">      ]</span><br><span class="line">   }</span><br><span class="line">).pretty()</span><br></pre></td></tr></table></figure>
+<h3 id="&#x6761;&#x4EF6;&#x64CD;&#x4F5C;&#x7B26;"><a href="#&#x6761;&#x4EF6;&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="&#x6761;&#x4EF6;&#x64CD;&#x4F5C;&#x7B26;"></a>&#x6761;&#x4EF6;&#x64CD;&#x4F5C;&#x7B26;</h3><p>$gt   &#x2014; &#x5927;&#x4E8E;</p>
+<p>$lt    &#x2014; &#x5C0F;&#x4E8E;</p>
+<p>$gte   &#x2014; &#x5927;&#x4E8E;&#x7B49;&#x4E8E;</p>
+<p>$lte    &#x2014; &#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;</p>
+<h3 id="type&#x64CD;&#x4F5C;&#x7B26;"><a href="#type&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="$type&#x64CD;&#x4F5C;&#x7B26;"></a>$type&#x64CD;&#x4F5C;&#x7B26;</h3><h2 id="&#x539F;&#x7406;"><a href="#&#x539F;&#x7406;" class="headerlink" title="&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h2><h3 id="Mongdb&#x7684;&#x63D2;&#x5165;"><a href="#Mongdb&#x7684;&#x63D2;&#x5165;" class="headerlink" title="Mongdb&#x7684;&#x63D2;&#x5165;"></a>Mongdb&#x7684;&#x63D2;&#x5165;</h3><h4 id="&#x5355;&#x4E2A;&#x63D2;&#x5165;"><a href="#&#x5355;&#x4E2A;&#x63D2;&#x5165;" class="headerlink" title="&#x5355;&#x4E2A;&#x63D2;&#x5165;"></a>&#x5355;&#x4E2A;&#x63D2;&#x5165;</h4><p>db.foo.insert(&#x201C;dict&#x201D;:&#x201D;&#x2026;&#x201D;);</p>
 <h4 id="&#x6279;&#x91CF;&#x63D2;&#x5165;"><a href="#&#x6279;&#x91CF;&#x63D2;&#x5165;" class="headerlink" title="&#x6279;&#x91CF;&#x63D2;&#x5165;"></a>&#x6279;&#x91CF;&#x63D2;&#x5165;</h4><p>&#x4E00;&#x6B21;&#x63D2;&#x5165;&#x591A;&#x4E2A;&#x6587;&#x6863;&#x65F6;,&#x6279;&#x91CF;&#x63D2;&#x5165;&#x4F20;&#x9012;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7531;&#x6587;&#x6863;&#x6784;&#x6210;&#x7684;&#x6570;&#x7EC4;,&#x53EA;&#x662F;&#x5355;&#x4E2A;&#x7684;TCP&#x8BF7;&#x6C42;,&#x8282;&#x7701;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x5904;&#x7406;&#x65F6;&#x95F4;.&#x6D88;&#x606F;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x4E3A;16MB</p>
 <h4 id="&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;"><a href="#&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;" class="headerlink" title="&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;"></a>&#x63D2;&#x5165;&#x7684;&#x539F;&#x7406;&#x548C;&#x4F5C;&#x7528;</h4><p>&#x6267;&#x884C;&#x63D2;&#x5165;&#x7684;&#x65F6;&#x5019;,&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x4F1A;&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x5316;&#x6210;BSON&#x7684;&#x5F62;&#x5F0F;,&#x7136;&#x540E;&#x5C06;&#x5176;&#x9001;&#x5165;&#x6570;&#x636E;&#x5E93;.&#x6570;&#x636E;&#x5E93;&#x89E3;&#x6790;BSON,&#x68C0;&#x67E5;&#x662F;&#x5426;&#x5305;&#x542B;&#x201D;_id&#x201D;,&#x5E76;&#x4E14;&#x6587;&#x6863;&#x4E0D;&#x8D85;&#x8FC7;4MB(&#x5141;&#x8BB8;&#x63D2;&#x5165;&#x65E0;&#x6548;&#x7684;&#x6570;&#x636E;)</p>
 <h3 id="&#x5220;&#x9664;&#x6587;&#x6863;"><a href="#&#x5220;&#x9664;&#x6587;&#x6863;" class="headerlink" title="&#x5220;&#x9664;&#x6587;&#x6863;"></a>&#x5220;&#x9664;&#x6587;&#x6863;</h3><p>db.users.remove()</p>
