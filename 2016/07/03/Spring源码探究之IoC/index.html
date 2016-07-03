@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="网络," />
+  <meta name="keywords" content="Spring," />
 
 
 
@@ -84,16 +84,23 @@
 
 
 
-<meta name="description" content="&amp;#x6709;&amp;#x5173;&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;,&amp;#x963B;&amp;#x585E;&amp;#x4E0E;&amp;#x975E;&amp;#x963B;&amp;#x585E;1.&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;&amp;#x662F;&amp;#x9488;&amp;#x5BF9;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E">
+<meta name="description" content="&amp;#x5173;&amp;#x4E8E;IoC&amp;#x5BB9;&amp;#x5668;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;:BeanFactory&amp;#x548C;ApplicationContextBeanFactory&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;:
+BeanFactory&amp;#x8BBE;&amp;#x8BA1;&amp;#x4E86;getBean&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4.同步和异步,阻塞与非阻塞">
-<meta property="og:url" content="http://yoursite.com/2016/05/23/4-同步和异步-阻塞与非阻塞/index.html">
+<meta property="og:title" content="Spring源码探究之IoC">
+<meta property="og:url" content="http://yoursite.com/2016/07/03/Spring源码探究之IoC/index.html">
 <meta property="og:site_name" content="Coding Life">
-<meta property="og:description" content="&amp;#x6709;&amp;#x5173;&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;,&amp;#x963B;&amp;#x585E;&amp;#x4E0E;&amp;#x975E;&amp;#x963B;&amp;#x585E;1.&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;&amp;#x662F;&amp;#x9488;&amp;#x5BF9;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E">
-<meta property="og:updated_time" content="2016-05-23T08:33:24.000Z">
+<meta property="og:description" content="&amp;#x5173;&amp;#x4E8E;IoC&amp;#x5BB9;&amp;#x5668;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;:BeanFactory&amp;#x548C;ApplicationContextBeanFactory&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;:
+BeanFactory&amp;#x8BBE;&amp;#x8BA1;&amp;#x4E86;getBean&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;">
+<meta property="og:image" content="http://yoursite.com/2016/07/03/Spring源码探究之IoC/屏幕快照 2016-07-03 下午3.02.14.png">
+<meta property="og:image" content="http://yoursite.com/2016/07/03/Spring源码探究之IoC/屏幕快照 2016-07-03 下午3.10.54.png">
+<meta property="og:image" content="http://yoursite.com/2016/07/03/Spring源码探究之IoC/屏幕快照 2016-07-03 下午3.28.10.png">
+<meta property="og:updated_time" content="2016-07-03T07:46:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4.同步和异步,阻塞与非阻塞">
-<meta name="twitter:description" content="&amp;#x6709;&amp;#x5173;&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;,&amp;#x963B;&amp;#x585E;&amp;#x4E0E;&amp;#x975E;&amp;#x963B;&amp;#x585E;1.&amp;#x540C;&amp;#x6B65;&amp;#x548C;&amp;#x5F02;&amp;#x6B65;&amp;#x662F;&amp;#x9488;&amp;#x5BF9;&amp;#x5E94;&amp;#x7528;&amp;#x7A0B;&amp;#x5E">
+<meta name="twitter:title" content="Spring源码探究之IoC">
+<meta name="twitter:description" content="&amp;#x5173;&amp;#x4E8E;IoC&amp;#x5BB9;&amp;#x5668;&amp;#x7684;&amp;#x5B9E;&amp;#x73B0;:BeanFactory&amp;#x548C;ApplicationContextBeanFactory&amp;#x7684;&amp;#x5B9A;&amp;#x4E49;:
+BeanFactory&amp;#x8BBE;&amp;#x8BA1;&amp;#x4E86;getBean&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;">
+<meta name="twitter:image" content="http://yoursite.com/2016/07/03/Spring源码探究之IoC/屏幕快照 2016-07-03 下午3.02.14.png">
 
 
 
@@ -111,7 +118,7 @@
   };
 </script>
 
-  <title> 4.同步和异步,阻塞与非阻塞 | Coding Life </title>
+  <title> Spring源码探究之IoC | Coding Life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +281,7 @@
             
             
               
-                4.同步和异步,阻塞与非阻塞
+                Spring源码探究之IoC
               
             
           </h1>
@@ -286,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-23T16:14:36+08:00" content="2016-05-23">
-              2016-05-23
+            <time itemprop="dateCreated" datetime="2016-07-03T14:57:40+08:00" content="2016-07-03">
+              2016-07-03
             </time>
           </span>
 
@@ -297,8 +304,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/23/4-同步和异步-阻塞与非阻塞/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/4-同步和异步-阻塞与非阻塞/" itemprop="commentsCount"></span>
+                <a href="/2016/07/03/Spring源码探究之IoC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/03/Spring源码探究之IoC/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -321,23 +328,25 @@
       
 
       
-        <h2 id="&#x6709;&#x5173;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;-&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;"><a href="#&#x6709;&#x5173;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;-&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;" class="headerlink" title="&#x6709;&#x5173;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;,&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;"></a>&#x6709;&#x5173;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;,&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;</h2><p>1.&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x662F;&#x9488;&#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x548C;&#x5185;&#x6838;&#x4EA4;&#x4E92;&#x800C;&#x8A00;&#x7684;.</p>
-<p>2.&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;&#x662F;&#x9488;&#x5BF9;&#x8FDB;&#x7A0B;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x65F6;,&#x6839;&#x636E;IO&#x64CD;&#x4F5C;&#x7684;&#x5C31;&#x7EEA;&#x72B6;&#x6001;&#x6765;&#x91C7;&#x53D6;&#x7684;&#x4E0D;&#x540C;&#x65B9;&#x5F0F;;&#x963B;&#x585E;&#x72B6;&#x6001;&#x662F;&#x8BFB;&#x53D6;&#x6216;&#x5199;&#x5165;&#x51FD;&#x6570;&#x5C06;&#x4E00;&#x76F4;&#x7B49;&#x5F85;,&#x800C;&#x975E;&#x963B;&#x585E;&#x65B9;&#x5F0F;,&#x8BFB;&#x53D6;&#x6216;&#x8005;&#x5199;&#x5165;&#x51FD;&#x6570;&#x4F1A;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x503C;</p>
-<blockquote>
-<p>&#x7B80;&#x5355;&#x7684;&#x8BF4;,&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x662F;&#x76EE;&#x7684;,&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;&#x662F;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x5F0F;</p>
-</blockquote>
-<h3 id="&#x540C;&#x6B65;&#x963B;&#x585E;IO-Java-BIO"><a href="#&#x540C;&#x6B65;&#x963B;&#x585E;IO-Java-BIO" class="headerlink" title="&#x540C;&#x6B65;&#x963B;&#x585E;IO(Java BIO)"></a>&#x540C;&#x6B65;&#x963B;&#x585E;IO(Java BIO)</h3><p>&#x540C;&#x6B65;&#x5E76;&#x963B;&#x585E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5B9E;&#x73B0;&#x6A21;&#x5F0F;&#x4E3A;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5373;&#x5BA2;&#x6237;&#x7AEF;&#x6709;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x65F6;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x5C31;&#x9700;&#x8981;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;&#x4F1A;&#x9020;&#x6210;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7EBF;&#x7A0B;&#x5F00;&#x9500;&#xFF0C;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x6C60;&#x673A;&#x5236;&#x6539;&#x5584;&#x3002; </p>
-<h3 id="&#x540C;&#x6B65;&#x975E;&#x963B;&#x585E;-Java-NIO"><a href="#&#x540C;&#x6B65;&#x975E;&#x963B;&#x585E;-Java-NIO" class="headerlink" title="*&#x540C;&#x6B65;&#x975E;&#x963B;&#x585E;(Java NIO)"></a>*&#x540C;&#x6B65;&#x975E;&#x963B;&#x585E;(Java NIO)</h3><p>&#x540C;&#x6B65;&#x975E;&#x963B;&#x585E;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5B9E;&#x73B0;&#x6A21;&#x5F0F;&#x4E3A;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5373;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x7684;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x6CE8;&#x518C;&#x5230;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x4E0A;&#xFF0C;&#x591A;&#x8DEF;&#x590D;&#x7528;&#x5668;&#x8F6E;&#x8BE2;&#x5230;&#x8FDE;&#x63A5;&#x6709;I/O&#x8BF7;&#x6C42;&#x65F6;&#x624D;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x4E5F;&#x9700;&#x8981;&#x65F6;&#x4E0D;&#x65F6;&#x7684;&#x8BE2;&#x95EE;IO&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x5C31;&#x7EEA;&#xFF0C;&#x8FD9;&#x5C31;&#x8981;&#x6C42;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x4E0D;&#x505C;&#x7684;&#x53BB;&#x8BE2;&#x95EE;&#x3002; </p>
-<h3 id="&#x5F02;&#x6B65;&#x963B;&#x585E;IO&#xFF08;Java-NIO"><a href="#&#x5F02;&#x6B65;&#x963B;&#x585E;IO&#xFF08;Java-NIO" class="headerlink" title="&#x5F02;&#x6B65;&#x963B;&#x585E;IO&#xFF08;Java NIO)"></a>&#x5F02;&#x6B65;&#x963B;&#x585E;IO&#xFF08;Java NIO)</h3><p> &#x6B64;&#x79CD;&#x65B9;&#x5F0F;&#x4E0B;&#x662F;&#x6307;&#x5E94;&#x7528;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;IO&#x64CD;&#x4F5C;&#x4EE5;&#x540E;&#xFF0C;&#x4E0D;&#x7B49;&#x5F85;&#x5185;&#x6838;IO&#x64CD;&#x4F5C;&#x7684;&#x5B8C;&#x6210;&#xFF0C;&#x7B49;&#x5185;&#x6838;&#x5B8C;&#x6210;IO&#x64CD;&#x4F5C;&#x4EE5;&#x540E;&#x4F1A;&#x901A;&#x77E5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x6700;&#x5173;&#x952E;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x540C;&#x6B65;&#x5FC5;&#x987B;&#x7B49;&#x5F85;&#x6216;&#x8005;&#x4E3B;&#x52A8;&#x7684;&#x53BB;&#x8BE2;&#x95EE;IO&#x662F;&#x5426;&#x5B8C;&#x6210;&#xFF0C;&#x90A3;&#x4E48;&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;&#x662F;&#x963B;&#x585E;&#x7684;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#x662F;&#x901A;&#x8FC7;select&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x800C;select&#x51FD;&#x6570;&#x672C;&#x8EAB;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x662F;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x800C;&#x91C7;&#x7528;select&#x51FD;&#x6570;&#x6709;&#x4E2A;&#x597D;&#x5904;&#x5C31;&#x662F;&#x5B83;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#xFF08;&#x5982;&#x679C;&#x4ECE;UNP&#x7684;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;select&#x5C5E;&#x4E8E;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x4E3A;select&#x4E4B;&#x540E;&#xFF0C;&#x8FDB;&#x7A0B;&#x8FD8;&#x9700;&#x8981;&#x8BFB;&#x5199;&#x6570;&#x636E;&#xFF09;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x7CFB;&#x7EDF;&#x7684;&#x5E76;&#x53D1;&#x6027;&#xFF01;  </p>
-<blockquote>
-<p>&#x591A;&#x8DEF;IO&#x7684;&#x533A;&#x522B;:</p>
-<p>&#xFF08;1&#xFF09;select&#xFF0C;poll&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x4E0D;&#x65AD;&#x8F6E;&#x8BE2;&#x6240;&#x6709;fd&#x96C6;&#x5408;&#xFF0C;&#x76F4;&#x5230;&#x8BBE;&#x5907;&#x5C31;&#x7EEA;&#xFF0C;&#x671F;&#x95F4;&#x53EF;&#x80FD;&#x8981;&#x7761;&#x7720;&#x548C;&#x5524;&#x9192;&#x591A;&#x6B21;&#x4EA4;&#x66FF;&#x3002;&#x800C;epoll&#x5176;&#x5B9E;&#x4E5F;&#x9700;&#x8981;&#x8C03;&#x7528;epoll_wait&#x4E0D;&#x65AD;&#x8F6E;&#x8BE2;&#x5C31;&#x7EEA;&#x94FE;&#x8868;&#xFF0C;&#x671F;&#x95F4;&#x4E5F;&#x53EF;&#x80FD;&#x591A;&#x6B21;&#x7761;&#x7720;&#x548C;&#x5524;&#x9192;&#x4EA4;&#x66FF;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x662F;&#x8BBE;&#x5907;&#x5C31;&#x7EEA;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x628A;&#x5C31;&#x7EEA;fd&#x653E;&#x5165;&#x5C31;&#x7EEA;&#x94FE;&#x8868;&#x4E2D;&#xFF0C;&#x5E76;&#x5524;&#x9192;&#x5728;epoll_wait&#x4E2D;&#x8FDB;&#x5165;&#x7761;&#x7720;&#x7684;&#x8FDB;&#x7A0B;&#x3002;&#x867D;&#x7136;&#x90FD;&#x8981;&#x7761;&#x7720;&#x548C;&#x4EA4;&#x66FF;&#xFF0C;&#x4F46;&#x662F;select&#x548C;poll&#x5728;&#x201C;&#x9192;&#x7740;&#x201D;&#x7684;&#x65F6;&#x5019;&#x8981;&#x904D;&#x5386;&#x6574;&#x4E2A;fd&#x96C6;&#x5408;&#xFF0C;&#x800C;epoll&#x5728;&#x201C;&#x9192;&#x7740;&#x201D;&#x7684;&#x65F6;&#x5019;&#x53EA;&#x8981;&#x5224;&#x65AD;&#x4E00;&#x4E0B;&#x5C31;&#x7EEA;&#x94FE;&#x8868;&#x662F;&#x5426;&#x4E3A;&#x7A7A;&#x5C31;&#x884C;&#x4E86;&#xFF0C;&#x8FD9;&#x8282;&#x7701;&#x4E86;&#x5927;&#x91CF;&#x7684;CPU&#x65F6;&#x95F4;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x56DE;&#x8C03;&#x673A;&#x5236;&#x5E26;&#x6765;&#x7684;&#x6027;&#x80FD;&#x63D0;&#x5347;&#x3002;</p>
-<p>&#xFF08;2&#xFF09;select&#xFF0C;poll&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x90FD;&#x8981;&#x628A;fd&#x96C6;&#x5408;&#x4ECE;&#x7528;&#x6237;&#x6001;&#x5F80;&#x5185;&#x6838;&#x6001;&#x62F7;&#x8D1D;&#x4E00;&#x6B21;&#xFF0C;&#x5E76;&#x4E14;&#x8981;&#x628A;current&#x5F80;&#x8BBE;&#x5907;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E2D;&#x6302;&#x4E00;&#x6B21;&#xFF0C;&#x800C;epoll&#x53EA;&#x8981;&#x4E00;&#x6B21;&#x62F7;&#x8D1D;&#xFF0C;&#x800C;&#x4E14;&#x628A;current&#x5F80;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x4E0A;&#x6302;&#x4E5F;&#x53EA;&#x6302;&#x4E00;&#x6B21;&#xFF08;&#x5728;epoll_wait&#x7684;&#x5F00;&#x59CB;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x5E76;&#x4E0D;&#x662F;&#x8BBE;&#x5907;&#x7B49;&#x5F85;&#x961F;&#x5217;&#xFF0C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;epoll&#x5185;&#x90E8;&#x5B9A;&#x4E49;&#x7684;&#x7B49;&#x5F85;&#x961F;&#x5217;&#xFF09;&#x3002;&#x8FD9;&#x4E5F;&#x80FD;&#x8282;&#x7701;&#x4E0D;&#x5C11;&#x7684;&#x5F00;&#x9500;&#x3002;</p>
-</blockquote>
-<h3 id="&#x5F02;&#x6B65;&#x975E;&#x963B;&#x585E;IO"><a href="#&#x5F02;&#x6B65;&#x975E;&#x963B;&#x585E;IO" class="headerlink" title="&#x5F02;&#x6B65;&#x975E;&#x963B;&#x585E;IO:"></a>&#x5F02;&#x6B65;&#x975E;&#x963B;&#x585E;IO:</h3><p>   &#x5728;&#x6B64;&#x79CD;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x53EA;&#x9700;&#x8981;&#x53D1;&#x8D77;&#x4E00;&#x4E2A;IO&#x64CD;&#x4F5C;&#x7136;&#x540E;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#xFF0C;&#x7B49;IO&#x64CD;&#x4F5C;&#x771F;&#x6B63;&#x7684;&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F1A;&#x5F97;&#x5230;IO&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x6B64;&#x65F6;&#x7528;&#x6237;&#x8FDB;&#x7A0B;&#x53EA;&#x9700;&#x8981;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x5C31;&#x597D;&#x4E86;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x7684;IO&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x4E3A;&#x771F;&#x6B63;&#x7684;IO&#x8BFB;&#x53D6;&#x6216;&#x8005;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x5DF2;&#x7ECF;&#x7531;&#x5185;&#x6838;&#x5B8C;&#x6210;&#x4E86;&#x3002;    </p>
-<h2 id="&#x4F7F;&#x7528;&#x573A;&#x666F;"><a href="#&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>&#x4F7F;&#x7528;&#x573A;&#x666F;</h2><p>BIO&#x65B9;&#x5F0F;&#x9002;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;&#x6570;&#x76EE;&#x6BD4;&#x8F83;&#x5C0F;&#x4E14;&#x56FA;&#x5B9A;&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x8D44;&#x6E90;&#x8981;&#x6C42;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x5E76;&#x53D1;&#x5C40;&#x9650;&#x4E8E;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;JDK1.4&#x4EE5;&#x524D;&#x7684;&#x552F;&#x4E00;&#x9009;&#x62E9;&#xFF0C;&#x4F46;&#x7A0B;&#x5E8F;&#x76F4;&#x89C2;&#x7B80;&#x5355;&#x6613;&#x7406;&#x89E3;&#x3002;<br>    NIO&#x65B9;&#x5F0F;&#x9002;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;&#x6570;&#x76EE;&#x591A;&#x4E14;&#x8FDE;&#x63A5;&#x6BD4;&#x8F83;&#x77ED;&#xFF08;&#x8F7B;&#x64CD;&#x4F5C;&#xFF09;&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x6BD4;&#x5982;&#x804A;&#x5929;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5E76;&#x53D1;&#x5C40;&#x9650;&#x4E8E;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x7F16;&#x7A0B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;JDK1.4&#x5F00;&#x59CB;&#x652F;&#x6301;&#x3002;<br>    AIO&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;&#x6570;&#x76EE;&#x591A;&#x4E14;&#x8FDE;&#x63A5;&#x6BD4;&#x8F83;&#x957F;&#xFF08;&#x91CD;&#x64CD;&#x4F5C;&#xFF09;&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x6BD4;&#x5982;&#x76F8;&#x518C;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5145;&#x5206;&#x8C03;&#x7528;OS&#x53C2;&#x4E0E;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;&#xFF0C;&#x7F16;&#x7A0B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;JDK7&#x5F00;&#x59CB;&#x652F;&#x6301;&#x3002; </p>
-<p><a href="http://bbym010.iteye.com/blog/2100868" target="_blank" rel="external">&#x53C2;&#x8003;&#x94FE;&#x63A5;</a></p>
-
+        <h2 id="&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;-BeanFactory&#x548C;ApplicationContext"><a href="#&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;-BeanFactory&#x548C;ApplicationContext" class="headerlink" title="&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;:BeanFactory&#x548C;ApplicationContext"></a>&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;:BeanFactory&#x548C;ApplicationContext</h2><h3 id="BeanFactory&#x7684;&#x5B9A;&#x4E49;"><a href="#BeanFactory&#x7684;&#x5B9A;&#x4E49;" class="headerlink" title="BeanFactory&#x7684;&#x5B9A;&#x4E49;:"></a>BeanFactory&#x7684;&#x5B9A;&#x4E49;:</h3><p><img src="/2016/07/03/Spring&#x6E90;&#x7801;&#x63A2;&#x7A76;&#x4E4B;IoC/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.02.14.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.02.14"></p>
+<p>BeanFactory&#x8BBE;&#x8BA1;&#x4E86;getBean&#x65B9;&#x6CD5;&#x6765;&#x53D6;&#x5F97;IoC&#x5BB9;&#x5668;&#x7BA1;&#x7406;&#x7684;Bean,getBean()&#x65B9;&#x6CD5;&#x94DC;&#x9F13;&#x540D;&#x5B57;&#x6765;&#x83B7;&#x53D6;,&#x53EF;&#x4EE5;&#x9644;&#x52A0;&#x68C0;&#x8F66;&#x7684;&#x53C2;&#x6570;</p>
+<p>getAliases()     &#x2014;&#x83B7;&#x53D6;&#x522B;&#x540D;</p>
+<h3 id="XmlBeanFactory&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;"><a href="#XmlBeanFactory&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;" class="headerlink" title="XmlBeanFactory&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;"></a>XmlBeanFactory&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3><p>&#x6B64;&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;&#x7CFB;&#x5217; </p>
+<p> <img src="/2016/07/03/Spring&#x6E90;&#x7801;&#x63A2;&#x7A76;&#x4E4B;IoC/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.10.54.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.10.54"></p>
+<p>&#x5728;&#x6784;&#x5EFA;XmlBeanDefinition&#x8FD9;&#x4E2A;IoC&#x5BB9;&#x5668;&#x65F6;,&#x9700;&#x8981;&#x6307;&#x5B9A;BeanDefintion&#x7684;&#x4FE1;&#x606F;&#x6765;&#x6E90;</p>
+<p>&#x4F7F;&#x7528;BeanDefintionReader&#x6765;&#x8BFB;&#x53D6;xml&#x4E2D;&#x7684;resource</p>
+<p>&#x8BFB;&#x53D6;res&#x7684;&#x8FC7;&#x7A0B;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.spring.ioc;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by dingyunxiang on 16/7/1.</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.support.DefaultListableBeanFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.xml.XmlBeanDefinitionReader;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.io.ClassPathResource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.ContextConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">&quot;classpath:spring-ioc/spring-ioc.xml&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonTest</span> </span>{</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testXmlWire</span><span class="params">()</span></span>{</span><br><span class="line">        ClassPathResource res = <span class="keyword">new</span> ClassPathResource(<span class="string">&quot;spring-ioc/spring-ioc.xml&quot;</span>);</span><br><span class="line">        DefaultListableBeanFactory factory = <span class="keyword">new</span> DefaultListableBeanFactory();</span><br><span class="line">        XmlBeanDefinitionReader reader = <span class="keyword">new</span> XmlBeanDefinitionReader(factory);</span><br><span class="line">        reader.loadBeanDefinitions(res);</span><br><span class="line">        <span class="comment">//System.out.println(reader.);</span></span><br><span class="line">      	Person p = (Person) factory.getBean(<span class="string">&quot;person&quot;</span>);</span><br><span class="line">        System.out.println(p);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;xml&#x5F62;&#x5F0F;&#x7684;BeanDefintion,&#x901A;&#x8FC7;XmlBeanDefintionReader&#x6765;&#x8F7D;&#x5165;,&#x5E76;&#x56DE;&#x8C03;&#x7ED9;BeanFactory;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;IoC&#x5BB9;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E86;</p>
+<h3 id="ApplicationContext&#x7684;&#x7279;&#x70B9;"><a href="#ApplicationContext&#x7684;&#x7279;&#x70B9;" class="headerlink" title="ApplicationContext&#x7684;&#x7279;&#x70B9;"></a>ApplicationContext&#x7684;&#x7279;&#x70B9;</h3><p> <img src="/2016/07/03/Spring&#x6E90;&#x7801;&#x63A2;&#x7A76;&#x4E4B;IoC/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.28.10.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.28.10"></p>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x7684;&#x663E;&#x793A;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;ApplicationContext&#x5728;BeanFactory&#x4E0A;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x65B0;&#x7684;&#x529F;&#x80FD;</p>
+<ul>
+<li>&#x652F;&#x6301;&#x4E0D;&#x540C;&#x7684;&#x4FE1;&#x606F;&#x6E90;,&#x6269;&#x5C55;&#x4E86;MessageSource&#x63A5;&#x53E3;</li>
+<li>&#x8BBF;&#x95EE;&#x8D44;&#x6E90;.&#x4F53;&#x73B0;&#x5728;&#x5BF9;ResourceLoader&#x548C;Resource&#x7684;&#x652F;&#x6301;&#x4E0A;,&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#x5F97;&#x5230;Bean&#x5B9A;&#x4E49;&#x8D44;&#x6E90;</li>
+<li>&#x652F;&#x6301;&#x5E94;&#x7528;&#x4E8B;&#x4EF6; .&#x7EE7;&#x627F;&#x4E86;ApplicationEventPublisher(TODO:&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;..)</li>
+<li>&#x9762;&#x5411;&#x6846;&#x67B6;&#x7684;&#x4F7F;&#x7528;&#x98CE;&#x683C;</li>
+</ul>
+<h2 id="IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;"><a href="#IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;" class="headerlink" title="IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;"></a>IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;</h2>
       
     </div>
 
@@ -358,7 +367,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/网络/" rel="tag">#网络</a>
+            <a href="/tags/Spring/" rel="tag">#Spring</a>
           
         </div>
       
@@ -367,17 +376,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/23/Socket编程/" rel="next" title="Socket编程">
-                <i class="fa fa-chevron-left"></i> Socket编程
+              <a href="/2016/06/24/Java项目之秒杀系统/" rel="next" title="Java项目之秒杀系统">
+                <i class="fa fa-chevron-left"></i> Java项目之秒杀系统
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/24/4-Sun-JDK类库/" rel="prev" title="4.Sun JDK类库">
-                4.Sun JDK类库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -392,10 +397,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/23/4-同步和异步-阻塞与非阻塞/"
-     data-title="4.同步和异步,阻塞与非阻塞"
+        <div class="ds-share flat" data-thread-key="2016/07/03/Spring源码探究之IoC/"
+     data-title="Spring源码探究之IoC"
      data-content=""
-     data-url="http://yoursite.com/2016/05/23/4-同步和异步-阻塞与非阻塞/">
+     data-url="http://yoursite.com/2016/07/03/Spring源码探究之IoC/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -422,8 +427,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/23/4-同步和异步-阻塞与非阻塞/"
-           data-title="4.同步和异步,阻塞与非阻塞" data-url="http://yoursite.com/2016/05/23/4-同步和异步-阻塞与非阻塞/">
+      <div class="ds-thread" data-thread-key="2016/07/03/Spring源码探究之IoC/"
+           data-title="Spring源码探究之IoC" data-url="http://yoursite.com/2016/07/03/Spring源码探究之IoC/">
       </div>
     
   </div>
@@ -507,7 +512,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#有关同步和异步-阻塞与非阻塞"><span class="nav-number">1.</span> <span class="nav-text">有关同步和异步,阻塞与非阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步阻塞IO-Java-BIO"><span class="nav-number">1.1.</span> <span class="nav-text">同步阻塞IO(Java BIO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步非阻塞-Java-NIO"><span class="nav-number">1.2.</span> <span class="nav-text">*同步非阻塞(Java NIO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步阻塞IO（Java-NIO"><span class="nav-number">1.3.</span> <span class="nav-text">异步阻塞IO（Java NIO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步非阻塞IO"><span class="nav-number">1.4.</span> <span class="nav-text">异步非阻塞IO:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">2.</span> <span class="nav-text">使用场景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于IoC容器的实现-BeanFactory和ApplicationContext"><span class="nav-number">1.</span> <span class="nav-text">关于IoC容器的实现:BeanFactory和ApplicationContext</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanFactory的定义"><span class="nav-number">1.1.</span> <span class="nav-text">BeanFactory的定义:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XmlBeanFactory的工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">XmlBeanFactory的工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ApplicationContext的特点"><span class="nav-number">1.3.</span> <span class="nav-text">ApplicationContext的特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IoC容器的具体初始化过程"><span class="nav-number">2.</span> <span class="nav-text">IoC容器的具体初始化过程</span></a></li></ol></div>
             
           </div>
         </section>
