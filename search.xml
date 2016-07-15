@@ -4,6 +4,143 @@
   
     
     <entry>
+      <title><![CDATA[git命令大全]]></title>
+      <url>http://yoursite.com/2016/07/15/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/</url>
+      <content type="html"><![CDATA[<h2 id="&#x521B;&#x5EFA;&#x7248;&#x672C;&#x5E93;"><a href="#&#x521B;&#x5EFA;&#x7248;&#x672C;&#x5E93;" class="headerlink" title="&#x521B;&#x5EFA;&#x7248;&#x672C;&#x5E93;"></a>&#x521B;&#x5EFA;&#x7248;&#x672C;&#x5E93;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7248;&#x672C;&#x63A7;&#x5236;&#x4E0E;&#x67E5;&#x770B;"><a href="#&#x7248;&#x672C;&#x63A7;&#x5236;&#x4E0E;&#x67E5;&#x770B;" class="headerlink" title="&#x7248;&#x672C;&#x63A7;&#x5236;&#x4E0E;&#x67E5;&#x770B;"></a>&#x7248;&#x672C;&#x63A7;&#x5236;&#x4E0E;&#x67E5;&#x770B;</h2><ul>
+<li>git status</li>
+</ul>
+<p>&#x67E5;&#x770B;&#x4ED3;&#x5E93;&#x5F53;&#x671F;&#x7684;&#x72B6;&#x6001;</p>
+<ul>
+<li>git diff</li>
+</ul>
+<p>&#x67E5;&#x770B;&#x4E0E;&#x4E0A;&#x6B21;&#x4FEE;&#x6539;&#x7684;&#x533A;&#x522B;</p>
+<ul>
+<li>git add</li>
+</ul>
+<p>&#x5C06;&#x4FEE;&#x6539;&#x63D0;&#x4EA4;&#x5230;&#x4ED3;&#x5E93;</p>
+<ul>
+<li>git commit -m &#x201C;<em>*</em>&#x201C;</li>
+</ul>
+<p>&#x5C06;&#x4ED3;&#x5E93;&#x63D0;&#x4EA4;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</p>
+<h3 id="&#x7248;&#x672C;&#x56DE;&#x9000;"><a href="#&#x7248;&#x672C;&#x56DE;&#x9000;" class="headerlink" title="&#x7248;&#x672C;&#x56DE;&#x9000;"></a>&#x7248;&#x672C;&#x56DE;&#x9000;</h3><ul>
+<li>git log (&#x2014;pretty=oneline)</li>
+</ul>
+<p>&#x663E;&#x793A;&#x65E5;&#x5FD7;  </p>
+<ul>
+<li>git reset &#x2013;hard HEAD(&#x5F53;&#x524D;&#x7248;&#x672C;,&#x6BCF;&#x4E2A;^&#x5F80;&#x56DE;&#x4EE5;&#x591A;&#x529F;&#x80FD;&#x4E00;&#x4E2A;&#x7248;&#x672C;,HEAD~5)</li>
+<li>git reflog         &#x67E5;&#x770B;&#x591A;&#x6709;&#x64CD;&#x4F5C;&#x7684;id(&#x91CD;&#x8FD4;&#x672A;&#x6765;)</li>
+</ul>
+<h2 id="&#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6982;&#x5FF5;"><a href="#&#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6982;&#x5FF5;" class="headerlink" title="&#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6982;&#x5FF5;"></a>&#x5DE5;&#x4F5C;&#x533A;&#x548C;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6982;&#x5FF5;</h2><p>git add&#x5C06;&#x6240;&#x6709;&#x4FEE;&#x6539;&#x7684;&#x6587;&#x4EF6;&#x653E;&#x5230;&#x6682;&#x5B58;&#x533A;,&#x7136;&#x540E;&#x6267;&#x884C;commit&#x4E4B;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x6027;&#x7684;&#x5C06;&#x6240;&#x6709;&#x6682;&#x5B58;&#x533A;&#x7684;&#x4FEE;&#x6539;&#x63D0;&#x4EA4;&#x5206;&#x652F;</p>
+<h2 id="&#x7BA1;&#x7406;&#x4FEE;&#x6539;"><a href="#&#x7BA1;&#x7406;&#x4FEE;&#x6539;" class="headerlink" title="&#x7BA1;&#x7406;&#x4FEE;&#x6539;"></a>&#x7BA1;&#x7406;&#x4FEE;&#x6539;</h2><ul>
+<li>git checkout  - - file&#x53EF;&#x4EE5;&#x4E22;&#x5F03;&#x5DE5;&#x4F5C;&#x533A;&#x7684;&#x4FEE;&#x6539;</li>
+</ul>
+<ul>
+<li>git reset HEAD file     &#x53EF;&#x4EE5;&#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x4FEE;&#x6539;&#x56DE;&#x9000;&#x5230;&#x5DE5;&#x4F5C;&#x533A;,&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;checkout</li>
+</ul>
+<h2 id="&#x5220;&#x9664;&#x6587;&#x4EF6;"><a href="#&#x5220;&#x9664;&#x6587;&#x4EF6;" class="headerlink" title="&#x5220;&#x9664;&#x6587;&#x4EF6;"></a>&#x5220;&#x9664;&#x6587;&#x4EF6;</h2><ul>
+<li>git rm         &#x2014;&#x2014;&gt;          git commit</li>
+</ul>
+<h2 id="&#x5173;&#x8054;&#x8FDC;&#x7A0B;&#x5E93;"><a href="#&#x5173;&#x8054;&#x8FDC;&#x7A0B;&#x5E93;" class="headerlink" title="&#x5173;&#x8054;&#x8FDC;&#x7A0B;&#x5E93;"></a>&#x5173;&#x8054;&#x8FDC;&#x7A0B;&#x5E93;</h2><p>git remote add origin git@&#x2026;.</p>
+<h2 id="&#x5206;&#x652F;&#x7BA1;&#x7406;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;</h2><h3 id="&#x521B;&#x5EFA;dev&#x5206;&#x652F;-&#x5E76;&#x5207;&#x6362;"><a href="#&#x521B;&#x5EFA;dev&#x5206;&#x652F;-&#x5E76;&#x5207;&#x6362;" class="headerlink" title="&#x521B;&#x5EFA;dev&#x5206;&#x652F;,&#x5E76;&#x5207;&#x6362;"></a>&#x521B;&#x5EFA;dev&#x5206;&#x652F;,&#x5E76;&#x5207;&#x6362;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev </span><br><span class="line"></span><br><span class="line">-- &#x521B;&#x5EFA;   git  branch   &lt;name&gt;</span><br><span class="line">-- &#x5207;&#x6362;   git  checkout &lt;name&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5220;&#x9664;&#x5206;&#x652F;"><a href="#&#x5220;&#x9664;&#x5206;&#x652F;" class="headerlink" title="&#x5220;&#x9664;&#x5206;&#x652F;"></a>&#x5220;&#x9664;&#x5206;&#x652F;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
+<h3 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5206;&#x652F;"><a href="#&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5206;&#x652F;" class="headerlink" title="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5206;&#x652F;"></a>&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5206;&#x652F;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<h3 id="&#x5408;&#x5E76;&#x5206;&#x652F;"><a href="#&#x5408;&#x5E76;&#x5206;&#x652F;" class="headerlink" title="&#x5408;&#x5E76;&#x5206;&#x652F;"></a>&#x5408;&#x5E76;&#x5206;&#x652F;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
+<h2 id="&#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x95EE;&#x9898;"><a href="#&#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x95EE;&#x9898;" class="headerlink" title="&#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x95EE;&#x9898;"></a>&#x89E3;&#x51B3;&#x51B2;&#x7A81;&#x95EE;&#x9898;</h2><p>&#x624B;&#x52A8;&#x4FEE;&#x6539;&#x51B2;&#x7A81;&#x7ED3;&#x679C;,&#x7136;&#x540E;&#x5220;&#x9664;</p>
+<h2 id="&#x5206;&#x652F;&#x7BA1;&#x7406;&#x7B56;&#x7565;"><a href="#&#x5206;&#x652F;&#x7BA1;&#x7406;&#x7B56;&#x7565;" class="headerlink" title="&#x5206;&#x652F;&#x7BA1;&#x7406;&#x7B56;&#x7565;"></a>&#x5206;&#x652F;&#x7BA1;&#x7406;&#x7B56;&#x7565;</h2><p>git merge &#x2014; no-ff -m &#x201C;&#x5408;&#x5E76;&#x53C2;&#x6570;&#x201D;</p>
+<h2 id="Bug&#x5206;&#x652F;"><a href="#Bug&#x5206;&#x652F;" class="headerlink" title="Bug&#x5206;&#x652F;"></a>Bug&#x5206;&#x652F;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash     --&#x5C06;&#x60C5;&#x51B5;&#x4E34;&#x65F6;&#x4FDD;&#x5B58;&#x4E0B;&#x6765;</span><br></pre></td></tr></table></figure>
+<p>&#x4FEE;&#x590D;&#x5B8C;&#x6210;&#x540E;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br><span class="line"></span><br><span class="line">-- &#x4E0D;&#x5220;&#x9664;stash git stash apply  //   git stash drop</span><br><span class="line"></span><br><span class="line">-- &#x6062;&#x590D;&#x7684;&#x540C;&#x65F6;&#x5220;&#x9664;  git stash pop</span><br></pre></td></tr></table></figure>
+<p>&#x5F3A;&#x5236;&#x5220;&#x9664;(-D)</p>
+<h3 id="&#x63A8;&#x9001;&#x5206;&#x652F;"><a href="#&#x63A8;&#x9001;&#x5206;&#x652F;" class="headerlink" title="&#x63A8;&#x9001;&#x5206;&#x652F;"></a>&#x63A8;&#x9001;&#x5206;&#x652F;</h3><p>git push origin dev</p>
+<p>&#x65B0;&#x5EFA;&#x6807;&#x7B7E;</p>
+<p>git <tag></tag></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mybatis的Mapper文件]]></title>
+      <url>http://yoursite.com/2016/07/14/1-Mybatis%E7%9A%84Mapper%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<h2 id="SQL&#x6620;&#x5C04;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x9876;&#x7EA7;&#x5143;&#x7D20;"><a href="#SQL&#x6620;&#x5C04;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x9876;&#x7EA7;&#x5143;&#x7D20;" class="headerlink" title="SQL&#x6620;&#x5C04;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x9876;&#x7EA7;&#x5143;&#x7D20;"></a>SQL&#x6620;&#x5C04;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x9876;&#x7EA7;&#x5143;&#x7D20;</h2><ul>
+<li>cache            &#x914D;&#x7F6E;&#x7ED9;&#x5B9A;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x7684;&#x7F13;&#x5B58;</li>
+<li>cache-ref               &#x4ECE;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5F15;&#x7528;&#x7684;&#x7F13;&#x5B58;</li>
+<li>resultmap             &#x63CF;&#x8FF0;&#x5982;&#x4F55;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x96C6;&#x4E2D;&#x52A0;&#x8F7D;&#x5BF9;&#x8C61;</li>
+<li>parameterMap</li>
+<li>sql                        &#x53EF;&#x91CD;&#x7528;&#x7684;SQL&#x5757;</li>
+<li>insert</li>
+<li>update</li>
+<li>delete</li>
+<li>select</li>
+</ul>
+<p>Select Attributes<br>&#x5C5E;&#x6027;    &#x63CF;&#x8FF0;<br>id    &#x5728;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E2D;&#x552F;&#x4E00;&#x7684;&#x6807;&#x8BC6;&#x7B26;,&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x6765;&#x5F15;&#x7528;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x3002;<br>parameterType    &#x5C06;&#x4F1A;&#x4F20;&#x5165;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x7684;&#x5B8C;&#x5168;&#x9650;&#x5B9A;&#x540D;&#x6216;&#x522B;&#x540D;&#x3002;<br>parameterMap    &#x8FD9;&#x662F;&#x5F15;&#x7528;&#x5916;&#x90E8; parameterMap &#x7684;&#x5DF2;&#x7ECF;&#x88AB;&#x5E9F;&#x5F03;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x4F7F;&#x7528;&#x5185;&#x8054;&#x53C2;&#x6570;&#x6620;&#x5C04;&#x548C; parameterType &#x5C5E;&#x6027;&#x3002;<br>resultType    &#x4ECE;&#x8FD9;&#x6761;&#x8BED;&#x53E5;&#x4E2D;&#x8FD4;&#x56DE;&#x7684;&#x671F;&#x671B;&#x7C7B;&#x578B;&#x7684;&#x7C7B;&#x7684;&#x5B8C;&#x5168;&#x9650;&#x5B9A;&#x540D;&#x6216;&#x522B;&#x540D;&#x3002;&#x6CE8;&#x610F;&#x96C6;&#x5408;&#x60C5;&#x5F62;,&#x90A3;&#x5E94;&#x8BE5;&#x662F;&#x96C6;&#x5408;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x7684;&#x7C7B;&#x578B;,&#x800C;&#x4E0D;&#x80FD;&#x662F;&#x96C6;&#x5408;&#x672C;&#x8EAB;&#x3002;&#x4F7F;&#x7528; resultType &#x6216; resultMap,&#x4F46;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x3002;<br>resultMap    &#x547D;&#x540D;&#x5F15;&#x7528;&#x5916;&#x90E8;&#x7684; resultMap&#x3002;&#x8FD4;&#x56DE; map &#x662F; MyBatis &#x6700;&#x5177;&#x529B;&#x91CF;&#x7684;&#x7279;&#x6027;, &#x5BF9;&#x5176;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x7406;&#x89E3;&#x7684;&#x8BDD;, &#x8BB8;&#x591A;&#x590D;&#x6742;&#x6620;&#x5C04;&#x7684;&#x60C5;&#x5F62;&#x5C31;&#x80FD;&#x88AB;&#x89E3;&#x51B3;&#x4E86;&#x3002;&#x4F7F;&#x7528; resultMap &#x6216; resultType,&#x4F46;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x3002;<br>flushCache    &#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; true,&#x4E0D;&#x8BBA;&#x8BED;&#x53E5;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x88AB;&#x5E26;&#x54E6;&#x7528;,&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;&#x7F13;&#x5B58;&#x88AB;&#x6E05;&#x7A7A;&#x3002;&#x9ED8;&#x8BA4;&#x503C;:false&#x3002;<br>useCache    &#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; true, &#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x672C;&#x6761;&#x8BED;&#x53E5;&#x7684;&#x7ED3;&#x679C;&#x88AB;&#x7F13;&#x5B58;&#x3002;&#x9ED8;&#x8BA4;&#x503C;: true&#x3002;<br>timeout    &#x8FD9;&#x4E2A;&#x8BBE;&#x7F6E;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x7B49;&#x5F85;&#x6570;&#x636E;&#x5E93;&#x8FD4;&#x56DE;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;,&#x5E76;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x65F6;&#x95F4;&#x7684;&#x6700;&#x5927;&#x7B49;&#x5F85;&#x503C;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;(&#x9A71;&#x52A8;&#x81EA;&#x884C;&#x5904;&#x7406;)<br>fetchSize    &#x8FD9;&#x662F;&#x6697;&#x793A;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x6BCF;&#x6B21;&#x6279;&#x91CF;&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x884C;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;(&#x9A71;&#x52A8;&#x81EA;&#x884C;&#x5904;&#x7406;)&#x3002;<br>statementType    STA TEMENT,PREPARED &#x6216; CALLABLE &#x7684;&#x4E00;&#x79CD;&#x3002;&#x8FD9;&#x4F1A;&#x8BA9; MyBatis &#x4F7F;&#x7528;&#x9009;&#x62E9;&#x4F7F;&#x7528; Statement,PreparedStatement &#x6216; CallableStatement&#x3002;&#x9ED8;&#x8BA4;&#x503C;:PREPARED&#x3002;<br>resultSetType    FORWARD_ONLY|SCROLL_SENSITIVE|SCROLL_INSENSITIVE &#x4E2D;&#x7684;&#x4E00;&#x79CD;&#x3002;&#x9ED8;&#x8BA4;&#x662F;&#x4E0D;&#x8BBE;&#x7F6E;(&#x9A71;&#x52A8;&#x81EA;&#x884C;&#x5904;&#x7406;)&#x3002;<br>databaseId    In case there is a configured databaseIdProvider, MyBatis will load all statements with no databaseId attribute or with a databaseId that matches the current one. If case the same statement if found with and without the databaseId the latter will be discarded.</p>
+<h2 id="Mybatis&#x52A8;&#x6001;&#x6807;&#x7B7E;&#x8BE6;&#x89E3;"><a href="#Mybatis&#x52A8;&#x6001;&#x6807;&#x7B7E;&#x8BE6;&#x89E3;" class="headerlink" title="Mybatis&#x52A8;&#x6001;&#x6807;&#x7B7E;&#x8BE6;&#x89E3;"></a>Mybatis&#x52A8;&#x6001;&#x6807;&#x7B7E;&#x8BE6;&#x89E3;</h2><h3 id="if&#x6807;&#x7B7E;"><a href="#if&#x6807;&#x7B7E;" class="headerlink" title="if&#x6807;&#x7B7E;"></a>if&#x6807;&#x7B7E;</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot; getStudentListLikeName &quot; parameterType=&quot;StudentEntity&quot; resultMap=&quot;studentResultMap&quot;&gt;     </span><br><span class="line">    SELECT * from STUDENT_TBL ST      </span><br><span class="line">    &lt;if test=&quot;studentName!=null and studentName!=&apos;&apos; &quot;&gt;     </span><br><span class="line">        WHERE ST.STUDENT_NAME LIKE CONCAT(CONCAT(&apos;%&apos;, #{studentName}),&apos;%&apos;)      </span><br><span class="line">    &lt;/if&gt;     </span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>tips:&#x6CE8;&#x610F;&#x5F53;if&#x4E0D;&#x6210;&#x7ACB;&#x7684;&#x65F6;&#x5019;,&#x67E5;&#x8BE2;&#x7684;&#x662F;&#x6240;&#x6709;&#x7684;&#x503C;</p>
+<h3 id="where&#x6807;&#x7B7E;"><a href="#where&#x6807;&#x7B7E;" class="headerlink" title="where&#x6807;&#x7B7E;"></a>where&#x6807;&#x7B7E;</h3>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[DTD学习总结]]></title>
+      <url>http://yoursite.com/2016/07/03/DTD%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<h2 id="&#x4EC0;&#x4E48;&#x662F;DTD-&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;DTD"><a href="#&#x4EC0;&#x4E48;&#x662F;DTD-&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;DTD" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;DTD,&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;DTD?"></a>&#x4EC0;&#x4E48;&#x662F;DTD,&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;DTD?</h2><p>DTD    &#x2014;     Document Type Defintion(&#x6587;&#x6863;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;)</p>
+<p>&#x7528;&#x4E8E;&#x63CF;&#x8FF0;XML&#x6587;&#x6863;&#x7684;&#x7ED3;&#x6784;,&#x4E00;&#x4E2A;DTD&#x6587;&#x6863;&#x5305;&#x62EC;:</p>
+<ul>
+<li>&#x5143;&#x7D20;&#x7684;&#x5B9A;&#x4E49;&#x89C4;&#x5219;</li>
+</ul>
+<ul>
+<li>&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</li>
+</ul>
+<ul>
+<li>&#x5C5E;&#x6027;&#x7684;&#x5B9A;&#x4E49;&#x89C4;&#x5219;</li>
+</ul>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x5B9E;&#x4F53;&#x6216;&#x8005;&#x7B26;&#x53F7;&#x89C4;&#x5219;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x539F;&#x56E0;:&#x7EA6;&#x675F;XML&#x6807;&#x7B7E;&#x7684;&#x5199;&#x6CD5;</p>
+<h2 id="&#x5982;&#x4F55;&#x751F;&#x6210;&#x4E00;&#x4E2A;DTD&#x6587;&#x6863;"><a href="#&#x5982;&#x4F55;&#x751F;&#x6210;&#x4E00;&#x4E2A;DTD&#x6587;&#x6863;" class="headerlink" title="&#x5982;&#x4F55;&#x751F;&#x6210;&#x4E00;&#x4E2A;DTD&#x6587;&#x6863;"></a>&#x5982;&#x4F55;&#x751F;&#x6210;&#x4E00;&#x4E2A;DTD&#x6587;&#x6863;</h2><p>&#x5185;&#x90E8;DTD&#x6587;&#x6863;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE &#x6839;&#x5143;&#x7D20; [&#x5B9A;&#x4E49;&#x5185;&#x5BB9;]&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x5916;&#x90E8;DTD&#x6587;&#x6863;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE &#x6839;&#x5143;&#x7D20; SYSTEM &quot;DTD&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>&#x5185;&#x5916;&#x90E8;DTD&#x6587;&#x6863;&#x7ED3;&#x5408;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE &#x6839;&#x5143;&#x7D20; SYSTEM &quot;DTD&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&quot;[&#x5B9A;&#x4E49;&#x5185;&#x5BB9;]&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="DTD&#x8BED;&#x6CD5;"><a href="#DTD&#x8BED;&#x6CD5;" class="headerlink" title="DTD&#x8BED;&#x6CD5;"></a>DTD&#x8BED;&#x6CD5;</h2><h3 id="XML&#x5143;&#x7D20;&#x5B9A;&#x4E49;"><a href="#XML&#x5143;&#x7D20;&#x5B9A;&#x4E49;" class="headerlink" title="XML&#x5143;&#x7D20;&#x5B9A;&#x4E49;"></a>XML&#x5143;&#x7D20;&#x5B9A;&#x4E49;</h3><p>&#x8BED;&#x6CD5;&#x5982;&#x4E0B;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT &#x5143;&#x7D20;&#x540D;&#x79F0; &#x5143;&#x7D20;&#x7C7B;&#x578B;&gt;        //&#x5B9A;&#x4E49;&#x5143;&#x7D20;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x53EA;&#x80FD;&#x662F; ANY&#xFF08;&#x8868;&#x793A;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#xFF09;&#x6216;EMPTY&#xFF08;&#x7A7A;&#x5143;&#x7D20;&#xFF09;&#xFF1B;</span><br><span class="line">&lt;!ELEMENT &#x5143;&#x7D20;&#x540D;&#x79F0; (&#x5143;&#x7D20;&#x5185;&#x5BB9;)&gt;    //&#x5B9A;&#x4E49;&#x5143;&#x7D20;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x52A0;&#x4E0A;&#xFF08;&#xFF09;&#xFF1B;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>&#x5BF9;&#x4E8E;<strong>&#x5143;&#x7D20;&#x5185;&#x5BB9;</strong>&#xFF0C;</p>
+<p>&#x2014;-&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<p>&lt;!ELEMENT &#x5143;&#x7D20;&#x540D;&#x79F0; (&#x5B50;&#x5143;&#x7D20;1&#xFF0C;&#x5B50;&#x5143;&#x7D20;2&#xFF0C;&#x5B50;&#x5143;&#x7D20;3)&gt; &#x8868;&#x793A;3&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#xFF0C;&#x5E76;&#x4E14;&#x6309;&#x7167;&#x6B64;&#x987A;&#x5E8F;&#x51FA;&#x73B0;&#xFF1B;</p>
+<p>&lt;!ELEMENT &#x5143;&#x7D20;&#x540D;&#x79F0; (&#x5B50;&#x5143;&#x7D20;1|&#x5B50;&#x5143;&#x7D20;2|&#x5B50;&#x5143;&#x7D20;3)&gt; &#x8868;&#x793A;3&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x4E2D;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#xFF1B;</p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<p>(1)+&#xFF1A;1&#x6B21;&#x6216;&#x591A;&#x6B21;&#xFF1B;&#x6BD4;&#x5982; (name+)&#x8868;&#x793A;&#x6B64;name&#x5143;&#x7D20;&#x53EA;&#x80FD;&#x51FA;&#x73B0;1&#x6B21;&#x6216;&#x591A;&#x6B21;&#x3002;</p>
+<p>(2)?&#xFF1A;0&#x6B21;&#x6216;1&#x6B21;&#xFF1B;&#x6BD4;&#x5982;(name&#xFF1F;)&#x8868;&#x793A;&#x6B64;name&#x5143;&#x7D20;&#x53EA;&#x80FD;&#x51FA;&#x73B0;0&#x6B21;&#x6216;1&#x6B21;&#x3002;</p>
+<p>(3)<em>&#xFF1A;0&#x6B21;&#x6216;&#x591A;&#x6B21;&#xFF1B;&#x6BD4;&#x5982;(name</em>)&#x8868;&#x793A;&#x6B64;name&#x5143;&#x7D20;&#x4EFB;&#x610F;&#x51FA;&#x73B0;&#x51E0;&#x6B21;&#x3002;</p>
+<p>(4)&#x65E0;&#xFF1A;&#x53EA;&#x80FD;&#x4E00;&#x6B21;&#xFF1B;&#x6BD4;&#x5982;(name)&#x8868;&#x793A;&#x6B64;name&#x5143;&#x7D20;&#x53EA;&#x80FD;&#x51FA;&#x73B0;1&#x6B21;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5143;&#x7D20;&#x5185;&#x5BB9;&#xFF0C;</p>
+<p>&#x2014;-&#x4E5F;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5B50;&#x5143;&#x7D20;&#x5185;&#x5BB9;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;#PCDATA&#xFF0C;&#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32;&#xFF1B;</p>
+<p>(&#x7C7B;&#x4F3C;&#x4E8E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x5199;&#x6CD5;)</p>
+</blockquote>
+<h3 id="XML&#x5C5E;&#x6027;&#x5B9A;&#x4E49;"><a href="#XML&#x5C5E;&#x6027;&#x5B9A;&#x4E49;" class="headerlink" title="XML&#x5C5E;&#x6027;&#x5B9A;&#x4E49;"></a>XML&#x5C5E;&#x6027;&#x5B9A;&#x4E49;</h3><p>&lt;!ATTLIST &#x6807;&#x7B7E;&#x540D;</p>
+<pre><code>&#x5C5E;&#x6027;&#x540D;1        &#x5C5E;&#x6027;&#x7C7B;&#x578B;        &#x5C5E;&#x6027;&#x8BF4;&#x660E;
+
+&#x5C5E;&#x6027;&#x540D;2        &#x5C5E;&#x6027;&#x7C7B;&#x578B;        &#x5C5E;&#x6027;&#x8BF4;&#x660E;
+</code></pre><p>&gt;</p>
+<p>&#x5C5E;&#x6027;&#x7C7B;&#x578B;&#x5305;&#x62EC;:</p>
+<p>(1)CDATA&#xFF1A;&#x6700;&#x666E;&#x901A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1B;</p>
+<p>(2)&#x679A;&#x4E3E;&#xFF0C;&#x5373;&#xFF08;&#x503C;1|&#x503C;2|&#x503C;3&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x62EC;&#x53F7;</p>
+<p>(3)ID&#xFF1A;&#x5C5E;&#x6027;&#x503C;&#x9700;&#x8981;&#x4EE5;&#x5B57;&#x6BCD;&#x6216;&#x4E0B;&#x5212;&#x7EBF;&#x5F00;&#x5934;&#xFF1B;</p>
+<p>&#x5C5E;&#x6027;&#x8BF4;&#x660E;&#x53EF;&#x4EE5;&#x662F;&#xFF1A;</p>
+<p>(1)#REQUIRED&#xFF1A;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#xFF1B;</p>
+<p>(2)#IMPLED&#xFF1A;&#x53EF;&#x9009;&#x503C;&#xFF0C;&#x5373;&#x6B64;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#xFF1B;</p>
+<p>(3)#FIXED&#xFF1A;&#x56FA;&#x5B9A;&#x503C;&#xFF0C;&#x901A;&#x5E38;&#x8BED;&#x6CD5;&#x4E3A;&#xFF1A;#FIXED  &#x201C;&#x56FA;&#x5B9A;&#x503C;&#x201D;</p>
+<p>(4)&#x9ED8;&#x8BA4;&#x503C;&#xFF1B;</p>
+<h3 id="XML&#x5B9E;&#x4F53;&#x5B9A;&#x4E49;"><a href="#XML&#x5B9E;&#x4F53;&#x5B9A;&#x4E49;" class="headerlink" title="XML&#x5B9E;&#x4F53;&#x5B9A;&#x4E49;:"></a>XML&#x5B9E;&#x4F53;&#x5B9A;&#x4E49;:</h3><p>&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x4E2A;&#x53EF;&#x91CD;&#x7528;&#x91CF;</p>
+<p>&lt;!ENTITY &#x5B9E;&#x4F53;&#x540D;&#x8BCD; &#x201C;&#x5B9E;&#x4F53;&#x5185;&#x5BB9;&#x201D;&gt;</p>
+<p>&#x5728;xml&#x4E2D;&#x5F15;&#x7528;&#x65F6;&#x4F7F;&#x7528;   $entityName;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE beans (bean*)&gt;</span><br><span class="line">&lt;!ELEMENT bean (property*|constructor-arg*)&gt;</span><br><span class="line">&lt;!ELEMENT property (bean|list|set|map|props)&gt;</span><br><span class="line">&lt;!ELEMENT list (ref*)&gt;</span><br><span class="line">&lt;!ELEMENT set (ref|bean)*&gt;</span><br><span class="line">&lt;!ELEMENT map (entry*)&gt;</span><br><span class="line">&lt;!ELEMENT props (prop*)&gt;</span><br><span class="line">&lt;!ELEMENT prop (#PCDATA)&gt;</span><br><span class="line"></span><br><span class="line">&lt;!ATTLIST bean id ID #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST bean class CDATA #REQUIRED&gt;</span><br><span class="line">&lt;!ATTLIST bean value CDATA #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST property name CDATA #REQUIRED&gt;</span><br><span class="line">&lt;!ATTLIST property value CDATA #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST property ref IDREF #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST constructor-arg type CDATA #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST constructor-arg value CDATA #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST constructor-arg ref IDREF #IMPLIED&gt;</span><br><span class="line">&lt;!ATTLIST ref bean IDREF #REQUIRED&gt;</span><br><span class="line">&lt;!ATTLIST entry key CDATA #REQUIRED&gt;</span><br><span class="line">&lt;!ATTLIST entry value-ref IDREF #REQUIRED&gt;</span><br><span class="line">&lt;!ATTLIST prop key CDATA #REQUIRED&gt; xxxxxxxxxx</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Spring源码探究之IoC]]></title>
       <url>http://yoursite.com/2016/07/03/Spring%E6%BA%90%E7%A0%81%E6%8E%A2%E7%A9%B6%E4%B9%8BIoC/</url>
       <content type="html"><![CDATA[<h2 id="&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;-BeanFactory&#x548C;ApplicationContext"><a href="#&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;-BeanFactory&#x548C;ApplicationContext" class="headerlink" title="&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;:BeanFactory&#x548C;ApplicationContext"></a>&#x5173;&#x4E8E;IoC&#x5BB9;&#x5668;&#x7684;&#x5B9E;&#x73B0;:BeanFactory&#x548C;ApplicationContext</h2><h3 id="BeanFactory&#x7684;&#x5B9A;&#x4E49;"><a href="#BeanFactory&#x7684;&#x5B9A;&#x4E49;" class="headerlink" title="BeanFactory&#x7684;&#x5B9A;&#x4E49;:"></a>BeanFactory&#x7684;&#x5B9A;&#x4E49;:</h3><p><img src="/2016/07/03/Spring&#x6E90;&#x7801;&#x63A2;&#x7A76;&#x4E4B;IoC/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.02.14.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.02.14"></p>
@@ -24,7 +161,10 @@
 <li>&#x652F;&#x6301;&#x5E94;&#x7528;&#x4E8B;&#x4EF6; .&#x7EE7;&#x627F;&#x4E86;ApplicationEventPublisher(TODO:&#x5E72;&#x4EC0;&#x4E48;&#x7684;&#x6211;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;..)</li>
 <li>&#x9762;&#x5411;&#x6846;&#x67B6;&#x7684;&#x4F7F;&#x7528;&#x98CE;&#x683C;</li>
 </ul>
-<h2 id="IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;"><a href="#IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;" class="headerlink" title="IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;"></a>IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;</h2>]]></content>
+<h2 id="IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;"><a href="#IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;" class="headerlink" title="IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;"></a>IoC&#x5BB9;&#x5668;&#x7684;&#x5177;&#x4F53;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;</h2><p>&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x5206;&#x4E3A;&#x4E09;&#x90E8;,&#x5B9A;&#x4F4D;res,&#x8F7D;&#x5165;BeanDefintion,&#x6CE8;&#x518C;BeanDefintion</p>
+<h3 id="res&#x5B9A;&#x4F4D;"><a href="#res&#x5B9A;&#x4F4D;" class="headerlink" title="res&#x5B9A;&#x4F4D;"></a>res&#x5B9A;&#x4F4D;</h3><p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x4EE5;FileSystemXmlApplicationContext&#x4E3A;&#x4F8B;,&#x5206;&#x6790;&#x5176;&#x5B9E;&#x73B0;&#x6765;&#x770B;&#x5176;&#x5982;&#x4F55;&#x5B8C;&#x6210;res&#x5B9A;&#x4F4D;</p>
+<p> <img src="/2016/07/03/Spring&#x6E90;&#x7801;&#x63A2;&#x7A76;&#x4E4B;IoC/&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.54.10.png" alt="&#x5C4F;&#x5E55;&#x5FEB;&#x7167; 2016-07-03 &#x4E0B;&#x5348;3.54.10"></p>
+<h3 id="BeanDefintion&#x7684;&#x8F7D;&#x5165;&#x548C;&#x89E3;&#x6790;"><a href="#BeanDefintion&#x7684;&#x8F7D;&#x5165;&#x548C;&#x89E3;&#x6790;" class="headerlink" title="BeanDefintion&#x7684;&#x8F7D;&#x5165;&#x548C;&#x89E3;&#x6790;"></a>BeanDefintion&#x7684;&#x8F7D;&#x5165;&#x548C;&#x89E3;&#x6790;</h3>]]></content>
     </entry>
     
     <entry>
