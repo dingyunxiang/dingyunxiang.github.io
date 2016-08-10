@@ -1,0 +1,792 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java,多线程," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x5185;&amp;#x5B58;&amp;#x53EF;&amp;#x89C1;&amp;#x6027;?&amp;#x5728;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E2D;&amp;#x5185;&amp;#x5B58;&amp;#x662F;&amp;#x5982;&amp;#x4F55;&amp;#x5206;&amp;#x914D;&amp;#x7684;&amp;#x5462;?JVM&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java内存可见性">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/Java内存可见性/index.html">
+<meta property="og:site_name" content="Coding Life">
+<meta property="og:description" content="&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x5185;&amp;#x5B58;&amp;#x53EF;&amp;#x89C1;&amp;#x6027;?&amp;#x5728;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E2D;&amp;#x5185;&amp;#x5B58;&amp;#x662F;&amp;#x5982;&amp;#x4F55;&amp;#x5206;&amp;#x914D;&amp;#x7684;&amp;#x5462;?JVM&amp;#x">
+<meta property="og:updated_time" content="2016-08-10T08:18:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java内存可见性">
+<meta name="twitter:description" content="&amp;#x4EC0;&amp;#x4E48;&amp;#x662F;&amp;#x5185;&amp;#x5B58;&amp;#x53EF;&amp;#x89C1;&amp;#x6027;?&amp;#x5728;&amp;#x591A;&amp;#x7EBF;&amp;#x7A0B;&amp;#x7A0B;&amp;#x5E8F;&amp;#x4E2D;&amp;#x5185;&amp;#x5B58;&amp;#x662F;&amp;#x5982;&amp;#x4F55;&amp;#x5206;&amp;#x914D;&amp;#x7684;&amp;#x5462;?JVM&amp;#x">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Java内存可见性 | Coding Life </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f6b89b7bb1c2a928ef2d97a1a5afb063";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Coding Life</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java内存可见性
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T16:02:28+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/10/Java内存可见性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/10/Java内存可见性/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x4EC0;&#x4E48;&#x662F;&#x5185;&#x5B58;&#x53EF;&#x89C1;&#x6027;"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x5185;&#x5B58;&#x53EF;&#x89C1;&#x6027;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x5185;&#x5B58;&#x53EF;&#x89C1;&#x6027;?"></a>&#x4EC0;&#x4E48;&#x662F;&#x5185;&#x5B58;&#x53EF;&#x89C1;&#x6027;?</h2><p>&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x7A0B;&#x5E8F;&#x4E2D;&#x5185;&#x5B58;&#x662F;&#x5982;&#x4F55;&#x5206;&#x914D;&#x7684;&#x5462;?JVM&#x5C06;&#x5176;&#x5206;&#x4E3A;&#x4E3B;&#x5185;&#x5B58;&#x548C;&#x7EBF;&#x7A0B;&#x5185;&#x5B58;,&#x5F53;&#x7EBF;&#x7A0B;&#x4E0E;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x7684;&#x65F6;&#x5019;,&#x4FBF;&#x4F1A;&#x628A;&#x4E3B;&#x5185;&#x5B58;&#x7684;&#x53D8;&#x91CF;&#x590D;&#x5236;&#x5230;&#x7EBF;&#x7A0B;&#x5185;&#x5B58;&#x4E2D;.&#x53D1;&#x751F;&#x4FEE;&#x6539;&#x65F6;,&#x4F1A;&#x540C;&#x6B65;&#x5230;&#x4E3B;&#x5185;&#x5B58;</p>
+<h2 id="Sychronized&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;&#x7684;&#x539F;&#x7406;"><a href="#Sychronized&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;&#x7684;&#x539F;&#x7406;" class="headerlink" title="Sychronized&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;&#x7684;&#x539F;&#x7406;"></a>Sychronized&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;&#x7684;&#x539F;&#x7406;</h2><p>JMM&#x5BF9;Synchronized&#x89C4;&#x5B9A;&#xFF1A;</p>
+<p>&#x7EBF;&#x7A0B;&#x52A0;&#x9501;&#x65F6;&#xFF0C;&#x5C06;&#x6E05;&#x7A7A;&#x7EBF;&#x7A0B;&#x5185;&#x5B58;&#x4E2D;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x7528;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x65F6;&#x4ECE;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x91CD;&#x65B0;&#x8BFB;&#x53D6;&#x65B0;&#x503C;&#x3002;</p>
+<p>&#x7EBF;&#x7A0B;&#x89E3;&#x9501;&#x524D;&#xFF0C;&#x5FC5;&#x987B;&#x628A;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x7684;&#x6700;&#x65B0;&#x503C;&#x5237;&#x65B0;&#x5230;&#x4E3B;&#x5185;&#x5B58;&#x4E2D;&#x3002;</p>
+<h4 id="Volatile&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;"><a href="#Volatile&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;" class="headerlink" title="Volatile&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;"></a>Volatile&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;</h4><p>&#x52A0;&#x5165;&#x5185;&#x5B58;&#x5C4F;&#x969C;&#x548C;&#x7981;&#x6B62;&#x91CD;&#x6392;&#x5E8F;&#x4F18;&#x5316;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4F1A;&#x5728;volatile&#x5199;&#x64CD;&#x4F5C;&#x540E;&#x52A0;&#x5165;store&#x5C4F;&#x969C;&#x6307;&#x4EE4;&#xFF0C;&#x8BFB;&#x64CD;&#x4F5C;&#x524D;&#x52A0;&#x5165;load&#x5C4F;&#x969C;&#x6307;&#x4EE4;&#x3002;</p>
+<p>Volatile&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x53D8;&#x91CF;&#x64CD;&#x4F5C;&#x7684;&#x539F;&#x5B50;&#x6027;</p>
+<blockquote>
+<p>Volatile&#x7684;&#x539F;&#x7406;:</p>
+<p>&#x6709;volatile&#x53D8;&#x91CF;&#x4FEE;&#x9970;&#x7684;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x591A;&#x7B2C;&#x4E8C;&#x884C;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF0C;&#x901A;&#x8FC7;&#x67E5;IA-32&#x67B6;&#x6784;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x8005;&#x624B;&#x518C;&#x53EF;&#x77E5;&#xFF0C;lock&#x524D;&#x7F00;&#x7684;&#x6307;&#x4EE4;&#x5728;&#x591A;&#x6838;&#x5904;&#x7406;&#x5668;&#x4E0B;&#x4F1A;&#x5F15;&#x53D1;&#x4E86;&#x4E24;&#x4EF6;&#x4E8B;&#x60C5;&#x3002;</p>
+<ul>
+<li>&#x5C06;&#x5F53;&#x524D;&#x5904;&#x7406;&#x5668;&#x7F13;&#x5B58;&#x884C;&#x7684;&#x6570;&#x636E;&#x4F1A;&#x5199;&#x56DE;&#x5230;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x5199;&#x56DE;&#x5185;&#x5B58;&#x7684;&#x64CD;&#x4F5C;&#x4F1A;&#x5F15;&#x8D77;&#x5728;&#x5176;&#x4ED6;CPU&#x91CC;&#x7F13;&#x5B58;&#x4E86;&#x8BE5;&#x5185;&#x5B58;&#x5730;&#x5740;&#x7684;&#x6570;&#x636E;&#x65E0;&#x6548;&#x3002;</li>
+</ul>
+<p>&#x5904;&#x7406;&#x5668;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x5904;&#x7406;&#x901F;&#x5EA6;&#xFF0C;&#x4E0D;&#x76F4;&#x63A5;&#x548C;&#x5185;&#x5B58;&#x8FDB;&#x884C;&#x901A;&#x8BAF;&#xFF0C;&#x800C;&#x662F;&#x5148;&#x5C06;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x7684;&#x6570;&#x636E;&#x8BFB;&#x5230;&#x5185;&#x90E8;&#x7F13;&#x5B58;&#xFF08;L1,L2&#x6216;&#x5176;&#x4ED6;&#xFF09;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x64CD;&#x4F5C;&#x5B8C;&#x4E4B;&#x540E;&#x4E0D;&#x77E5;&#x9053;&#x4F55;&#x65F6;&#x4F1A;&#x5199;&#x5230;&#x5185;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x58F0;&#x660E;&#x4E86;Volatile&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;JVM&#x5C31;&#x4F1A;&#x5411;&#x5904;&#x7406;&#x5668;&#x53D1;&#x9001;&#x4E00;&#x6761;Lock&#x524D;&#x7F00;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x6240;&#x5728;&#x7F13;&#x5B58;&#x884C;&#x7684;&#x6570;&#x636E;&#x5199;&#x56DE;&#x5230;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x3002;&#x4F46;&#x662F;&#x5C31;&#x7B97;&#x5199;&#x56DE;&#x5230;&#x5185;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x5904;&#x7406;&#x5668;&#x7F13;&#x5B58;&#x7684;&#x503C;&#x8FD8;&#x662F;&#x65E7;&#x7684;&#xFF0C;&#x518D;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x64CD;&#x4F5C;&#x5C31;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x591A;&#x5904;&#x7406;&#x5668;&#x4E0B;&#xFF0C;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x5404;&#x4E2A;&#x5904;&#x7406;&#x5668;&#x7684;&#x7F13;&#x5B58;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x5C31;&#x4F1A;&#x5B9E;&#x73B0;&#x7F13;&#x5B58;&#x4E00;&#x81F4;&#x6027;&#x534F;&#x8BAE;&#xFF0C;&#x6BCF;&#x4E2A;&#x5904;&#x7406;&#x5668;&#x901A;&#x8FC7;&#x55C5;&#x63A2;&#x5728;&#x603B;&#x7EBF;&#x4E0A;&#x4F20;&#x64AD;&#x7684;&#x6570;&#x636E;&#x6765;&#x68C0;&#x67E5;&#x81EA;&#x5DF1;&#x7F13;&#x5B58;&#x7684;&#x503C;&#x662F;&#x4E0D;&#x662F;&#x8FC7;&#x671F;&#x4E86;&#xFF0C;&#x5F53;&#x5904;&#x7406;&#x5668;&#x53D1;&#x73B0;&#x81EA;&#x5DF1;&#x7F13;&#x5B58;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x88AB;&#x4FEE;&#x6539;&#xFF0C;&#x5C31;&#x4F1A;&#x5C06;&#x5F53;&#x524D;&#x5904;&#x7406;&#x5668;&#x7684;&#x7F13;&#x5B58;&#x884C;&#x8BBE;&#x7F6E;&#x6210;&#x65E0;&#x6548;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x5904;&#x7406;&#x5668;&#x8981;&#x5BF9;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x5F3A;&#x5236;&#x91CD;&#x65B0;&#x4ECE;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x91CC;&#x628A;&#x6570;&#x636E;&#x8BFB;&#x5230;&#x5904;&#x7406;&#x5668;&#x7F13;&#x5B58;&#x91CC;&#x3002;</p>
+</blockquote>
+<h2 id="Lock&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;"><a href="#Lock&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;" class="headerlink" title="Lock&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;"></a>Lock&#x5B9E;&#x73B0;&#x53EF;&#x89C1;&#x6027;</h2><p>lock&#x5E95;&#x5C42;&#x91C7;&#x7528;&#x7684;&#x662F;CAS<br>&#x4E00;&#x79CD;&#x79F0;&#x4E3A;&#x4E50;&#x89C2;&#x9501;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;&#x5185;&#x5B58;&#x5BF9;&#x6240;&#x6709;&#x53EF;&#x89C1;&#xFF0C;&#x4F46;&#x6BCF;&#x6B21;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x5BF9;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x503C;&#x4E0E;&#x5176;&#x671F;&#x671B;&#x503C;&#x5BF9;&#x6BD4;&#xFF0C;&#x82E5;&#x76F8;&#x540C;&#x66F4;&#x65B0;&#xFF0C;&#x4E0D;&#x76F8;&#x540C;&#x5219;&#x7528;&#x8FD9;&#x4E2A;&#x503C;&#x518D;&#x505A;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x8BA1;&#x7B97;&#xFF08;&#x5E76;&#x4FDD;&#x5B58;&#x6539;&#x503C;&#x4E3A;&#x671F;&#x671B;&#x503C;&#xFF09;&#xFF0C;&#x4E00;&#x76F4;&#x8FD9;&#x6837;&#x76F4;&#x5230;&#x6210;&#x529F;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x53EB;&#x81EA;&#x65CB;&#x9501;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/多线程/" rel="tag">#多线程</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/02/lambda表达式/" rel="next" title="lambda表达式">
+                <i class="fa fa-chevron-left"></i> lambda表达式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/10/Java内存可见性/"
+     data-title="Java内存可见性"
+     data-content=""
+     data-url="http://yoursite.com/2016/08/10/Java内存可见性/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/10/Java内存可见性/"
+           data-title="Java内存可见性" data-url="http://yoursite.com/2016/08/10/Java内存可见性/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/icon.jpg"
+               alt="Veblen" />
+          <p class="site-author-name" itemprop="name">Veblen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是内存可见性"><span class="nav-number">1.</span> <span class="nav-text">什么是内存可见性?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronized实现可见性的原理"><span class="nav-number">2.</span> <span class="nav-text">Sychronized实现可见性的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Volatile实现可见性"><span class="nav-number">2.0.1.</span> <span class="nav-text">Volatile实现可见性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lock实现可见性"><span class="nav-number">3.</span> <span class="nav-text">Lock实现可见性</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Veblen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"veblen96"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
