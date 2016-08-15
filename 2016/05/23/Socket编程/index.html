@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,网络," />
+  <meta name="keywords" content="网络,Java," />
 
 
 
@@ -123,6 +123,19 @@ IP+&amp;#x7AEF;&amp;#x53E3;&amp;#x6784;&amp;#x6210;Socket
       userId: 0,
       author: '博主'
     }
+  };
+</script>
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    root: '/',
+    algolia: {
+          applicationID: 'XEYDXL4ZNN',
+          apiKey: '204c76cfbe004006979cedd1680b63c9',
+          indexName: ''indexName',
+          hits: {"per_page":10},
+          labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+        }
   };
 </script>
 
@@ -366,9 +379,9 @@ IP+&amp;#x7AEF;&amp;#x53E3;&amp;#x6784;&amp;#x6210;Socket
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
-          
             <a href="/tags/网络/" rel="tag">#网络</a>
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
       
@@ -478,7 +491,7 @@ IP+&amp;#x7AEF;&amp;#x53E3;&amp;#x6784;&amp;#x6210;Socket
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -488,7 +501,7 @@ IP+&amp;#x7AEF;&amp;#x53E3;&amp;#x6784;&amp;#x6210;Socket
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -669,7 +682,7 @@ IP+&amp;#x7AEF;&amp;#x53E3;&amp;#x6784;&amp;#x6210;Socket
     // Popup Window;
     var isfetched = false;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "content.json";
     if (search_path.length == 0) {
        search_path = "search.xml";
     }

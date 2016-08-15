@@ -110,6 +110,19 @@
   };
 </script>
 
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    root: '/',
+    algolia: {
+          applicationID: 'XEYDXL4ZNN',
+          apiKey: '204c76cfbe004006979cedd1680b63c9',
+          indexName: ''indexName',
+          hits: {"per_page":10},
+          labels: {"input_placeholder":"搜索...","hits_empty":"未发现与 「${query}」相关的内容","hits_stats":"${hits} 条相关条目，使用了 ${time} 毫秒"}
+        }
+  };
+</script>
+
   <title> 标签: Mongodb | Coding Life </title>
 </head>
 
@@ -414,7 +427,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">56</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -424,7 +437,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -590,7 +603,7 @@
     // Popup Window;
     var isfetched = false;
     // Search DB path;
-    var search_path = "search.xml";
+    var search_path = "content.json";
     if (search_path.length == 0) {
        search_path = "search.xml";
     }
