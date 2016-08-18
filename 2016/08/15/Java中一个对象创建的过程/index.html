@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Coding Life">
 <meta property="og:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x6B63;&amp;#x597D;&amp;#x590D;&amp;#x4E60;&amp;#x5230;&amp;#x8FD9;&amp;#x91CC;,&amp;#x7ED3;&amp;#x5408;JMM&amp;#x5199;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E00;&amp;#x4E2A;Java&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x8FC7;&amp;#x7A0B;
 &amp;#x5148">
-<meta property="og:updated_time" content="2016-08-17T03:43:21.000Z">
+<meta property="og:updated_time" content="2016-08-17T03:46:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中一个对象创建的过程">
 <meta name="twitter:description" content="&amp;#x4ECA;&amp;#x5929;&amp;#x6B63;&amp;#x597D;&amp;#x590D;&amp;#x4E60;&amp;#x5230;&amp;#x8FD9;&amp;#x91CC;,&amp;#x7ED3;&amp;#x5408;JMM&amp;#x5199;&amp;#x4E00;&amp;#x4E0B;&amp;#x4E00;&amp;#x4E2A;Java&amp;#x5BF9;&amp;#x8C61;&amp;#x7684;&amp;#x521B;&amp;#x5EFA;&amp;#x8FC7;&amp;#x7A0B;
@@ -350,6 +350,7 @@
 <li>&#x865A;&#x62DF;&#x673A;&#x9047;&#x5230;&#x4E00;&#x6761;new&#x6307;&#x4EE4;&#x65F6;,&#x9996;&#x5148;&#x68C0;&#x67E5;&#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x7684;&#x53C2;&#x6570;&#x662F;&#x5426;&#x80FD;&#x5728;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x5B9A;&#x4F4D;&#x5230;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x7B26;&#x53F7;&#x5F15;&#x7528;,&#x68C0;&#x67E5;&#x8FD9;&#x4E2A;&#x7B26;&#x53F7;&#x5F15;&#x7528;&#x4EE3;&#x8868;&#x7684;&#x7C7B;&#x662F;&#x5426;&#x88AB;&#x52A0;&#x8F7D;.&#x89E3;&#x6790;&#x548C;&#x521D;&#x59CB;&#x5316;.&#x5982;&#x679C;&#x6CA1;&#x6709;,&#x5219;&#x5FC5;&#x987B;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#x52A0;&#x8F7D;&#x8FC7;&#x7A0B;.</li>
 <li>&#x5728;&#x7C7B;&#x52A0;&#x8F7D;&#x68C0;&#x67E5;&#x901A;&#x8FC7;&#x540E;,&#x63A5;&#x4E0B;&#x6765;&#x865A;&#x62DF;&#x673A;&#x5C06;&#x4E3A;&#x65B0;&#x751F;&#x5BF9;&#x8C61;&#x5206;&#x914D;&#x5185;&#x5B58;,&#x5BF9;&#x8C61;&#x6240;&#x9700;&#x5185;&#x5B58;&#x7684;&#x5927;&#x5C0F;&#x5728;&#x7C7B;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x4FBF;&#x53EF;&#x5B8C;&#x5168;&#x786E;&#x5B9A;,&#x4E3A;&#x5BF9;&#x8C61;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#x7684;&#x4EFB;&#x52A1;&#x7B49;&#x540C;&#x4E8E;&#x628A;&#x4E00;&#x5757;&#x786E;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x4ECE;Java&#x5806;&#x4E2D;&#x5212;&#x5206;&#x51FA;&#x6765;</li>
 </ol>
+<blockquote>
 <p>Student s = newStudent();&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x53D8;&#x5316;</p>
 <p>&#xB7;      &#x52A0;&#x8F7D;Student.class&#x6587;&#x4EF6;&#x8FDB;&#x5185;&#x5B58; </p>
 <p>&#xB7;       &#x5728;&#x6808;&#x5185;&#x5B58;&#x4E3A;s&#x5F00;&#x8F9F;&#x7A7A;&#x95F4; </p>
@@ -358,6 +359,7 @@
 <p>&#xB7;      &#x5BF9;&#x5B66;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x663E;&#x793A;&#x521D;&#x59CB;&#x5316; </p>
 <p>&#xB7;      &#x901A;&#x8FC7;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5BF9;&#x5B66;&#x751F;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x8D4B;&#x503C; </p>
 <p>&#xB7;      &#x5B66;&#x751F;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6BD5;&#xFF0C;&#x628A;&#x5BF9;&#x8C61;&#x5730;&#x5740;&#x8D4B;&#x503C;&#x7ED9;s&#x53D8;&#x91CF; </p>
+</blockquote>
 <h2 id="&#x7C7B;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;"><a href="#&#x7C7B;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x7C7B;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;"></a>&#x7C7B;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;</h2><p>&#x8BF4;&#x5230;&#x8FD9;&#x91CC;,&#x6211;&#x4EEC;&#x987A;&#x4FBF;&#x8BB2;&#x4E00;&#x8BB2;&#x7C7B;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;</p>
 <h3 id="&#x7C7B;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x521D;&#x59CB;&#x5316;"><a href="#&#x7C7B;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x521D;&#x59CB;&#x5316;" class="headerlink" title="&#x7C7B;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x521D;&#x59CB;&#x5316;"></a>&#x7C7B;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x521D;&#x59CB;&#x5316;</h3><ol>
 <li>&#x4F7F;&#x7528;new()&#x6216;&#x8005;Class.forName()&#x53CD;&#x5C04;</li>
