@@ -4,9 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[ConcurrentHashMap的实现原理]]></title>
+      <url>http://yoursite.com/2016/08/24/ConcurrentHashMap%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[CAS原理分析]]></title>
       <url>http://yoursite.com/2016/08/24/CAS%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</url>
-      <content type="html"><![CDATA[<h2 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;:"></a>&#x7B80;&#x4ECB;:</h2><p>java&#x690E;&#x95F4;&#x76D8;&#x90A3;&#x4E2A;&#x7684;concurrent&#x5305;&#x501F;&#x52A9;CAS&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x4E50;&#x89C2;&#x9501;</p>
+      <content type="html"><![CDATA[<h2 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;:"></a>&#x7B80;&#x4ECB;:</h2><p>java&#x90A3;&#x4E2A;&#x7684;concurrent&#x5305;&#x501F;&#x52A9;CAS&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x4E50;&#x89C2;&#x9501;</p>
 <h2 id="CAS&#x5E94;&#x7528;"><a href="#CAS&#x5E94;&#x7528;" class="headerlink" title="CAS&#x5E94;&#x7528;"></a>CAS&#x5E94;&#x7528;</h2><p>&#x8FD9;&#x6837;&#x7406;&#x89E3;CAS&#x6709;&#x4E09;&#x4E2A;&#x503C;,&#x5185;&#x5B58;&#x503C;R,&#x65E7;&#x503C;O,&#x65B0;&#x503C;N,&#x5F53;&#x4E14;&#x4EC5;&#x5F53;R&#x548C;O&#x76F8;&#x540C;&#x65F6;,&#x5C06;&#x5185;&#x5B58;&#x503C;R&#x4FEE;&#x6539;&#x4E3A;N,&#x5426;&#x5219;&#x62D2;&#x7EDD;&#x5904;&#x7406;</p>
 <p>&#x6211;&#x4EEC;&#x770B;&#x770B;AtomicInteger&#x5982;&#x4F55;&#x5728;&#x65E0;&#x9501;&#x60C5;&#x51B5;&#x4E0B;&#x505A;&#x5230;&#x6570;&#x636E;&#x6B63;&#x786E;&#x6027;&#x7684;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br></pre></td></tr></table></figure>

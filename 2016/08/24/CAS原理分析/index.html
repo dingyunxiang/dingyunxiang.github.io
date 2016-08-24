@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x690E;&amp;#x95F4;&amp;#x76D8;&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
-CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
+<meta name="description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
+CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#x6837;&amp;#x7406;&amp;#x89E3;CA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CAS原理分析">
 <meta property="og:url" content="http://yoursite.com/2016/08/24/CAS原理分析/index.html">
 <meta property="og:site_name" content="Coding Life">
-<meta property="og:description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x690E;&amp;#x95F4;&amp;#x76D8;&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
-CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
-<meta property="og:updated_time" content="2016-08-24T06:22:18.000Z">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
+CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#x6837;&amp;#x7406;&amp;#x89E3;CA">
+<meta property="og:updated_time" content="2016-08-24T06:33:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CAS原理分析">
-<meta name="twitter:description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x690E;&amp;#x95F4;&amp;#x76D8;&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
-CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
+CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#x6837;&amp;#x7406;&amp;#x89E3;CA">
 
 
 
@@ -337,7 +337,7 @@ CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
       
 
       
-        <h2 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;:"></a>&#x7B80;&#x4ECB;:</h2><p>java&#x690E;&#x95F4;&#x76D8;&#x90A3;&#x4E2A;&#x7684;concurrent&#x5305;&#x501F;&#x52A9;CAS&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x4E50;&#x89C2;&#x9501;</p>
+        <h2 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;:"></a>&#x7B80;&#x4ECB;:</h2><p>java&#x90A3;&#x4E2A;&#x7684;concurrent&#x5305;&#x501F;&#x52A9;CAS&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x4E50;&#x89C2;&#x9501;</p>
 <h2 id="CAS&#x5E94;&#x7528;"><a href="#CAS&#x5E94;&#x7528;" class="headerlink" title="CAS&#x5E94;&#x7528;"></a>CAS&#x5E94;&#x7528;</h2><p>&#x8FD9;&#x6837;&#x7406;&#x89E3;CAS&#x6709;&#x4E09;&#x4E2A;&#x503C;,&#x5185;&#x5B58;&#x503C;R,&#x65E7;&#x503C;O,&#x65B0;&#x503C;N,&#x5F53;&#x4E14;&#x4EC5;&#x5F53;R&#x548C;O&#x76F8;&#x540C;&#x65F6;,&#x5C06;&#x5185;&#x5B58;&#x503C;R&#x4FEE;&#x6539;&#x4E3A;N,&#x5426;&#x5219;&#x62D2;&#x7EDD;&#x5904;&#x7406;</p>
 <p>&#x6211;&#x4EEC;&#x770B;&#x770B;AtomicInteger&#x5982;&#x4F55;&#x5728;&#x65E0;&#x9501;&#x60C5;&#x51B5;&#x4E0B;&#x505A;&#x5230;&#x6570;&#x636E;&#x6B63;&#x786E;&#x6027;&#x7684;</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br></pre></td></tr></table></figure>
@@ -403,6 +403,10 @@ CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/24/ConcurrentHashMap的实现原理/" rel="prev" title="ConcurrentHashMap的实现原理">
+                ConcurrentHashMap的实现原理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -493,7 +497,7 @@ CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-count">59</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -503,7 +507,7 @@ CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
