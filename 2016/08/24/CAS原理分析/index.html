@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Java,分布式," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Coding Life">
-<meta property="og:url" content="http://yoursite.com/archives/2016/06/index.html">
+<meta name="description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x690E;&amp;#x95F4;&amp;#x76D8;&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
+CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAS原理分析">
+<meta property="og:url" content="http://yoursite.com/2016/08/24/CAS原理分析/index.html">
 <meta property="og:site_name" content="Coding Life">
-<meta property="og:description">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x690E;&amp;#x95F4;&amp;#x76D8;&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
+CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
+<meta property="og:updated_time" content="2016-08-24T06:22:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coding Life">
-<meta name="twitter:description">
+<meta name="twitter:title" content="CAS原理分析">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x4ECB;:java&amp;#x690E;&amp;#x95F4;&amp;#x76D8;&amp;#x90A3;&amp;#x4E2A;&amp;#x7684;concurrent&amp;#x5305;&amp;#x501F;&amp;#x52A9;CAS&amp;#x5B9E;&amp;#x73B0;&amp;#x4E86;&amp;#x4E00;&amp;#x79CD;&amp;#x4E50;&amp;#x89C2;&amp;#x9501;
+CAS&amp;#x5E94;&amp;#x7528;&amp;#x8FD9;&amp;#">
 
 
 
@@ -123,7 +127,7 @@
   };
 </script>
 
-  <title> 归档 | Coding Life </title>
+  <title> CAS原理分析 | Coding Life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,402 +269,175 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-       
-        
-      好! 目前共计 58 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/Java项目之秒杀系统/" itemprop="url">
-              
-                <span itemprop="name">Java项目之秒杀系统</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T22:05:24+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/2-redis有关命令/" itemprop="url">
-              
-                <span itemprop="name">2.redis有关命令</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T18:41:10+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/24/1-Redis相关/" itemprop="url">
-              
-                <span itemprop="name">1.Redis相关</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-24T18:23:15+08:00"
-              content="2016-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/12/六月规划/" itemprop="url">
-              
-                <span itemprop="name">六月规划</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-12T23:27:06+08:00"
-              content="2016-06-12" >
-          06-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/11/1-OSX下的抓包工具/" itemprop="url">
-              
-                <span itemprop="name">1.OSX下的抓包工具</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-11T19:55:56+08:00"
-              content="2016-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/11/4-Mongo分布式/" itemprop="url">
-              
-                <span itemprop="name">4.Mongo分布式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-11T13:29:37+08:00"
-              content="2016-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/08/3-MongoDB操作/" itemprop="url">
-              
-                <span itemprop="name">3.MongoDB操作</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-08T15:56:29+08:00"
-              content="2016-06-08" >
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/07/2-MongoDB入门/" itemprop="url">
-              
-                <span itemprop="name">2.MongoDB入门</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-07T09:26:23+08:00"
-              content="2016-06-07" >
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/05/解决python中版本不同的问题/" itemprop="url">
-              
-                <span itemprop="name">解决python中版本不同的问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-05T14:23:05+08:00"
-              content="2016-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/03/Python库之BeautifulSoup/" itemprop="url">
-              
-                <span itemprop="name">Python库之BeautifulSoup</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-03T16:13:05+08:00"
-              content="2016-06-03" >
-          06-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2016/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2016/06/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CAS原理分析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-24T11:19:43+08:00" content="2016-08-24">
+              2016-08-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/24/CAS原理分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/CAS原理分析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;:"></a>&#x7B80;&#x4ECB;:</h2><p>java&#x690E;&#x95F4;&#x76D8;&#x90A3;&#x4E2A;&#x7684;concurrent&#x5305;&#x501F;&#x52A9;CAS&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x79CD;&#x4E50;&#x89C2;&#x9501;</p>
+<h2 id="CAS&#x5E94;&#x7528;"><a href="#CAS&#x5E94;&#x7528;" class="headerlink" title="CAS&#x5E94;&#x7528;"></a>CAS&#x5E94;&#x7528;</h2><p>&#x8FD9;&#x6837;&#x7406;&#x89E3;CAS&#x6709;&#x4E09;&#x4E2A;&#x503C;,&#x5185;&#x5B58;&#x503C;R,&#x65E7;&#x503C;O,&#x65B0;&#x503C;N,&#x5F53;&#x4E14;&#x4EC5;&#x5F53;R&#x548C;O&#x76F8;&#x540C;&#x65F6;,&#x5C06;&#x5185;&#x5B58;&#x503C;R&#x4FEE;&#x6539;&#x4E3A;N,&#x5426;&#x5219;&#x62D2;&#x7EDD;&#x5904;&#x7406;</p>
+<p>&#x6211;&#x4EEC;&#x770B;&#x770B;AtomicInteger&#x5982;&#x4F55;&#x5728;&#x65E0;&#x9501;&#x60C5;&#x51B5;&#x4E0B;&#x505A;&#x5230;&#x6570;&#x636E;&#x6B63;&#x786E;&#x6027;&#x7684;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br></pre></td></tr></table></figure>
+<p>&#x5728;&#x65E0;&#x9501;&#x65F6;,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x901A;&#x8FC7;volatile,&#x4FDD;&#x8BC1;&#x7EBF;&#x5C42;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x662F;&#x53EF;&#x89C1;&#x7684;,&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x77E5;&#x9053;volatile&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;,&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;++i&#x662F;&#x600E;&#x4E48;&#x505A;&#x5230;&#x7684;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">incrementAndGet</span><span class="params">()</span></span>{</span><br><span class="line">  <span class="keyword">for</span>(;;){</span><br><span class="line">  	<span class="keyword">int</span> current = get();</span><br><span class="line">    <span class="keyword">int</span> next = current + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(compareAndSet(current,next)){</span><br><span class="line">  		<span class="keyword">return</span> next;</span><br><span class="line">	}</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4ECE;&#x5185;&#x5B58;&#x4E2D;&#x53D6;&#x51FA;&#x6570;&#x636E;&#x5C06;&#x6B21;&#x6570;&#x636E;+1&#x540E;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x4E86;CAS&#x64CD;&#x4F5C;,&#x5982;&#x679C;&#x6210;&#x529F;&#x5C31;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;,&#x5426;&#x5219;&#x5C31;&#x4E00;&#x76F4;&#x91CD;&#x8BD5;&#x77E5;&#x9053;&#x6210;&#x529F;.</p>
+<p>&#x90A3;&#x4E48;&#x6BD4;&#x8F83;&#x7684;&#x65B9;&#x6CD5;compareAndSet&#x5219;&#x5229;&#x7528;&#x4E86;JNI&#x6765;&#x5B8C;&#x6210;CPU&#x6307;&#x4EE4;&#x7684;&#x64CD;&#x4F5C;.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">compareAndSet</span><span class="params">(<span class="keyword">int</span> expect,<span class="keyword">int</span> value)</span></span>{</span><br><span class="line">  <span class="keyword">return</span> unsafe.compareAndSwapInt(<span class="keyword">this</span>,valueOffset,expect,update);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x539F;&#x7406;&#x5927;&#x6982;&#x5982;&#x6B64;,&#x5176;&#x4ED6;&#x7684;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x4E5F;&#x662F;&#x91C7;&#x7528;&#x4E86;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;</p>
+<p>&#x5176;&#x4E2D;compareAndSwapInt(this,valueOffset,expect,update);&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0B;&#x5217;&#x64CD;&#x4F5C;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">this</span> == expect){</span><br><span class="line">  <span class="keyword">this</span> = update;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="CAS&#x539F;&#x7406;"><a href="#CAS&#x539F;&#x7406;" class="headerlink" title="CAS&#x539F;&#x7406;"></a>CAS&#x539F;&#x7406;</h2><p>&#x4E3B;&#x8981;&#x901A;&#x8FC7;JNI(java native interface)&#x8C03;&#x7528;,&#x800C;compareAndSwapInt&#x5C31;&#x662F;&#x501F;&#x52A9;C&#x6765;&#x8C03;&#x7528;CPU&#x5E95;&#x5C42;&#x6307;&#x4EE4;&#x5B9E;&#x73B0;,</p>
+<p>&#x6839;&#x636E;&#x7F51;&#x4E0A;&#x67E5;&#x5230;&#x7684;&#x8D44;&#x6599;,&#x7A0B;&#x5E8F;&#x4F1A;&#x6839;&#x636E;&#x5904;&#x7406;&#x5668;&#x7684;&#x7C7B;&#x578B;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x7ED9;&#x76F8;&#x5E94;&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x52A0;&#x4E0A;lock&#x524D;&#x7F00;,&#x5355;&#x5904;&#x7406;&#x5668;&#x65F6;,&#x4F1A;&#x7701;&#x7565;lock&#x524D;&#x7F00;,&#x53CD;&#x4E4B;&#x5219;&#x52A0;&#x4E0A;</p>
+<blockquote>
+<p>&#x5173;&#x4E8E;lock&#x524D;&#x7F00;&#x7684;&#x89E3;&#x91CA;:</p>
+<ol>
+<li>&#x786E;&#x4FDD;&#x5BF9;&#x5185;&#x5B58;&#x7684;&#x8BFB;-&#x6539;-&#x5199;&#x64CD;&#x4F5C;&#x539F;&#x5B50;&#x6267;&#x884C;</li>
+<li>&#x7981;&#x6B62;&#x6307;&#x4EE4;&#x91CD;&#x6392;&#x5E8F;</li>
+<li>&#x5C06;&#x5199;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x6570;&#x636E;&#x5237;&#x65B0;&#x5230;&#x5185;&#x5B58;&#x4E2D;</li>
+</ol>
+</blockquote>
+<h2 id="CAS&#x7F3A;&#x70B9;"><a href="#CAS&#x7F3A;&#x70B9;" class="headerlink" title="CAS&#x7F3A;&#x70B9;"></a>CAS&#x7F3A;&#x70B9;</h2><ol>
+<li>ABA&#x95EE;&#x9898;,CAS&#x65F6;&#x9700;&#x8981;&#x5728;&#x64CD;&#x4F5C;&#x503C;&#x5F97;&#x65F6;&#x5019;&#x68C0;&#x67E5;&#x503C;&#x662F;&#x5426;&#x53D1;&#x751F;&#x53D8;&#x5316;,&#x5F53;&#x4E00;&#x4E2A;&#x503C;&#x4ECE;A&#x5230;B&#x518D;&#x5230;A&#x7684;&#x65F6;&#x5019;,CAS&#x68C0;&#x67E5;&#x53D1;&#x73B0;&#x503C;&#x6CA1;&#x6709;&#x53D8;&#x5316;,&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x5374;&#x53D8;&#x5316;&#x4E86;(&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#x662F;&#x5728;&#x53D8;&#x91CF;&#x524D;&#x52A0;&#x4E0A;&#x7248;&#x672C;&#x53F7;,&#x6BCF;&#x6B21;&#x53D8;&#x91CF;&#x66F4;&#x65B0;&#x65F6;&#x5C06;&#x7248;&#x672C;&#x53F7;&#x52A0;&#x4E00;)</li>
+<li>&#x5FAA;&#x73AF;&#x65F6;&#x95F4;&#x957F;&#x5BFC;&#x81F4;&#x5F00;&#x9500;&#x5927;.&#x81EA;&#x65CB;CAS&#x5982;&#x679C;&#x957F;&#x65F6;&#x95F4;&#x4E0D;&#x6210;&#x529F;,&#x4F1A;&#x7ED9;CPU&#x5E26;&#x6765;&#x8F83;&#x5927;&#x7684;&#x5F00;&#x9500;</li>
+<li>&#x53EA;&#x80FD;&#x4FDD;&#x8BC1;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x7684;&#x539F;&#x5B50;&#x64CD;&#x4F5C;(&#x5C06;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x5408;&#x4E3A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x6765;&#x4FDD;&#x8BC1;&#x539F;&#x5B50;&#x6027;)</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+            <a href="/tags/分布式/" rel="tag">#分布式</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/Java中一个对象创建的过程/" rel="next" title="Java中一个对象创建的过程">
+                <i class="fa fa-chevron-left"></i> Java中一个对象创建的过程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/24/CAS原理分析/"
+     data-title="CAS原理分析"
+     data-content=""
+     data-url="http://yoursite.com/2016/08/24/CAS原理分析/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -668,6 +445,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/24/CAS原理分析/"
+           data-title="CAS原理分析" data-url="http://yoursite.com/2016/08/24/CAS原理分析/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -687,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/icon.jpg"
@@ -731,6 +525,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS应用"><span class="nav-number">2.</span> <span class="nav-text">CAS应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS原理"><span class="nav-number">3.</span> <span class="nav-text">CAS原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS缺点"><span class="nav-number">4.</span> <span class="nav-text">CAS缺点</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -834,11 +639,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
