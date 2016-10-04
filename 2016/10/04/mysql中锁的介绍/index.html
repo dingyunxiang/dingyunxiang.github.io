@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,JVM," />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -84,18 +84,16 @@
 
 
 
-<meta name="description" content="简述JVM的垃圾回收机制">
+<meta name="description" content="&amp;#x4E00;.&amp;#x524D;&amp;#x8A00;&amp;#x505A;&amp;#x4E00;&amp;#x4E2A;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7A81;&amp;#x7136;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8B;&amp;#x52A1;&amp;#x4E2D;insert&amp;#x52A0;&amp;#x9501;&amp;#x7684;&amp;#x95EE;&amp;#x9898;,&amp;#x8FD9;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2.垃圾回收机制">
-<meta property="og:url" content="http://yoursite.com/2016/05/17/2-垃圾回收机制/index.html">
+<meta property="og:title" content="mysql中锁的介绍">
+<meta property="og:url" content="http://yoursite.com/2016/10/04/mysql中锁的介绍/index.html">
 <meta property="og:site_name" content="Coding Life">
-<meta property="og:description" content="简述JVM的垃圾回收机制">
-<meta property="og:image" content="http://yoursite.com/2016/05/17/2-垃圾回收机制/gc.jpg">
-<meta property="og:updated_time" content="2016-05-17T02:25:56.000Z">
+<meta property="og:description" content="&amp;#x4E00;.&amp;#x524D;&amp;#x8A00;&amp;#x505A;&amp;#x4E00;&amp;#x4E2A;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7A81;&amp;#x7136;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8B;&amp;#x52A1;&amp;#x4E2D;insert&amp;#x52A0;&amp;#x9501;&amp;#x7684;&amp;#x95EE;&amp;#x9898;,&amp;#x8FD9;">
+<meta property="og:updated_time" content="2016-10-04T07:38:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2.垃圾回收机制">
-<meta name="twitter:description" content="简述JVM的垃圾回收机制">
-<meta name="twitter:image" content="http://yoursite.com/2016/05/17/2-垃圾回收机制/gc.jpg">
+<meta name="twitter:title" content="mysql中锁的介绍">
+<meta name="twitter:description" content="&amp;#x4E00;.&amp;#x524D;&amp;#x8A00;&amp;#x505A;&amp;#x4E00;&amp;#x4E2A;&amp;#x7CFB;&amp;#x7EDF;&amp;#x7A81;&amp;#x7136;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E8B;&amp;#x52A1;&amp;#x4E2D;insert&amp;#x52A0;&amp;#x9501;&amp;#x7684;&amp;#x95EE;&amp;#x9898;,&amp;#x8FD9;">
 
 
 
@@ -126,7 +124,7 @@
   };
 </script>
 
-  <title> 2.垃圾回收机制 | Coding Life </title>
+  <title> mysql中锁的介绍 | Coding Life </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +287,7 @@
             
             
               
-                2.垃圾回收机制
+                mysql中锁的介绍
               
             
           </h1>
@@ -301,8 +299,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-17T10:08:32+08:00" content="2016-05-17">
-              2016-05-17
+            <time itemprop="dateCreated" datetime="2016-10-04T15:16:42+08:00" content="2016-10-04">
+              2016-10-04
             </time>
           </span>
 
@@ -312,8 +310,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/17/2-垃圾回收机制/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/17/2-垃圾回收机制/" itemprop="commentsCount"></span>
+                <a href="/2016/10/04/mysql中锁的介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/mysql中锁的介绍/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -336,73 +334,40 @@
       
 
       
-        <p>##&#x7BA1;&#x7406;&#x5BF9;&#x8C61;</p>
-<h4 id="&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;"><a href="#&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;"></a>&#x5F15;&#x7528;&#x6280;&#x672F;&#x7B97;&#x6CD5;</h4><ul>
-<li>&#x7ED9;&#x5BF9;&#x8C61;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x6BCF;&#x5F53;&#x6709;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x5F15;&#x7528;&#x5B83;&#x65F6;&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x503C;&#x5C31;&#x52A0;1</li>
+        <h2 id="&#x4E00;-&#x524D;&#x8A00;"><a href="#&#x4E00;-&#x524D;&#x8A00;" class="headerlink" title="&#x4E00;.&#x524D;&#x8A00;"></a>&#x4E00;.&#x524D;&#x8A00;</h2><p>&#x505A;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7A81;&#x7136;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x4E2D;insert&#x52A0;&#x9501;&#x7684;&#x95EE;&#x9898;,&#x8FD9;&#x91CC;&#x5BF9;&#x5176;&#x5C55;&#x5F00;&#x8BA8;&#x8BBA;&#x4E00;&#x4E0B;</p>
+<p>&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x57FA;&#x672C;&#x7684;&#x914D;&#x7F6E;:</p>
+<blockquote>
+<p>MySQL Version:5.7.11</p>
+<p>Engine:InnoDB</p>
+<p>isolcation:REPEATABLE-READ</p>
+<p>innodb_locks_unsafe_for_binlog:OFF</p>
+</blockquote>
+<h2 id="&#x4E8C;-InnoDB&#x9501;&#x7C7B;&#x578B;"><a href="#&#x4E8C;-InnoDB&#x9501;&#x7C7B;&#x578B;" class="headerlink" title="&#x4E8C;.InnoDB&#x9501;&#x7C7B;&#x578B;"></a>&#x4E8C;.InnoDB&#x9501;&#x7C7B;&#x578B;</h2><h3 id="1-&#x57FA;&#x672C;&#x9501;"><a href="#1-&#x57FA;&#x672C;&#x9501;" class="headerlink" title="1.&#x57FA;&#x672C;&#x9501;"></a>1.&#x57FA;&#x672C;&#x9501;</h3><p>&#x5206;&#x4E3A;&#x5171;&#x4EAB;&#x9501;(s)&#x548C;&#x6392;&#x4ED6;&#x9501;(X)</p>
+<p>&#x52A0;&#x4E86;S&#x9501;&#x7684;&#x8BB0;&#x5F55;,&#x5141;&#x8BB8;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x52A0;S&#x9501;,&#x4E0D;&#x5141;&#x8BB8;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x518D;&#x52A0;X&#x9501;</p>
+<p>&#x52A0;&#x4E86;X&#x9501;&#x7684;&#x8BB0;&#x5F55;,&#x4E0D;&#x5141;&#x8BB8;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x518D;&#x52A0;S&#x9501;&#x6216;&#x8005;X&#x9501;</p>
+<h3 id="2-&#x610F;&#x5411;&#x9501;"><a href="#2-&#x610F;&#x5411;&#x9501;" class="headerlink" title="2.&#x610F;&#x5411;&#x9501;"></a>2.&#x610F;&#x5411;&#x9501;</h3><p>InnoDB&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x8868;&#x9501;&#x548C;&#x884C;&#x9501;&#x5E76;&#x5B58;,&#x5F15;&#x5165;&#x4E86;&#x610F;&#x5411;&#x9501;</p>
+<p><strong>&#x610F;&#x5411;&#x9501;&#x4E3A;&#x8868;&#x7EA7;&#x9501;?</strong>,&#x53EF;&#x5206;&#x4E3A;&#x610F;&#x5411;&#x5171;&#x4EAB;&#x9501;(IS&#x9501;)&#x548C;&#x610F;&#x5411;&#x6392;&#x4ED6;&#x9501;(IX&#x9501;)</p>
+<p><strong>&#x4E8B;&#x52A1;&#x5728;&#x8BF7;&#x6C42;X&#x9501;&#x548C;S&#x9501;&#x524D;,&#x9700;&#x8981;&#x83B7;&#x5F97;&#x76F8;&#x5E94;&#x7684;IS&#x548C;IX&#x9501;</strong></p>
+<h3 id="3-&#x884C;&#x9501;"><a href="#3-&#x884C;&#x9501;" class="headerlink" title="3.&#x884C;&#x9501;"></a>3.&#x884C;&#x9501;</h3><ul>
+<li>&#x8BB0;&#x5F55;&#x6240;(Record Lock)</li>
 </ul>
+<p>&#x884C;&#x9501;,&#x4EC5;&#x4EC5;&#x9501;&#x4F4F;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x7684;&#x4E00;&#x884C;</p>
+<p>&#x5355;&#x6311;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x52A0;&#x9501;,&#x884C;&#x9501;&#x9501;&#x4F4F;&#x7684;&#x662F;&#x7D22;&#x5F15;,&#x800C;&#x4E0D;&#x662F;&#x8BB0;&#x5F55;&#x672C;&#x8EAB;,&#x5373;&#x4F7F;&#x8BE5;&#x8868;&#x6CA1;&#x6709;&#x7D22;&#x5F15;,innodb&#x4F1A;&#x5728;&#x540E;&#x53F0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9690;&#x85CF;&#x7684;&#x805A;&#x96C6;&#x4E3B;&#x952E;&#x7D22;&#x5F15;,&#x90A3;&#x4E48;&#x9501;&#x4F4F;&#x7684;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x9690;&#x85CF;&#x7684;&#x7D22;&#x5F15;.&#x6240;&#x4EE5;&#x8BF4;&#x5F53;&#x4E00;&#x6761;sql&#x6CA1;&#x6709;&#x8D70;&#x4EFB;&#x4F55;&#x7D22;&#x5F15;&#x65F6;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x5728;&#x6BCF;&#x4E00;&#x6761;&#x805A;&#x96C6;&#x7D22;&#x5F15;&#x540E;&#x9762;&#x52A0;X&#x9501;</p>
 <ul>
-<li>&#x5F53;&#x5F15;&#x7528;&#x5931;&#x6548;&#x65F6;&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x7684;&#x503C;&#x5C31;&#x51CF;1&#xFF0C;&#x4EFB;&#x4F55;&#x65F6;&#x523B;&#x8BA1;&#x6570;&#x5668;&#x4E3A;0&#x7684;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x5728;&#x88AB;&#x4F7F;&#x7528;&#x4E86;</li>
+<li>&#x95F4;&#x9699;&#x9501;(Gap locls)</li>
 </ul>
+<p>&#x533A;&#x95F4;&#x9501;, &#x4EC5;&#x4EC5;&#x9501;&#x4F4F;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x533A;&#x95F4;(&#x5F00;&#x533A;&#x95F4;)&#x3002;</p>
+<p>&#x533A;&#x95F4;&#x9501;, &#x4EC5;&#x4EC5;&#x9501;&#x4F4F;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x533A;&#x95F4;(&#x5F00;&#x533A;&#x95F4;)&#x3002;<br>&#x5728;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x4E4B;&#x95F4;&#x7684;&#x95F4;&#x9699;&#x4E2D;&#x52A0;&#x9501;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x5728;&#x67D0;&#x4E00;&#x6761;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x4E4B;&#x524D;&#x6216;&#x8005;&#x4E4B;&#x540E;&#x52A0;&#x9501;&#xFF0C;&#x5E76;&#x4E0D;&#x5305;&#x62EC;&#x8BE5;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x672C;&#x8EAB;&#x3002;</p>
+<h4 id="&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;-Insert-Intention-Locks"><a href="#&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;-Insert-Intention-Locks" class="headerlink" title="&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;(Insert Intention Locks)"></a>&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;(Insert Intention Locks)</h4><p>Gap Lock&#x4E2D;&#x5B58;&#x5728;&#x4E00;&#x79CD;&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;&#xFF08;Insert Intention Lock&#xFF09;&#xFF0C;&#x5728;insert&#x64CD;&#x4F5C;&#x65F6;&#x4EA7;&#x751F;&#x3002;&#x5728;&#x591A;&#x4E8B;&#x52A1;&#x540C;&#x65F6;&#x5199;&#x5165;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x81F3;&#x540C;&#x4E00;&#x7D22;&#x5F15;&#x95F4;&#x9699;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x9501;&#x7B49;&#x5F85;&#x3002;</p>
+<p>Gap Lock&#x4E2D;&#x5B58;&#x5728;&#x4E00;&#x79CD;&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;&#xFF08;Insert Intention Lock&#xFF09;&#xFF0C;&#x5728;insert&#x64CD;&#x4F5C;&#x65F6;&#x4EA7;&#x751F;&#x3002;&#x5728;&#x591A;&#x4E8B;&#x52A1;&#x540C;&#x65F6;&#x5199;&#x5165;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x81F3;&#x540C;&#x4E00;&#x7D22;&#x5F15;&#x95F4;&#x9699;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x9501;&#x7B49;&#x5F85;&#x3002;</p>
 <ul>
-<li>&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x65E9;&#x671F;&#x5F88;&#x591A;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x4E2D;&#x90FD;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x4E3B;&#x6D41;&#x7684;Java&#x865A;&#x62DF;&#x673A;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x7BA1;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x539F;&#x56E0;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x539F;&#x56E0;&#x662F;&#x5B83;&#x5F88;&#x96BE;&#x89E3;&#x51B3;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x4E92;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;</li>
+<li>&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;</li>
 </ul>
-<h4 id="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"><a href="#&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;" class="headerlink" title="&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;"></a>&#x53EF;&#x8FBE;&#x6027;&#x7B97;&#x6CD5;</h4><ul>
-<li>&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x79F0;&#x8C13;&#x201C;GC Roots&#x201D;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x8D77;&#x59CB;&#x70B9;</li>
-</ul>
-<ul>
-<li><p>&#x4ECE;&#x8FD9;&#x4E9B;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#x5411;&#x4E0B;&#x641C;&#x7D22;&#xFF0C;&#x641C;&#x7D22;&#x6240;&#x6709;&#x8D70;&#x8FC7;&#x7684;&#x8DEF;&#x5F84;&#x4E3A;&#x5F15;&#x7528;&#x94FE;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5230;GC Roots&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5F15;&#x7528;&#x94FE;&#x9879;&#x94FE;&#x65F6;&#xFF0C;&#x5219;&#x8BC1;&#x660E;&#x6B64;&#x5BF9;&#x8C61;&#x65F6;&#x4E0D;&#x53EF;&#x7528;&#x7684;!</p>
-</li>
-<li><p>&#x53EA;&#x8981;&#x4ECE;GC Roots&#x5F00;&#x59CB;&#x641C;&#x7D22;,&#x4E0D;&#x53EF;&#x8FBE;&#x7684;&#x5BF9;&#x8C61;&#x7686;&#x53EF;&#x56DE;&#x6536;</p>
-<p><img src="/2016/05/17/2-&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;/gc.jpg" alt="GC PIC"></p>
-<p>&#x200B;</p>
-</li>
-</ul>
-<p>&#x6CE8;&#x610F;&#xFF1A;Java&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x53EF;&#x4F5C;&#x4E3A;GC Roots&#x7684;&#x5BF9;&#x8C61;&#x5305;&#x62EC;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#xFF1A;</p>
-<ol>
-<li>&#x865A;&#x62DF;&#x673A;&#x6808;(&#x6808;&#x5E27;&#x4E2D;&#x7684;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x8868;)&#x4E2D;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
-<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x7C7B;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
-<li>&#x65B9;&#x6CD5;&#x533A;&#x4E2D;&#x5E38;&#x91CF;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
-<li>&#x672C;&#x5730;&#x65B9;&#x6CD5;&#x6808;&#x4E2D;JNI(&#x5373;&#x4E00;&#x822C;&#x8BF4;&#x7684;Native&#x65B9;&#x6CD5;)&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;</li>
-</ol>
-<h2 id="&#x5185;&#x5B58;&#x7BA1;&#x7406;"><a href="#&#x5185;&#x5B58;&#x7BA1;&#x7406;" class="headerlink" title="&#x5185;&#x5B58;&#x7BA1;&#x7406;"></a>&#x5185;&#x5B58;&#x7BA1;&#x7406;</h2><ul>
-<li>&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x5F53;&#x4E2D;&#xFF0C;&#x4F1A;&#x521B;&#x5EFA;&#x5927;&#x91CF;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x662F;&#x77ED;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5C0F;&#x90E8;&#x5206;&#x662F;&#x957F;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;</li>
-</ul>
-<ul>
-<li>&#x5BF9;&#x4E8E;&#x77ED;&#x5468;&#x671F;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x9700;&#x8981;&#x9891;&#x7E41;&#x5730;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4EE5;&#x4FDD;&#x8BC1;&#x65E0;&#x7528;&#x5BF9;&#x8C61;&#x5C3D;&#x65E9;&#x88AB;&#x91CA;&#x653E;&#x6389;</li>
-</ul>
-<ul>
-<li>&#x5BF9;&#x4E8E;&#x957F;&#x5468;&#x671F;&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x9891;&#x7E41;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4EE5;&#x786E;&#x4FDD;&#x4E0D;&#x8FDB;&#x884C;&#x65E0;&#x8C13;&#x5730;&#x5783;&#x573E;&#x626B;&#x63CF;&#x68C0;&#x6D4B;&#x3002;&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x79CD;&#x77DB;&#x76FE;&#xFF0C;JVM&#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x91C7;&#x7528;&#x5206;&#x4EE3;&#x7684;&#x7B56;&#x7565;&#xFF1A;</li>
-</ul>
-<h4 id="&#x5E74;&#x8F7B;&#x4EE3;-Young-Gen-&#xFF1A;"><a href="#&#x5E74;&#x8F7B;&#x4EE3;-Young-Gen-&#xFF1A;" class="headerlink" title="&#x5E74;&#x8F7B;&#x4EE3;(Young Gen)&#xFF1A;"></a>&#x5E74;&#x8F7B;&#x4EE3;(Young Gen)&#xFF1A;</h4><ul>
-<li>&#x5B58;&#x653E;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;</li>
-</ul>
-<ul>
-<li>&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x76F8;&#x5BF9;&#x4F1A;&#x6BD4;&#x8F83;&#x5C0F;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4F1A;&#x6BD4;&#x8F83;&#x9891;&#x7E41;</li>
-</ul>
-<ul>
-<li>&#x5E74;&#x8F7B;&#x4EE3;&#x5206;&#x6210;1&#x4E2A;Eden Space&#x548C;2&#x4E2A;Suvivor Space&#xFF08;&#x547D;&#x540D;&#x4E3A;A&#x548C;B&#xFF09;</li>
-</ul>
-<ul>
-<li>&#x5F53;&#x5BF9;&#x8C61;&#x5728;&#x5806;&#x521B;&#x5EFA;&#x65F6;&#xFF0C;&#x5C06;&#x8FDB;&#x5165;&#x5E74;&#x8F7B;&#x4EE3;&#x7684;Eden Space&#x3002;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#x8FDB;&#x884C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#xFF0C;&#x626B;&#x63CF;Eden Space&#x548C;A Suvivor Space&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x4ECD;&#x7136;&#x5B58;&#x6D3B;&#xFF0C;&#x5219;&#x590D;&#x5236;&#x5230;B Suvivor Space&#xFF0C;&#x5982;&#x679C;B Suvivor Space&#x5DF2;&#x7ECF;&#x6EE1;&#xFF0C;&#x5219;&#x590D;&#x5236; Old Gen&#x3002;&#x626B;&#x63CF;A Suvivor Space&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x5DF2;&#x7ECF;&#x7ECF;&#x8FC7;&#x4E86;&#x51E0;&#x6B21;&#x7684;&#x626B;&#x63CF;&#x4ECD;&#x7136;&#x5B58;&#x6D3B;&#xFF0C;JVM&#x8BA4;&#x4E3A;&#x5176;&#x4E3A;&#x4E00;&#x4E2A;Old&#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x79FB;&#x5230;Old Gen&#x3002;&#x626B;&#x63CF;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;JVM&#x5C06;Eden Space&#x548C;A Suvivor Space&#x6E05;&#x7A7A;&#xFF0C;&#x7136;&#x540E;&#x4EA4;&#x6362;A&#x548C;B&#x7684;&#x89D2;&#x8272;&#xFF08;&#x5373;&#x4E0B;&#x6B21;&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#x4F1A;&#x626B;&#x63CF;Eden Space&#x548C;BSuvivor Space&#x3002;</li>
-</ul>
-<ul>
-<li>Young Gen&#x5783;&#x573E;&#x56DE;&#x6536;&#x65F6;&#xFF0C;&#x91C7;&#x7528;&#x5C06;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x590D;&#x5236;&#x5230;&#x5230;&#x7A7A;&#x7684;Suvivor Space&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x786E;&#x4FDD;&#x4E0D;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF0C;&#x91C7;&#x7528;&#x7A7A;&#x95F4;&#x6362;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x52A0;&#x901F;&#x5185;&#x5B58;&#x5783;&#x573E;&#x56DE;&#x6536;&#x3002;</li>
-</ul>
-<h4 id="&#x5E74;&#x8001;&#x4EE3;-Tenured-Gen-&#xFF1A;"><a href="#&#x5E74;&#x8001;&#x4EE3;-Tenured-Gen-&#xFF1A;" class="headerlink" title="&#x5E74;&#x8001;&#x4EE3;(Tenured Gen)&#xFF1A;"></a>&#x5E74;&#x8001;&#x4EE3;(Tenured Gen)&#xFF1A;</h4><ul>
-<li>JVM&#x8BA4;&#x4E3A;&#x6BD4;&#x8F83;old&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x7ECF;&#x8FC7;&#x51E0;&#x6B21;&#x7684;Young Gen&#x7684;&#x5783;&#x573E;&#x56DE;&#x6536;&#x540E;&#x4ECD;&#x7136;&#x5B58;&#x5728;&#xFF09;</li>
-</ul>
-<ul>
-<li>&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x76F8;&#x5BF9;&#x4F1A;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4E5F;&#x76F8;&#x5BF9;&#x6CA1;&#x6709;&#x90A3;&#x4E48;&#x9891;&#x7E41;&#xFF08;&#x6BD4;&#x5982;&#x53EF;&#x80FD;&#x51E0;&#x4E2A;&#x5C0F;&#x65F6;&#x4E00;&#x6B21;&#xFF09;</li>
-</ul>
-<ul>
-<li>&#x5E74;&#x8001;&#x4EE3;&#x4E3B;&#x8981;&#x91C7;&#x7528;&#x538B;&#x7F29;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x907F;&#x514D;&#x5185;&#x5B58;&#x788E;&#x7247;&#xFF08;&#x5C06;&#x5B58;&#x6D3B;&#x5BF9;&#x8C61;&#x79FB;&#x52A8;&#x5230;&#x5185;&#x5B58;&#x7247;&#x7684;&#x4E00;&#x8FB9;&#xFF09;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x6709;&#x4E9B;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#xFF08;&#x6BD4;&#x5982;CMS&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#xFF09;&#x51FA;&#x4E8E;&#x6548;&#x7387;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x4E0D;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#x3002;</li>
-</ul>
-<h4 id="&#x6301;&#x4E45;&#x4EE3;-Perm-Gen-&#xFF1A;"><a href="#&#x6301;&#x4E45;&#x4EE3;-Perm-Gen-&#xFF1A;" class="headerlink" title="&#x6301;&#x4E45;&#x4EE3;(Perm Gen)&#xFF1A;"></a>&#x6301;&#x4E45;&#x4EE3;(Perm Gen)&#xFF1A;</h4><ul>
-<li>&#x5B58;&#x653E;&#x7C7B;&#x5B9A;&#x4E49;&#x3001;&#x5B57;&#x8282;&#x7801;&#x548C;&#x5E38;&#x91CF;&#x7B49;&#x5F88;&#x5C11;&#x4F1A;&#x53D8;&#x66F4;&#x7684;&#x4FE1;&#x606F;</li>
-</ul>
-<h2 id="Full-GC"><a href="#Full-GC" class="headerlink" title="Full GC"></a>Full GC</h2><ul>
-<li>new&#x4E86;&#x5F88;&#x591A;&#x5BF9;&#x8C61;,&#x6CA1;&#x6709;&#x5373;&#x65F6;&#x5728;&#x4E3B;&#x52A8;&#x91CA;&#x653E;&#x6389;-&gt;Eden&#x5185;&#x5B58;&#x4E0D;&#x591F;&#x7528;-&gt;&#x4E0D;&#x65AD;&#x628A;&#x5BF9;&#x8C61;&#x5F80;old&#x8FC1;&#x79FB;-&gt;old&#x6EE1;&#x4E86;-&gt;full gc</li>
-</ul>
+<p>&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x7D22;&#x5F15;&#x5305;&#x542B;&#x952E;&#x503C;4&#x548C;7&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x4E8B;&#x52A1;&#x5206;&#x522B;&#x63D2;&#x5165;5&#x548C;6&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x52A0;&#x5728;4-7&#x4E4B;&#x95F4;&#x7684;&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;&#xFF0C;&#x83B7;&#x53D6;&#x5728;&#x63D2;&#x5165;&#x884C;&#x4E0A;&#x7684;&#x6392;&#x5B83;&#x9501;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x88AB;&#x4E92;&#x76F8;&#x9501;&#x4F4F;&#xFF0C;&#x56E0;&#x4E3A;&#x6570;&#x636E;&#x884C;&#x5E76;&#x4E0D;&#x51B2;&#x7A81;&#x3002;</p>
+<h2 id="&#x4E09;-insert&#x52A0;&#x9501;&#x7684;&#x8FC7;&#x7A0B;"><a href="#&#x4E09;-insert&#x52A0;&#x9501;&#x7684;&#x8FC7;&#x7A0B;" class="headerlink" title="&#x4E09;,insert&#x52A0;&#x9501;&#x7684;&#x8FC7;&#x7A0B;"></a>&#x4E09;,insert&#x52A0;&#x9501;&#x7684;&#x8FC7;&#x7A0B;</h2><p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x8BE6;&#x7EC6;&#x8BF4;&#x4E00;&#x4E0B;insert&#x7684;&#x52A0;&#x9501;&#x8FC7;&#x7A0B;</p>
+<p>&#x7B80;&#x5355;&#x7684;insert&#x4F1A;&#x5728;insert&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x4E0A;&#x52A0;&#x4E00;&#x4E2A;&#x6392;&#x4ED6;&#x9501;,&#x8FD9;&#x662F;&#x4E00;&#x4E2A;record lock,&#x6240;&#x4EE5;&#x5E76;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x5176;&#x4ED6;session&#x5728;gap&#x674E;&#x63D2;&#x5165;&#x8BB0;&#x5F55;</p>
+<p>&#x4E0D;&#x8FC7;&#x5728;insert&#x4E0A;,&#x8FD8;&#x4F1A;&#x52A0;&#x4E00;&#x79CD;&#x9501;,&#x5B98;&#x65B9;&#x79F0;&#x5176;&#x4E3A;insertion intention gap lock.&#x8FD9;&#x4E2A;&#x610F;&#x5411;gap&#x9501;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x9884;&#x793A;&#x7740;&#x5F53;&#x591A;&#x4E8B;&#x52A1;&#x5E76;&#x53D1;&#x63D2;&#x5165;&#x76F8;&#x540C;&#x7684;gap&#x7A7A;&#x9699;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x63D2;&#x5165;&#x7684;&#x8BB0;&#x5F55;&#x4E0D;&#x662F;gap&#x95F4;&#x9699;&#x4E2D;&#x7684;&#x76F8;&#x540C;&#x4F4D;&#x7F6E;&#xFF0C;&#x5219;&#x65E0;&#x9700;&#x7B49;&#x5F85;&#x5176;&#x4ED6;session&#x5C31;&#x53EF;&#x5B8C;&#x6210;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F7F;&#x5F97;insert&#x64CD;&#x4F5C;&#x65E0;&#x987B;&#x52A0;&#x771F;&#x6B63;&#x7684;gap lock&#x3002;<br>&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x7D22;&#x5F15;&#x5305;&#x542B;&#x952E;&#x503C;4&#x548C;7&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x4E8B;&#x52A1;&#x5206;&#x522B;&#x63D2;&#x5165;5&#x548C;6&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x52A0;&#x5728;4-7&#x4E4B;&#x95F4;&#x7684;&#x63D2;&#x5165;&#x610F;&#x5411;&#x9501;&#xFF0C;&#x83B7;&#x53D6;&#x5728;&#x63D2;&#x5165;&#x884C;&#x4E0A;&#x7684;&#x6392;&#x5B83;&#x9501;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x88AB;&#x4E92;&#x76F8;&#x9501;&#x4F4F;&#xFF0C;&#x56E0;&#x4E3A;&#x6570;&#x636E;&#x884C;&#x5E76;&#x4E0D;&#x51B2;&#x7A81;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x53D1;&#x751F;&#x4E86;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x952E;&#x51B2;&#x7A81;&#x9519;&#x8BEF;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x5728;&#x91CD;&#x590D;&#x7684;&#x7D22;&#x5F15;&#x8BB0;&#x5F55;&#x4E0A;&#x52A0;&#x8BFB;&#x9501;&#x3002;&#x5F53;&#x6709;&#x591A;&#x4E2A;session&#x540C;&#x65F6;&#x63D2;&#x5165;&#x76F8;&#x540C;&#x7684;&#x884C;&#x8BB0;&#x5F55;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;session&#x5DF2;&#x7ECF;&#x83B7;&#x5F97;&#x8BE5;&#x884C;&#x7684;&#x6392;&#x5B83;&#x9501;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x6B7B;&#x9501;&#x3002;</p>
 
       
     </div>
@@ -424,9 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
-          
-            <a href="/tags/JVM/" rel="tag">#JVM</a>
+            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
           
         </div>
       
@@ -435,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/17/1-自动内存管理机制/" rel="next" title="1.Java内存区域与内存溢出异常">
-                <i class="fa fa-chevron-left"></i> 1.Java内存区域与内存溢出异常
+              <a href="/2016/08/29/关于Spring的AOP/" rel="next" title="关于Spring的AOP">
+                <i class="fa fa-chevron-left"></i> 关于Spring的AOP
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/17/3-JVM加载对象的过程/" rel="prev" title="3.JVM加载对象的过程">
-                3.JVM加载对象的过程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,10 +419,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/17/2-垃圾回收机制/"
-     data-title="2.垃圾回收机制"
+        <div class="ds-share flat" data-thread-key="2016/10/04/mysql中锁的介绍/"
+     data-title="mysql中锁的介绍"
      data-content=""
-     data-url="http://yoursite.com/2016/05/17/2-垃圾回收机制/">
+     data-url="http://yoursite.com/2016/10/04/mysql中锁的介绍/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -490,8 +449,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/17/2-垃圾回收机制/"
-           data-title="2.垃圾回收机制" data-url="http://yoursite.com/2016/05/17/2-垃圾回收机制/">
+      <div class="ds-thread" data-thread-key="2016/10/04/mysql中锁的介绍/"
+           data-title="mysql中锁的介绍" data-url="http://yoursite.com/2016/10/04/mysql中锁的介绍/">
       </div>
     
   </div>
@@ -575,7 +534,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引用技术算法"><span class="nav-number">1.</span> <span class="nav-text">引用技术算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可达性算法"><span class="nav-number">2.</span> <span class="nav-text">可达性算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number"></span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#年轻代-Young-Gen-："><span class="nav-number">1.</span> <span class="nav-text">年轻代(Young Gen)：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#年老代-Tenured-Gen-："><span class="nav-number">2.</span> <span class="nav-text">年老代(Tenured Gen)：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#持久代-Perm-Gen-："><span class="nav-number">3.</span> <span class="nav-text">持久代(Perm Gen)：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-GC"><span class="nav-number"></span> <span class="nav-text">Full GC</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-前言"><span class="nav-number">1.</span> <span class="nav-text">一.前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-InnoDB锁类型"><span class="nav-number">2.</span> <span class="nav-text">二.InnoDB锁类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本锁"><span class="nav-number">2.1.</span> <span class="nav-text">1.基本锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-意向锁"><span class="nav-number">2.2.</span> <span class="nav-text">2.意向锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-行锁"><span class="nav-number">2.3.</span> <span class="nav-text">3.行锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入意向锁-Insert-Intention-Locks"><span class="nav-number">2.3.1.</span> <span class="nav-text">插入意向锁(Insert Intention Locks)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-insert加锁的过程"><span class="nav-number">3.</span> <span class="nav-text">三,insert加锁的过程</span></a></li></ol></div>
             
           </div>
         </section>
