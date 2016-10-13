@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/11/volatile为什么不能保证原子性/index.html">
 <meta property="og:site_name" content="Coding Life">
 <meta property="og:description" content="Volatile&amp;#x6709;&amp;#x5173;volatile,&amp;#x5728;&amp;#x8FD9;&amp;#x91CC;&amp;#x4E0D;&amp;#x591A;&amp;#x505A;&amp;#x4ECB;&amp;#x7ECD;,&amp;#x6211;&amp;#x4EEC;&amp;#x5728;Java&amp;#x4E2D;&amp;#x7528;&amp;#x6765;&amp;#x505A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x7684;&amp;#x7EBF;&amp;#">
-<meta property="og:updated_time" content="2016-10-11T07:15:27.000Z">
+<meta property="og:updated_time" content="2016-10-11T07:28:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="volatile为什么不能保证原子性">
 <meta name="twitter:description" content="Volatile&amp;#x6709;&amp;#x5173;volatile,&amp;#x5728;&amp;#x8FD9;&amp;#x91CC;&amp;#x4E0D;&amp;#x591A;&amp;#x505A;&amp;#x4ECB;&amp;#x7ECD;,&amp;#x6211;&amp;#x4EEC;&amp;#x5728;Java&amp;#x4E2D;&amp;#x7528;&amp;#x6765;&amp;#x505A;&amp;#x8F7B;&amp;#x91CF;&amp;#x7EA7;&amp;#x7684;&amp;#x7EBF;&amp;#">
@@ -355,7 +355,6 @@
 <li>&#x4F7F;&#x7528;sychronized&#x6765;&#x5B9E;&#x73B0;&#x5F00;&#x9500;&#x8F83;&#x4F4E;&#x7684;&#x8BFB;&#x5199;&#x9501;</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ThreadSafe</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CheesyCounter</span> </span>{</span><br><span class="line">    <span class="comment">// Employs the cheap read-write lock trick</span></span><br><span class="line">    <span class="comment">// All mutative operations MUST be done with the &apos;this&apos; lock held</span></span><br><span class="line">    <span class="meta">@GuardedBy</span>(<span class="string">&quot;this&quot;</span>) <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">int</span> value;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>{ <span class="keyword">return</span> value; }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">increment</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> value++;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
       
     </div>
 
@@ -392,6 +391,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/13/sychronized实现/" rel="prev" title="sychronized实现">
+                sychronized实现 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -482,7 +485,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">63</span>
+              <span class="site-state-item-count">64</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
