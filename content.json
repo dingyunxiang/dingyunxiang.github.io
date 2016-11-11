@@ -4,6 +4,40 @@
   
     
     <entry>
+      <title><![CDATA[Vim快捷键]]></title>
+      <url>http://yoursite.com/2016/11/11/Vim%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <content type="html"><![CDATA[<h2 id="Vim&#x5FEB;&#x6377;&#x952E;"><a href="#Vim&#x5FEB;&#x6377;&#x952E;" class="headerlink" title="Vim&#x5FEB;&#x6377;&#x952E;"></a>Vim&#x5FEB;&#x6377;&#x952E;</h2><p>vim&#x4F7F;&#x6211;&#x4EEC;&#x5728;linux&#x4E0A;&#x6700;&#x5E38;&#x7528;&#x7684;&#x7F16;&#x8F91;&#x5668;&#x4E4B;&#x4E00;&#x4E86;,&#x6211;&#x5728;&#x5DE5;&#x4F5C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x786E;&#x5B9E;&#x53D1;&#x73B0;&#x4E86;&#x638C;&#x63E1;&#x5FEB;&#x6377;&#x952E;&#x5BF9;&#x5DE5;&#x4F5C;&#x6548;&#x7387;&#x7684;&#x63D0;&#x5347;&#x662F;&#x975E;&#x5E38;&#x660E;&#x663E;&#x7684;,&#x6211;&#x4EEC;&#x4E0D;&#x5728;&#x8FD9;&#x91CC;&#x8BA8;&#x8BBA;vim&#x7684;&#x4E09;&#x4E2A;&#x6A21;&#x5F0F;,&#x4EC5;&#x5C31;&#x5FEB;&#x6377;&#x952E;&#x505A;&#x4E00;&#x4E0B;&#x8BB0;&#x5F55;.</p>
+<h3 id="&#x8FDB;&#x5165;vi&#x7684;&#x547D;&#x4EE4;"><a href="#&#x8FDB;&#x5165;vi&#x7684;&#x547D;&#x4EE4;" class="headerlink" title="&#x8FDB;&#x5165;vi&#x7684;&#x547D;&#x4EE4;"></a>&#x8FDB;&#x5165;vi&#x7684;&#x547D;&#x4EE4;</h3><p>vim filename      : open or create file</p>
+<p>vim +(n) filename   : open file ,at n line</p>
+<p>vim + filename     :  open file ,at end</p>
+<p>vim -r filename    :&#x56DE;&#x590D;&#x4E0A;&#x6B21;&#x7F16;&#x8F91;</p>
+<p>vim -o/O file1  file2</p>
+<h3 id="&#x79FB;&#x52A8;&#x5149;&#x6807;&#x7684;&#x547D;&#x4EE4;"><a href="#&#x79FB;&#x52A8;&#x5149;&#x6807;&#x7684;&#x547D;&#x4EE4;" class="headerlink" title="&#x79FB;&#x52A8;&#x5149;&#x6807;&#x7684;&#x547D;&#x4EE4;"></a>&#x79FB;&#x52A8;&#x5149;&#x6807;&#x7684;&#x547D;&#x4EE4;</h3><p>h /backspace        :&#x5149;&#x6807;&#x5DE6;&#x79FB;</p>
+<p>l / space            :&#x5149;&#x6807;&#x53F3;&#x79FB;</p>
+<p>k                :&#x5149;&#x6807;&#x4E0A;&#x79FB;&#x4E00;&#x884C;</p>
+<p>j                :&#x5149;&#x6807;&#x4E0B;&#x79FB;&#x4E00;&#x884C;</p>
+<p>w                :&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x9996;</p>
+<p>b                :&#x4E0A;&#x4E00;&#x4E2A;&#x5B57;&#x9996;</p>
+<p>e                :&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x5C3E;</p>
+<p>(                :&#x53E5;&#x9996;</p>
+<p>)                :&#x53E5;&#x5C3E;</p>
+<p>{                :&#x6BB5;&#x9996;</p>
+<p>}                :&#x6BB5;&#x5C3E;</p>
+<h3 id="&#x5C4F;&#x5E55;&#x7FFB;&#x6EDA;&#x7684;&#x547D;&#x4EE4;"><a href="#&#x5C4F;&#x5E55;&#x7FFB;&#x6EDA;&#x7684;&#x547D;&#x4EE4;" class="headerlink" title="&#x5C4F;&#x5E55;&#x7FFB;&#x6EDA;&#x7684;&#x547D;&#x4EE4;:"></a>&#x5C4F;&#x5E55;&#x7FFB;&#x6EDA;&#x7684;&#x547D;&#x4EE4;:</h3><p>Ctrl + u     &#x5411;&#x4E0A;&#x7FFB;&#x534A;&#x5C4F;</p>
+<p>Ctrl + d    &#x5411;&#x4E0B;&#x7FFB;&#x534A;&#x5C4F;</p>
+<p>Ctrl + f     &#x5411;&#x4E0B;&#x7FFB;&#x5C4F;</p>
+<p>Ctrl + b     &#x5411;&#x4E0A;&#x7FFB;&#x5C4F;</p>
+<p>Shell&#x5FEB;&#x6377;&#x952E;:</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Git快捷键]]></title>
+      <url>http://yoursite.com/2016/11/11/Git%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[sychronized实现]]></title>
       <url>http://yoursite.com/2016/10/13/sychronized%E5%AE%9E%E7%8E%B0/</url>
       <content type="html"><![CDATA[<h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><p>&#x6211;&#x4EEC;&#x90FD;&#x77E5;&#x9053;Java&#x4E2D;&#x5B58;&#x5728;&#x4E24;&#x79CD;&#x9501;&#x673A;&#x5236;,&#x4E00;&#x79CD;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x8981;&#x8BE6;&#x7EC6;&#x8BA8;&#x8BBA;&#x7684;Sychronized,&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5C31;&#x662F;lock&#x4E86;.&#x5728;&#x5927;&#x5BB6;&#x7684;&#x666E;&#x904D;&#x8BA4;&#x77E5;&#x4E2D;,sychronized&#x662F;&#x4E00;&#x79CD;&#x91CD;&#x91CF;&#x7EA7;&#x7684;&#x9501;,&#x5728;Java1.5&#x4EE5;&#x524D;&#x7684;&#x786E;&#x5982;&#x6B64;,1.5&#x4EE5;&#x540E;&#x5F15;&#x5165;&#x4E86;&#x504F;&#x5411;&#x9501;&#x548C;&#x81EA;&#x65CB;&#x9501;,&#x5BF9;&#x76F8;&#x5E94;&#x5904;&#x7406;&#x5668;&#x4E5F;&#x505A;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x4F18;&#x5316;;&#x800C;lock&#x662F;&#x5728;&#x786C;&#x4EF6;&#x5C42;&#x9762;&#x4F9D;&#x8D56;&#x7279;&#x6B8A;&#x7684;CPU&#x6307;&#x4EE4;</p>
